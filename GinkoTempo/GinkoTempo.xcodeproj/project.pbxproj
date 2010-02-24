@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* GinkoTempoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		333C130611350A5200647B5C /* ListeDesLignes.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C130511350A5200647B5C /* ListeDesLignes.m */; };
+		333C132211350B9100647B5C /* Ligne.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C132111350B9100647B5C /* Ligne.m */; };
+		333C134511350E7600647B5C /* LignesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C134411350E7600647B5C /* LignesController.m */; };
+		333C13AE1135189E00647B5C /* LignesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C13AD1135189E00647B5C /* LignesTableViewController.m */; };
+		333C1493113558DE00647B5C /* LigneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C1492113558DE00647B5C /* LigneTableViewCell.m */; };
+		333C14961135590000647B5C /* LigneTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C14951135590000647B5C /* LigneTileView.m */; };
+		336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781AE1124A8A900E9571F /* ListeDesStations.m */; };
+		336781BF1124BAA300E9571F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781BE1124BAA300E9571F /* Station.m */; };
+		336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */; };
+		338DDEC911249BDA00FB0316 /* Borne.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC411249BDA00FB0316 /* Borne.png */; };
+		338DDECA11249BDA00FB0316 /* Carte.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC511249BDA00FB0316 /* Carte.png */; };
+		338DDECB11249BDA00FB0316 /* Ginko.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC611249BDA00FB0316 /* Ginko.png */; };
+		338DDECC11249BDA00FB0316 /* Station.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC711249BDA00FB0316 /* Station.png */; };
+		338DDECF11249C5800FB0316 /* icones.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDECE11249C5800FB0316 /* icones.png */; };
+		33D54E351131902500C04524 /* StationTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E341131902500C04524 /* StationTileView.m */; };
+		33D54E381131903700C04524 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E371131903700C04524 /* StationTableViewCell.m */; };
+		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoTempoAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GinkoTempoAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* GinkoTempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinkoTempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* GinkoTempo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoTempo_Prefix.pch; sourceTree = "<group>"; };
+		333C130411350A5200647B5C /* ListeDesLignes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesLignes.h; sourceTree = "<group>"; };
+		333C130511350A5200647B5C /* ListeDesLignes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesLignes.m; sourceTree = "<group>"; };
+		333C132011350B9100647B5C /* Ligne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ligne.h; sourceTree = "<group>"; };
+		333C132111350B9100647B5C /* Ligne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ligne.m; sourceTree = "<group>"; };
+		333C134311350E7600647B5C /* LignesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LignesController.h; sourceTree = "<group>"; };
+		333C134411350E7600647B5C /* LignesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LignesController.m; sourceTree = "<group>"; };
+		333C13AC1135189E00647B5C /* LignesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LignesTableViewController.h; sourceTree = "<group>"; };
+		333C13AD1135189E00647B5C /* LignesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LignesTableViewController.m; sourceTree = "<group>"; };
+		333C1491113558DE00647B5C /* LigneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigneTableViewCell.h; sourceTree = "<group>"; };
+		333C1492113558DE00647B5C /* LigneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTableViewCell.m; sourceTree = "<group>"; };
+		333C14941135590000647B5C /* LigneTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigneTileView.h; sourceTree = "<group>"; };
+		333C14951135590000647B5C /* LigneTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTileView.m; sourceTree = "<group>"; };
+		336781AD1124A8A900E9571F /* ListeDesStations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStations.h; sourceTree = "<group>"; };
+		336781AE1124A8A900E9571F /* ListeDesStations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStations.m; sourceTree = "<group>"; };
+		336781BD1124BAA300E9571F /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		336781BE1124BAA300E9571F /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoDataSourceProtocol.h; sourceTree = "<group>"; };
+		336781D51124C1EE00E9571F /* StationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsTableViewController.h; sourceTree = "<group>"; };
+		336781D61124C1EE00E9571F /* StationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsTableViewController.m; sourceTree = "<group>"; };
+		338DDEC411249BDA00FB0316 /* Borne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Borne.png; sourceTree = "<group>"; };
+		338DDEC511249BDA00FB0316 /* Carte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Carte.png; sourceTree = "<group>"; };
+		338DDEC611249BDA00FB0316 /* Ginko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ginko.png; sourceTree = "<group>"; };
+		338DDEC711249BDA00FB0316 /* Station.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Station.png; sourceTree = "<group>"; };
+		338DDECE11249C5800FB0316 /* icones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icones.png; sourceTree = "<group>"; };
+		33D54E331131902500C04524 /* StationTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTileView.h; sourceTree = "<group>"; };
+		33D54E341131902500C04524 /* StationTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTileView.m; sourceTree = "<group>"; };
+		33D54E361131903700C04524 /* StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableViewCell.h; sourceTree = "<group>"; };
+		33D54E371131903700C04524 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
+		33D54E4C113199AD00C04524 /* StationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsController.h; sourceTree = "<group>"; };
+		33D54E4D113199AD00C04524 /* StationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsController.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* GinkoTempo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GinkoTempo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				336781D41124C1C100E9571F /* View Controller */,
+				336781BC1124BA9500E9571F /* Données */,
+				336781AC1124A84A00E9571F /* TableView Representation */,
+				336781AA1124A82B00E9571F /* Source de l'application */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* GinkoTempo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* GinkoTempo_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				338DDEB911249BAE00FB0316 /* Images */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* GinkoTempo-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		333703821131BDC600DC5AD4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				336781D51124C1EE00E9571F /* StationsTableViewController.h */,
+				336781D61124C1EE00E9571F /* StationsTableViewController.m */,
+				333C13AC1135189E00647B5C /* LignesTableViewController.h */,
+				333C13AD1135189E00647B5C /* LignesTableViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		336781AA1124A82B00E9571F /* Source de l'application */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */,
+				1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */,
+			);
+			name = "Source de l'application";
+			sourceTree = "<group>";
+		};
+		336781AC1124A84A00E9571F /* TableView Representation */ = {
+			isa = PBXGroup;
+			children = (
+				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
+				333703821131BDC600DC5AD4 /* View Controllers */,
+				33D54E321131900300C04524 /* User Interface Elements */,
+				336781AD1124A8A900E9571F /* ListeDesStations.h */,
+				336781AE1124A8A900E9571F /* ListeDesStations.m */,
+				333C130411350A5200647B5C /* ListeDesLignes.h */,
+				333C130511350A5200647B5C /* ListeDesLignes.m */,
+			);
+			name = "TableView Representation";
+			sourceTree = "<group>";
+		};
+		336781BC1124BA9500E9571F /* Données */ = {
+			isa = PBXGroup;
+			children = (
+				336781BD1124BAA300E9571F /* Station.h */,
+				336781BE1124BAA300E9571F /* Station.m */,
+				333C132011350B9100647B5C /* Ligne.h */,
+				333C132111350B9100647B5C /* Ligne.m */,
+				33D54E4C113199AD00C04524 /* StationsController.h */,
+				33D54E4D113199AD00C04524 /* StationsController.m */,
+				333C134311350E7600647B5C /* LignesController.h */,
+				333C134411350E7600647B5C /* LignesController.m */,
+			);
+			name = "Données";
+			sourceTree = "<group>";
+		};
+		336781D41124C1C100E9571F /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		338DDEB911249BAE00FB0316 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				338DDECE11249C5800FB0316 /* icones.png */,
+				338DDEBA11249BB900FB0316 /* Tab Bar Images */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		338DDEBA11249BB900FB0316 /* Tab Bar Images */ = {
+			isa = PBXGroup;
+			children = (
+				338DDEC411249BDA00FB0316 /* Borne.png */,
+				338DDEC511249BDA00FB0316 /* Carte.png */,
+				338DDEC611249BDA00FB0316 /* Ginko.png */,
+				338DDEC711249BDA00FB0316 /* Station.png */,
+			);
+			name = "Tab Bar Images";
+			sourceTree = "<group>";
+		};
+		33D54E321131900300C04524 /* User Interface Elements */ = {
+			isa = PBXGroup;
+			children = (
+				33D54E331131902500C04524 /* StationTileView.h */,
+				33D54E341131902500C04524 /* StationTileView.m */,
+				33D54E361131903700C04524 /* StationTableViewCell.h */,
+				33D54E371131903700C04524 /* StationTableViewCell.m */,
+				333C1491113558DE00647B5C /* LigneTableViewCell.h */,
+				333C1492113558DE00647B5C /* LigneTableViewCell.m */,
+				333C14941135590000647B5C /* LigneTileView.h */,
+				333C14951135590000647B5C /* LigneTileView.m */,
+			);
+			name = "User Interface Elements";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* GinkoTempo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GinkoTempo" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GinkoTempo;
+			productName = GinkoTempo;
+			productReference = 1D6058910D05DD3D006BFB54 /* GinkoTempo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GinkoTempo" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* GinkoTempo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				338DDEC911249BDA00FB0316 /* Borne.png in Resources */,
+				338DDECA11249BDA00FB0316 /* Carte.png in Resources */,
+				338DDECB11249BDA00FB0316 /* Ginko.png in Resources */,
+				338DDECC11249BDA00FB0316 /* Station.png in Resources */,
+				338DDECF11249C5800FB0316 /* icones.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* GinkoTempoAppDelegate.m in Sources */,
+				336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */,
+				336781BF1124BAA300E9571F /* Station.m in Sources */,
+				336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */,
+				33D54E351131902500C04524 /* StationTileView.m in Sources */,
+				33D54E381131903700C04524 /* StationTableViewCell.m in Sources */,
+				33D54E4E113199AD00C04524 /* StationsController.m in Sources */,
+				333C130611350A5200647B5C /* ListeDesLignes.m in Sources */,
+				333C132211350B9100647B5C /* Ligne.m in Sources */,
+				333C134511350E7600647B5C /* LignesController.m in Sources */,
+				333C13AE1135189E00647B5C /* LignesTableViewController.m in Sources */,
+				333C1493113558DE00647B5C /* LigneTableViewCell.m in Sources */,
+				333C14961135590000647B5C /* LigneTileView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GinkoTempo_Prefix.pch;
+				INFOPLIST_FILE = "GinkoTempo-Info.plist";
+				PRODUCT_NAME = GinkoTempo;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GinkoTempo_Prefix.pch;
+				INFOPLIST_FILE = "GinkoTempo-Info.plist";
+				PRODUCT_NAME = GinkoTempo;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GinkoTempo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GinkoTempo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
