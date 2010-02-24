@@ -13,10 +13,11 @@
     
 	NSMutableDictionary *lignesDictionary;
     NSArray *ligneNameIndexArray;
-
+    
 }
 
 @property (nonatomic,retain) NSMutableDictionary *lignesDictionary;
+@property (nonatomic,retain) NSArray *ligneNameIndexArray;
 
 + (LignesController*)sharedLignesController;
 

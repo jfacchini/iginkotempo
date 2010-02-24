@@ -44,20 +44,20 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [ count];
+    return [[[LignesController sharedLignesController] lignesDictionary] count];
 }
 
 // return the atomic element at the index 
-- (Station *)LignesForIndexPath:(NSIndexPath *)indexPath {
+- (Ligne *)LignesForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[LignesController sharedLignesController] objectAtIndex:indexPath.row];
+    return [[[LignesController sharedLignesController] ligneNameIndexArray] objectAtIndex:indexPath.row];
 	// return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
 }  
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     LignesTableViewCell *cell = (LignesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LignesTableViewCell"];
     if (cell == nil) {
         cell = [[[LignesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LignesTableViewCell"] autorelease];
@@ -73,7 +73,7 @@
     cell.ligne = [self LignesForIndexPath:indexPath];
     
     
-    cell.labelView.text = cell.ligne.direction;
+    cell.labelView.text = @"Cool";
     
     return cell;
 }

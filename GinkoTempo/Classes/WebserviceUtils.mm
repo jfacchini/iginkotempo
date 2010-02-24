@@ -7,7 +7,7 @@
 //
 
 #import "WebserviceUtils.h"
-#import "../TempoApiSoapBinding.nsmap"
+#import "TempoApiSoapBinding.nsmap"
 
 @implementation WebserviceUtils{
 	

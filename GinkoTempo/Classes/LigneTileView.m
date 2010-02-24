@@ -23,7 +23,7 @@
 - (id)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
-		station = nil;
+		ligne = nil;
     }
     
     return self;

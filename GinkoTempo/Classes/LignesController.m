@@ -90,27 +90,27 @@ static LignesController *sharedLignesControllerInstance = nil;
     /*
      
      #define UIColorFromRGB(rgbValue) [UIColor \  
-        colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \  
-        green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \  
-        blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]  
+     colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \  
+     green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \  
+     blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]  
      
      */
-        
+    
 	// read the element data from the plist
 	NSArray *rawLignesArray = [NSArray arrayWithObjects:
-                                 [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
-                                        withDirection:@"Ligne 1" 
-                                        withColor:[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.5 alpha:1]] autorelease],
+                               [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
+                                                withDirection:@"Ligne 1" 
+                                                    withColor:[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.5 alpha:1]] autorelease],
                                
-                                 [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
-                                        withDirection:@"Ligne 2" 
-                                        withColor:[[UIColor alloc] initWithRed:0.0 green:0.5 blue:0.5 alpha:1]] autorelease],
+                               [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
+                                                withDirection:@"Ligne 2" 
+                                                    withColor:[[UIColor alloc] initWithRed:0.0 green:0.5 blue:0.5 alpha:1]] autorelease],
                                
-                                 [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
-                                        withDirection:@"Ligne 8" 
-                                        withColor:[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.0 alpha:1]] autorelease],
+                               [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
+                                                withDirection:@"Ligne 8" 
+                                                    withColor:[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.0 alpha:1]] autorelease],
                                
-                                 nil];
+                               nil];
     
 	// iterate over the values in the raw elements dictionary
 	for (eachLigne in rawLignesArray)
@@ -122,7 +122,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 		
 		// store that item in the elements dictionary with the name as the key
 		[lignesDictionary setObject:aLigne forKey:aLigne.numero];
-        		
+        
 		// release the element, it is held by the various collections
 		[aLigne release];
 	}
@@ -132,7 +132,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 	
 	// presort the dictionaries now
 	// this could be done the first time they are requested instead
-	    
+    
 	
 }
 
