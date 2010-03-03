@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#define ADRESSEWS NULL
 
 // V 0.6 du Webservice
 
-@interface WebserviceUtils : NSObject {
-
-}
+@interface WebserviceUtils : NSObject {}
 
 /*
  * Appel fonction addLigneStationBornePerso sur le Webservice de Ginkotempo.

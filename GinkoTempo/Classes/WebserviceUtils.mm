@@ -6,12 +6,11 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import <CFNetwork/CFNetwork.h>
 #import "WebserviceUtils.h"
 #import "TempoApiSoapBinding.nsmap"
 
-@implementation WebserviceUtils{
-	
-}
+@implementation WebserviceUtils
 
 + (int) addLigneStationBornePerso:(NSString*) Idenditifiant
                                  :(NSString*) MotDePasseMD5
@@ -35,7 +34,7 @@
 	struct _ns1__addLigneStationBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__addLigneStationBornePerso(&soap, NULL, NULL,
+	if (!soap_call___ns1__addLigneStationBornePerso(&soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
         return reponse.addLigneStationBornePersoReturn;
@@ -63,7 +62,7 @@
 	struct _ns1__createBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__createBornePerso(&soap, NULL, NULL,
+	if (!soap_call___ns1__createBornePerso(&soap, ADRESSEWS, NULL,
                                         &requete, &reponse)) {
         
         return reponse.createBornePersoReturn;
@@ -97,12 +96,11 @@
 	struct _ns1__deleteLigneStationBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__deleteLigneStationBornePerso(&soap, NULL, NULL,
+	if (!soap_call___ns1__deleteLigneStationBornePerso(&soap, ADRESSEWS, NULL,
                                                        &requete, &reponse)) {
         
         return reponse.deleteLigneStationBornePersoReturn;
 	}
-	
 	NSLog(@"Erreur: Appel SOAP: deleteLigneStationBornePerso");
     
     // Si la requete echoue on test nil
@@ -120,7 +118,7 @@
 	struct _ns1__getInfoTraficResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getInfoTrafic(&soap, NULL, NULL,
+	if (!soap_call___ns1__getInfoTrafic(&soap, ADRESSEWS, NULL,
                                         &requete, &reponse)) {
         
         return [WebserviceUtils creerTableau2DString:reponse.getInfoTraficReturn];
@@ -148,7 +146,7 @@
 	struct _ns1__getLigneStationBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getLigneStationBornePerso(&soap, NULL, NULL,
+	if (!soap_call___ns1__getLigneStationBornePerso(&soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
         return [WebserviceUtils creerTableau2DString:
@@ -172,7 +170,7 @@
 	struct _ns1__getListeLignesResponse reponse;
 	
 	//Appel du service web
-	if (!soap_call___ns1__getListeLignes(&soap, NULL, NULL,
+	if (!soap_call___ns1__getListeLignes(&soap, ADRESSEWS, NULL,
                                          &requete, &reponse)) {
         
         return [WebserviceUtils creerTableau2DString:reponse.getListeLignesReturn];
@@ -189,13 +187,15 @@
 	// Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    //soap.proxy_host = "proxy-web.univ-fcomte.fr";
+    //soap.proxy_port = 3128;
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getListeStations requete;
 	struct _ns1__getListeStationsResponse reponse;
 	
 	//Appel du service web
-	if (!soap_call___ns1__getListeStations(&soap, NULL, NULL,
+	if (!soap_call___ns1__getListeStations(&soap, ADRESSEWS, NULL,
                                            &requete, &reponse)) {
         
 		return [WebserviceUtils creerTableauString:reponse.getListeStationsReturn
@@ -223,7 +223,7 @@
 	struct _ns1__getListeStationsParLigneResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getListeStationsParLigne(&soap, NULL, NULL,
+	if (!soap_call___ns1__getListeStationsParLigne(&soap, ADRESSEWS, NULL,
                                                    &requete, &reponse)) {
     
         return [WebserviceUtils
@@ -250,7 +250,7 @@
 	struct _ns1__getMessagesResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getMessages(&soap, NULL, NULL, &requete, &reponse)) {
+	if (!soap_call___ns1__getMessages(&soap, ADRESSEWS, NULL, &requete, &reponse)) {
         
         return [WebserviceUtils creerTableau2DString:reponse.getMessagesReturn];
 	}
@@ -277,7 +277,7 @@
 	struct _ns1__getStationsLesPlusProchesResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getStationsLesPlusProches(&soap, NULL, NULL,
+	if (!soap_call___ns1__getStationsLesPlusProches(&soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
     
         return [WebserviceUtils 
@@ -304,7 +304,7 @@
 	struct _ns1__getTempsParStationResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getTempsParStation(&soap, NULL, NULL,
+	if (!soap_call___ns1__getTempsParStation(&soap, ADRESSEWS, NULL,
                                              &requete, &reponse)) {
         
         return [WebserviceUtils creerTableau2DString:reponse.getTempsParStationReturn];
@@ -332,7 +332,7 @@
 	struct _ns1__verifBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__verifBornePerso(&soap, NULL, NULL,
+	if (!soap_call___ns1__verifBornePerso(&soap, ADRESSEWS, NULL,
                                           &requete, &reponse)) {
         
         return reponse.verifBornePersoReturn;

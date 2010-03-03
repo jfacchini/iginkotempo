@@ -35,6 +35,8 @@
 		C28170F311358412006A7C4B /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170ED11358412006A7C4B /* soapClient.cpp */; };
 		C28170F411358412006A7C4B /* TempoAPISoapBinding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */; };
 		C28170FA11358482006A7C4B /* WebserviceUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C28170F911358482006A7C4B /* WebserviceUtils.mm */; };
+		C2A17B7B113D41C100FC16AC /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A17B7A113D41C100FC16AC /* InfoTrafic.m */; };
+		C2A17B9F113D47CF00FC16AC /* InfoTraficController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A17B9E113D47CF00FC16AC /* InfoTraficController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,10 @@
 		C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TempoAPISoapBinding.nsmap; sourceTree = "<group>"; };
 		C28170F811358482006A7C4B /* WebserviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceUtils.h; sourceTree = "<group>"; };
 		C28170F911358482006A7C4B /* WebserviceUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebserviceUtils.mm; sourceTree = "<group>"; };
+		C2A17B79113D41C100FC16AC /* InfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTrafic.h; sourceTree = "<group>"; };
+		C2A17B7A113D41C100FC16AC /* InfoTrafic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTrafic.m; sourceTree = "<group>"; };
+		C2A17B9D113D47CF00FC16AC /* InfoTraficController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficController.h; sourceTree = "<group>"; };
+		C2A17B9E113D47CF00FC16AC /* InfoTraficController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,10 @@
 				33D54E4D113199AD00C04524 /* StationsController.m */,
 				333C134311350E7600647B5C /* LignesController.h */,
 				333C134411350E7600647B5C /* LignesController.m */,
+				C2A17B79113D41C100FC16AC /* InfoTrafic.h */,
+				C2A17B7A113D41C100FC16AC /* InfoTrafic.m */,
+				C2A17B9D113D47CF00FC16AC /* InfoTraficController.h */,
+				C2A17B9E113D47CF00FC16AC /* InfoTraficController.m */,
 			);
 			name = "Données";
 			sourceTree = "<group>";
@@ -357,6 +367,8 @@
 				C28170F211358412006A7C4B /* soapC.cpp in Sources */,
 				C28170F311358412006A7C4B /* soapClient.cpp in Sources */,
 				C28170FA11358482006A7C4B /* WebserviceUtils.mm in Sources */,
+				C2A17B7B113D41C100FC16AC /* InfoTrafic.m in Sources */,
+				C2A17B9F113D47CF00FC16AC /* InfoTraficController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

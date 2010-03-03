@@ -8,6 +8,7 @@
 
 #import "StationsController.h"
 #import "Station.h"
+#import "WebserviceUtils.h"
 
 @interface StationsController(mymethods)
 // these are private methods that outside classes need not use
@@ -90,7 +91,9 @@ static StationsController *sharedStationsControllerInstance = nil;
 	self.nameIndexesDictionary = [NSMutableDictionary dictionary];
 
 	// read the element data from the plist
-	NSArray *rawStationsArray = [NSArray arrayWithObjects:
+	NSArray *rawStationsArray = [WebserviceUtils getListeStations];
+    //[rawStationsArray addObject:nil];
+    /*[NSArray arrayWithObjects:
                                  @"Arpagon",
                                  @"Campus",
                                  @"Flores",
@@ -109,7 +112,7 @@ static StationsController *sharedStationsControllerInstance = nil;
                                  @"St Maurice",
                                  @"Victor Hugo",
                                  @"La Station avec le nom le plus long de tout Besançon",
-                                 nil];
+                                 nil];*/
     
     /*
      
@@ -152,7 +155,6 @@ static StationsController *sharedStationsControllerInstance = nil;
 		[aStation release];
 	}
 	// release the raw element data
-
 	
 	
 	// presort the dictionaries now
