@@ -8,6 +8,7 @@
 
 #import "WebserviceUtils.h"
 #import "TempoApiSoapBinding.nsmap"
+#define FAC 0
 
 @implementation WebserviceUtils
 
@@ -21,6 +22,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__addLigneStationBornePerso requete;
@@ -52,6 +57,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__createBornePerso requete;
@@ -83,6 +92,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__deleteLigneStationBornePerso requete;
@@ -111,6 +124,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getInfoTrafic requete;
@@ -136,6 +153,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getLigneStationBornePerso requete;
@@ -163,6 +184,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getListeLignes requete;
@@ -186,8 +211,10 @@
 	// Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
-    //soap.proxy_host = "proxy-web.univ-fcomte.fr";
-    //soap.proxy_port = 3128;
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getListeStations requete;
@@ -213,6 +240,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getListeStationsParLigne requete;
@@ -241,6 +272,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getMessages requete;
@@ -267,6 +302,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getStationsLesPlusProches requete;
@@ -295,6 +334,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getTempsParStation requete;
@@ -322,6 +365,10 @@
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
+    if (FAC == 1) {
+        soap.proxy_host = "proxy-web.univ-fcomte.fr";
+        soap.proxy_port = 3128
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__verifBornePerso requete;
