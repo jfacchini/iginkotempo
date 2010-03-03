@@ -6,7 +6,6 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import <CFNetwork/CFNetwork.h>
 #import "WebserviceUtils.h"
 #import "TempoApiSoapBinding.nsmap"
 
