@@ -116,9 +116,9 @@ static LignesController *sharedLignesControllerInstance = nil;
 
 // presort the elementsSortedByNumber array
 - (NSArray *)presortLigneByNumber {
-	NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"numero"
+	NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ident"
 																   ascending:YES
-																	selector:@selector(localizedCaseInsensitiveCompare:)] ;
+																	selector:@selector(compare:)] ;
 	
 	NSArray *descriptors = [NSArray arrayWithObject:nameDescriptor];
 	NSArray *sortedElements = [[lignesDictionary allValues] sortedArrayUsingDescriptors:descriptors];

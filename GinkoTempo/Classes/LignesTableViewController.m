@@ -6,8 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "StationsTableViewController.h"
 #import "LignesTableViewController.h"
 #import "ListeDesLignes.h"
+#import "ListeDesStations.h"
 #import "GinkoTempoAppDelegate.h"
 #import "Ligne.h"
 
@@ -36,7 +38,7 @@
         
         // create a custom navigation bar button and set it to always say "back"
         UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
-        temporaryBarButtonItem.title=@"Back";
+        temporaryBarButtonItem.title=@"Retour";
         self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         [temporaryBarButtonItem release];
         
@@ -102,15 +104,22 @@
 	
 	
     // create an AtomicElementViewController. This controller will display the full size tile for the element
-	LignesTableViewController *ligneController = [[LignesTableViewController alloc] initWithDataSource:dataSource];
+	//StationsTableViewController *stationController = [[StationsTableViewController alloc] initWithDataSource:[ListeDesStations class]];
     
+    
+    
+    id<GinkoDataSource,UITableViewDataSource> dSource = [[[ListeDesStations class] alloc] init];
+    
+    UITableViewController *theViewController;	
+	theViewController = [[StationsTableViewController alloc] initWithDataSource:dSource];
     
 	// set the element for the controller
 	//stationController.station = station;
 	
 	// push the element view controller onto the navigation stack to display it
-	[[self navigationController] pushViewController:ligneController animated:YES];
-	[ligneController release];
+	[[self navigationController] pushViewController:theViewController animated:YES];
+    [dSource release];
+	[theViewController release];
     
 }
 
