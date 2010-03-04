@@ -6,12 +6,14 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
 
 @class Ligne;
 @class LigneTileView;
 
-@interface LignesTableViewCell : UITableViewCell {
+
+@interface LigneTableViewCell : UITableViewCell {
     Ligne *ligne;
 	LigneTileView *ligneTileView;
 	UILabel *labelView;

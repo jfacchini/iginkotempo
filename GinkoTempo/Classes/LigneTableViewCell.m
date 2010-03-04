@@ -10,7 +10,7 @@
 #import "Ligne.h"
 #import "LigneTileView.h"
 
-@implementation LignesTableViewCell
+@implementation LigneTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
@@ -39,7 +39,9 @@
 		// set the label view to have a clear background and a 20 point font
 		label.backgroundColor = [UIColor clearColor];
 		label.font = [UIFont boldSystemFontOfSize:20];
-		self.labelView = label;
+        
+		//self.labelView = label;
+        
 		[self.contentView addSubview:label];
 		[label release];
 		

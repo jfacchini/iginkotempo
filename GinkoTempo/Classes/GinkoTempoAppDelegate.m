@@ -115,7 +115,7 @@
     
     
     // Bouton 2
-                                 localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class] withViewController:[LignesTableViewController class]];
+    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class] withViewController:[LignesTableViewController class]];
 	[localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];

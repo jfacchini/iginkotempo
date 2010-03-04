@@ -58,9 +58,10 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    LignesTableViewCell *cell = (LignesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LignesTableViewCell"];
+    LigneTableViewCell *cell = (LigneTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LigneTableViewCell"];
+
     if (cell == nil) {
-        cell = [[[LignesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LignesTableViewCell"] autorelease];
+        cell = [[[LigneTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LigneTableViewCell"] autorelease];
     }
     
     // configure cell contents

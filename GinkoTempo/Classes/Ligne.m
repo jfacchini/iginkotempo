@@ -13,13 +13,22 @@
 
 @synthesize numero;
 @synthesize direction;
-@synthesize couleur;
+@synthesize sens;
+@synthesize couleurTexte;
+@synthesize couleurFond;
 
-- (id)initWithNumero:(NSNumber *)aNumero withDirection:(NSString *)aDirection withColor:(UIColor *)aColor{
+- (id)initWithNumero:(NSNumber *)aNumero 
+            withSens:(NSString *)aSens 
+       withDirection:(NSString *)aDirection 
+      withColorLabel:(UIColor *)aColorLabel 
+ withColorBackground:(UIColor *)aColorBackground
+{
 	if ([self init]) {
-		self.numero    = aNumero;
-		self.direction = aDirection;
-		self.couleur   = aColor;
+		self.numero        = aNumero;
+		self.direction     = aDirection;
+		self.sens          = aSens;
+		self.couleurTexte  = aColorLabel;
+		self.couleurFond   = aColorBackground;
 	}
 	return self;
 }
@@ -27,7 +36,8 @@
 - (void)dealloc {
 	[numero release];
 	[direction release];
-	[couleur release];
+	[couleurTexte release];
+	[couleurFond release];
     [super dealloc];
 }
 

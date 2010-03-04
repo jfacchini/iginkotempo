@@ -8,6 +8,8 @@
 
 #import "LignesController.h"
 #import "Ligne.h"
+#import "WebserviceUtils.h"
+
 
 @interface LignesController(mymethods)
 // these are private methods that outside classes need not use
@@ -78,7 +80,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 }
 
 - (void)setupLignesArray {
-	Ligne *eachLigne;
+	NSArray *eachLigne;
 	
 	// create dictionaries that contain the arrays of element data indexed by
 	// name
@@ -97,20 +99,8 @@ static LignesController *sharedLignesControllerInstance = nil;
      */
     
 	// read the element data from the plist
-	NSArray *rawLignesArray = [NSArray arrayWithObjects:
-                               [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
-                                                withDirection:@"Ligne 1" 
-                                                    withColor:[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.5 alpha:1]] autorelease],
-                               
-                               [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
-                                                withDirection:@"Ligne 2" 
-                                                    withColor:[[UIColor alloc] initWithRed:0.0 green:0.5 blue:0.5 alpha:1]] autorelease],
-                               
-                               [[[Ligne alloc] initWithNumero:[[NSNumber alloc] initWithInt:1]
-                                                withDirection:@"Ligne 8" 
-                                                    withColor:[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.0 alpha:1]] autorelease],
-                               
-                               nil];
+    NSArray *rawLignesArray = [WebserviceUtils getListeLignes];
+
     
 	// iterate over the values in the raw elements dictionary
 	for (eachLigne in rawLignesArray)
@@ -118,7 +108,7 @@ static LignesController *sharedLignesControllerInstance = nil;
         //printf("> %s\n", [eachStation cString]);
 		
         // create an atomic element instance for each
-		Ligne *aLigne = eachLigne;
+		//Ligne *aLigne = ;
 		
 		// store that item in the elements dictionary with the name as the key
 		[lignesDictionary setObject:aLigne forKey:aLigne.numero];
