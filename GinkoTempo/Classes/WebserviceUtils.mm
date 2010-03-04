@@ -549,7 +549,7 @@
     
     //printf("r : %f\ng : %f\nb : %f\n", r,g,b);
     
-    return [UIColor colorWithRed:r green:g blue:b alpha:0.1f];
+    return [UIColor colorWithRed:r green:g blue:b alpha:1.0f];
 }
 
 + (int) intValueForHexChar:(char) c {

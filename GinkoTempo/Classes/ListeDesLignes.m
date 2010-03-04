@@ -90,9 +90,7 @@
     //On met à jours les colonnes pour un affichage cohérent.
     [cell.ligneTileView setNeedsDisplay];
 	[cell.labelView setNeedsDisplay];
-    
-    printf("%s | %s\n",[cell.ligne.numero cString], [cell.ligne.direction cString]);
-    
+        
     //cell.labelView.text = cell.ligne.direction;
     
     return cell;

@@ -35,13 +35,13 @@
 	
     //printf("%s\n", [ligne.numero cString]);
     
-    //[ligne.couleurTexte set]; // red team color
+    [ligne.couleurFond set]; // red team color
 	
-    [[UIColor blueColor] set]; // red team color
+    //[[UIColor blueColor] set]; // red team color
 
     UIRectFill(ligneColorRect); // this will fill the upper rect all red, 
 	
-	[[UIColor whiteColor] set];
+	[ligne.couleurTexte set];
     
     UIFont *font = [UIFont boldSystemFontOfSize:18];
     
