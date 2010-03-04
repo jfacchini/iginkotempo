@@ -9,6 +9,7 @@
 #import "ListeDesLignes.h"
 #import "LignesController.h"
 #import "LigneTableViewCell.h"
+#import "LigneTileView.h"
 #import "Ligne.h"
 
 @implementation ListeDesLignes
@@ -76,9 +77,23 @@
     
     // set the element for this cell as specified by the datasource. The atomicElementForIndexPath: is declared
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
+    //cell.ligne = [self LignesForIndexPath:indexPath];
+    //cell.ligneTileView.ligne = [self LignesForIndexPath:indexPath];
+    
+    //[cell setElement: [self LignesForIndexPath:indexPath]];
+    
     cell.ligne = [self LignesForIndexPath:indexPath];
-        
-    cell.labelView.text = cell.ligne.direction;
+    
+    cell.ligneTileView.ligne = cell.ligne;
+	cell.labelView.text = cell.ligne.direction;
+    
+    //On met à jours les colonnes pour un affichage cohérent.
+    [cell.ligneTileView setNeedsDisplay];
+	[cell.labelView setNeedsDisplay];
+    
+    printf("%s | %s\n",[cell.ligne.numero cString], [cell.ligne.direction cString]);
+    
+    //cell.labelView.text = cell.ligne.direction;
     
     return cell;
 }

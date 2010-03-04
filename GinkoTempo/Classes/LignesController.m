@@ -92,20 +92,10 @@ static LignesController *sharedLignesControllerInstance = nil;
 	// unique first characters (for the Name index table)
 	//self.nameIndexesDictionary = [NSMutableDictionary dictionary];
         
-    /*
-     
-     #define UIColorFromRGB(rgbValue) [UIColor \  
-     colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \  
-     green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \  
-     blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]  
-     
-     */
     
 	// read the element data from the plist
     NSArray *rawLignesArray = [WebserviceUtils getListeLignes];
 
-
-    printf("Resultat getListeLigne : %i\n",[rawLignesArray count]);
     
 	// iterate over the values in the raw elements dictionary
 	for (aLigne in rawLignesArray)
@@ -115,8 +105,6 @@ static LignesController *sharedLignesControllerInstance = nil;
         [lignesDictionary setObject:aLigne forKey:aLigne.ident];
                 
         //printf("%i\n",[rawLignesArray count]);
-
-        
 	}
     
 	//self.ligneNameIndexArray = [[nameIndexesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
@@ -124,8 +112,6 @@ static LignesController *sharedLignesControllerInstance = nil;
     //On fait le tri des lignes par Numéro pour l'affichage
     self.ligneSortedByNumber = [self presortLigneByNumber];
     
-
-	
 }
 
 // presort the elementsSortedByNumber array

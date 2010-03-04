@@ -30,7 +30,9 @@
 
 // Methode pour eviter la repetition du code pour lier une view à un bouton
 // de la TabBar (Copier/coller d'un tuto).
-- (UINavigationController *)newNavigationControllerWrappingViewControllerForDataSourceOfClass:(Class)datasourceClass withViewController:(Class)viewController{
+- (UINavigationController *)newNavigationControllerWrappingViewControllerForDataSourceOfClass:(Class)datasourceClass 
+                                                                           withViewController:(Class)viewController
+{
 	// this is entirely a convenience method to reduce the repetition of the code
 	// in the setupPortaitUserInterface
 	// it returns a retained instance of the UINavigationController class. This is unusual, but 

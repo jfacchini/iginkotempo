@@ -103,7 +103,6 @@
 		station = aStation;
 	}
     
-    
 	stationTileView.station = station;
 	labelView.text = station.name;
 	[stationTileView setNeedsDisplay];

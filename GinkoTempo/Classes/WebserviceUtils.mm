@@ -231,22 +231,23 @@
         for (int i=2; i < nbObjLignes+2; i++) {
             
             couleurs = [NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding];
-            
+                        
             tabCouleurs = [couleurs componentsSeparatedByString:@"-"];
             
-//            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
-//                     withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
-//                withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-//               withColorLabel:[WebserviceUtils uiColorWithHexString:[tabCouleurs objectAtIndex:0]]
-//          withColorBackground:[WebserviceUtils uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
-
-
             l = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2]
-                              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
-                                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
-                               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-                              withColorLabel:[UIColor blackColor]
-                         withColorBackground:[UIColor whiteColor]];
+              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
+                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
+               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
+              withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
+         withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
+            
+
+//            l = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2]
+//                              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
+//                                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
+//                               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
+//                              withColorLabel:[UIColor blackColor]
+//                         withColorBackground:[UIColor whiteColor]];
             
            [listeLignes addObject:l];
             [l release];
@@ -536,16 +537,17 @@
 }
 
 + (UIColor *) uiColorWithHexString:(NSString *) s {
-    CGFloat r = (CGFloat) ([WebserviceUtils intValueForHexChar:[s characterAtIndex:0]] * 16 +
-    [WebserviceUtils intValueForHexChar:[s characterAtIndex:1]]) / 255.0f,
     
-    g = (CGFloat) ([WebserviceUtils intValueForHexChar:[s characterAtIndex:2]] * 16 +
-    [WebserviceUtils intValueForHexChar:[s characterAtIndex:3]]) / 255.0f,
+    CGFloat r = (CGFloat) ([self intValueForHexChar:[s characterAtIndex:0]] * 16 +
+    [self intValueForHexChar:[s characterAtIndex:1]]) / 255.0f,
     
-    b = (CGFloat) ([WebserviceUtils intValueForHexChar:[s characterAtIndex:4]] * 16 +
-    [WebserviceUtils intValueForHexChar:[s characterAtIndex:5]]) / 255.0f;
+    g = (CGFloat) ([self intValueForHexChar:[s characterAtIndex:2]] * 16 +
+    [self intValueForHexChar:[s characterAtIndex:3]]) / 255.0f,
     
-    printf("r : %f\ng : %f\nb : %f\n", r,g,b);
+    b = (CGFloat) ([self intValueForHexChar:[s characterAtIndex:4]] * 16 +
+    [self intValueForHexChar:[s characterAtIndex:5]]) / 255.0f;
+    
+    //printf("r : %f\ng : %f\nb : %f\n", r,g,b);
     
     return [UIColor colorWithRed:r green:g blue:b alpha:0.1f];
 }

@@ -32,18 +32,18 @@
         
         // On initialise le StationTileView (icone à droite)
 		
-        /*
-         StationTileView *tileView = [[StationTileView alloc] initWithFrame:CGRectZero];
-         self.stationTileView = tileView;
-         [self.contentView addSubview:tileView];
-         [tileView release];
-         */  
+        
+        LigneTileView *tileView = [[LigneTileView alloc] initWithFrame:CGRectZero];
+        self.ligneTileView = tileView;
+        [self.contentView addSubview:tileView];
+        [tileView release];
+         
         // On initialisse le UILabel
         
 		UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
 		// set the label view to have a clear background and a 20 point font
 		label.backgroundColor = [UIColor clearColor];
-		label.font = [UIFont boldSystemFontOfSize:20];
+		label.font = [UIFont boldSystemFontOfSize:18];
         
 		self.labelView = label;
         
@@ -68,41 +68,29 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
     
+
 	// determine the content rect for the cell. This will change depending on the
 	// style of table (grouped vs plain)
 	CGRect contentRect = self.contentView.bounds;
 	
 	// position the image tile in the content rect.
-	CGRect ligneTileRect = self.contentView.bounds;
-	ligneTileRect.size = [LigneTileView preferredViewSize];
-	ligneTileRect = CGRectOffset(ligneTileRect,10,3);
-	ligneTileView.frame = ligneTileRect;
-	
+	CGRect elementTileRect = self.contentView.bounds;
+	elementTileRect.size = [LigneTileView preferredViewSize];
+	elementTileRect = CGRectOffset(elementTileRect,10,3);
+	ligneTileView.frame = elementTileRect;
+    
+
 	// position the elment name in the content rect
 	CGRect labelRect = contentRect;
-	labelRect.origin.x = labelRect.origin.x+8;
+	labelRect.origin.x = labelRect.origin.x+56;
 	labelRect.origin.y = labelRect.origin.y+3;
-	labelView.frame = labelRect;	
+	labelView.frame = labelRect;
+
 }
 
 
 - (void)dealloc {
     [super dealloc];
-}
-
-- (void)setElement:(Ligne *)aLigne {
-    
-	if (aLigne != ligne) {
-		[ligne release];
-		[aLigne retain];
-		ligne = aLigne;
-	}
-    
-    
-	ligneTileView.ligne = ligne;
-	labelView.text = ligne.direction;
-	[ligneTileView setNeedsDisplay];
-	[labelView setNeedsDisplay];
 }
 
 
