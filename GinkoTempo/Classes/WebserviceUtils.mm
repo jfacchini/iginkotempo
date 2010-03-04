@@ -24,7 +24,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -59,7 +59,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -94,7 +94,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -126,7 +126,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -155,7 +155,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -186,7 +186,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -213,7 +213,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -242,7 +242,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -274,7 +274,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -304,7 +304,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -336,7 +336,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
@@ -367,7 +367,7 @@
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128
+        soap.proxy_port = 3128;
     }
 	
 	// Creation des objet Requete/Reponse
