@@ -68,16 +68,9 @@
 	// style of table (grouped vs plain)
 	CGRect contentRect = self.contentView.bounds;
 	
-	// position the image tile in the content rect.
-	CGRect stationTileRect = self.contentView.bounds;
-	stationTileRect.size = [StationTileView preferredViewSize];
-	stationTileRect = CGRectOffset(stationTileRect,10,3);
-	stationTileView.frame = stationTileRect;
-	
 	// position the elment name in the content rect
 	CGRect labelRect = contentRect;
 	labelRect.origin.x = labelRect.origin.x+8;
-	//labelRect.origin.y = labelRect.origin.y+3;
 	labelView.frame = labelRect;	
 }
 

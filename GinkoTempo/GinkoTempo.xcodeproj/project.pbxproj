@@ -22,12 +22,12 @@
 		336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781AE1124A8A900E9571F /* ListeDesStations.m */; };
 		336781BF1124BAA300E9571F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781BE1124BAA300E9571F /* Station.m */; };
 		336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */; };
+		3388234F11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */; };
 		338DDEC911249BDA00FB0316 /* Borne.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC411249BDA00FB0316 /* Borne.png */; };
 		338DDECA11249BDA00FB0316 /* Carte.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC511249BDA00FB0316 /* Carte.png */; };
 		338DDECB11249BDA00FB0316 /* Ginko.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC611249BDA00FB0316 /* Ginko.png */; };
 		338DDECC11249BDA00FB0316 /* Station.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC711249BDA00FB0316 /* Station.png */; };
 		338DDECF11249C5800FB0316 /* icones.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDECE11249C5800FB0316 /* icones.png */; };
-		33D54E351131902500C04524 /* StationTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E341131902500C04524 /* StationTileView.m */; };
 		33D54E381131903700C04524 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E371131903700C04524 /* StationTableViewCell.m */; };
 		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
 		33EFB465113FF69000803577 /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB462113FF69000803577 /* InfoTrafic.m */; };
@@ -68,13 +68,13 @@
 		336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoDataSourceProtocol.h; sourceTree = "<group>"; };
 		336781D51124C1EE00E9571F /* StationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsTableViewController.h; sourceTree = "<group>"; };
 		336781D61124C1EE00E9571F /* StationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsTableViewController.m; sourceTree = "<group>"; };
+		3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStationsPourUneLigne.h; sourceTree = "<group>"; };
+		3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStationsPourUneLigne.m; sourceTree = "<group>"; };
 		338DDEC411249BDA00FB0316 /* Borne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Borne.png; sourceTree = "<group>"; };
 		338DDEC511249BDA00FB0316 /* Carte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Carte.png; sourceTree = "<group>"; };
 		338DDEC611249BDA00FB0316 /* Ginko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ginko.png; sourceTree = "<group>"; };
 		338DDEC711249BDA00FB0316 /* Station.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Station.png; sourceTree = "<group>"; };
 		338DDECE11249C5800FB0316 /* icones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icones.png; sourceTree = "<group>"; };
-		33D54E331131902500C04524 /* StationTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTileView.h; sourceTree = "<group>"; };
-		33D54E341131902500C04524 /* StationTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTileView.m; sourceTree = "<group>"; };
 		33D54E361131903700C04524 /* StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableViewCell.h; sourceTree = "<group>"; };
 		33D54E371131903700C04524 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
 		33D54E4C113199AD00C04524 /* StationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsController.h; sourceTree = "<group>"; };
@@ -201,6 +201,8 @@
 				336781AE1124A8A900E9571F /* ListeDesStations.m */,
 				333C130411350A5200647B5C /* ListeDesLignes.h */,
 				333C130511350A5200647B5C /* ListeDesLignes.m */,
+				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
+				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
 			);
 			name = "TableView Representation";
 			sourceTree = "<group>";
@@ -254,8 +256,6 @@
 		33D54E321131900300C04524 /* User Interface Elements */ = {
 			isa = PBXGroup;
 			children = (
-				33D54E331131902500C04524 /* StationTileView.h */,
-				33D54E341131902500C04524 /* StationTileView.m */,
 				33D54E361131903700C04524 /* StationTableViewCell.h */,
 				33D54E371131903700C04524 /* StationTableViewCell.m */,
 				333C1491113558DE00647B5C /* LigneTableViewCell.h */,
@@ -354,7 +354,6 @@
 				336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */,
 				336781BF1124BAA300E9571F /* Station.m in Sources */,
 				336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */,
-				33D54E351131902500C04524 /* StationTileView.m in Sources */,
 				33D54E381131903700C04524 /* StationTableViewCell.m in Sources */,
 				33D54E4E113199AD00C04524 /* StationsController.m in Sources */,
 				333C130611350A5200647B5C /* ListeDesLignes.m in Sources */,
@@ -369,6 +368,7 @@
 				C28170FA11358482006A7C4B /* WebserviceUtils.mm in Sources */,
 				33EFB465113FF69000803577 /* InfoTrafic.m in Sources */,
 				33EFB466113FF69000803577 /* InfoTraficController.m in Sources */,
+				3388234F11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

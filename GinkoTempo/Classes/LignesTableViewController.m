@@ -9,9 +9,12 @@
 #import "StationsTableViewController.h"
 #import "LignesTableViewController.h"
 #import "ListeDesLignes.h"
-#import "ListeDesStations.h"
 #import "GinkoTempoAppDelegate.h"
 #import "Ligne.h"
+
+//Si on click sur une ligne, go liste des Stations de la ligne
+#import "ListeDesStationsPourUneLigne.h"
+
 
 @implementation LignesTableViewController
 
@@ -108,7 +111,7 @@
     
     
     
-    id<GinkoDataSource,UITableViewDataSource> dSource = [[[ListeDesStations class] alloc] init];
+    id<GinkoDataSource,UITableViewDataSource> dSource = [[[ListeDesStationsPourUneLigne class] alloc] init];
     
     UITableViewController *theViewController;	
 	theViewController = [[StationsTableViewController alloc] initWithDataSource:dSource];
