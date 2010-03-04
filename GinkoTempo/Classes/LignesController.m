@@ -13,7 +13,7 @@
 
 @interface LignesController(mymethods)
 // these are private methods that outside classes need not use
-- (void)presortLignesNamesForInitialLetter:(NSString *)aKey;
+- (NSArray *)presortLigneByNumber;
 - (void)setupLignesArray;
 @end
 
@@ -21,7 +21,7 @@
 @implementation LignesController
 
 @synthesize lignesDictionary;
-@synthesize ligneNameIndexArray;
+@synthesize ligneSortedByNumber;
 
 
 static LignesController *sharedLignesControllerInstance = nil;
@@ -82,7 +82,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 }
 
 - (void)setupLignesArray {
-	Ligne *eachLigne;
+	Ligne *aLigne;
 	
 	// create dictionaries that contain the arrays of element data indexed by
 	// name
@@ -104,29 +104,35 @@ static LignesController *sharedLignesControllerInstance = nil;
     NSArray *rawLignesArray = [WebserviceUtils getListeLignes];
 
 
+    printf("%i\n",[rawLignesArray count]);
+    
 	// iterate over the values in the raw elements dictionary
-	for (eachLigne in rawLignesArray)
+	for (aLigne in rawLignesArray)
 	{
-        //printf("> %s\n", [eachStation cString]);
-		
-        // create an atomic element instance for each
-		Ligne *aLigne = eachLigne;
-        
-		
+    
 		// store that item in the elements dictionary with the name as the key
 		[lignesDictionary setObject:aLigne forKey:aLigne.numero];
         
-		// release the element, it is held by the various collections
-		//[aLigne release];
 	}
-	// release the raw element data
     
 	//self.ligneNameIndexArray = [[nameIndexesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    //On fait le tri des lignes par Numéro pour l'affichage
+    self.ligneSortedByNumber = [self presortLigneByNumber];
+
 	
-	// presort the dictionaries now
-	// this could be done the first time they are requested instead
-    
+}
+
+// presort the elementsSortedByNumber array
+- (NSArray *)presortLigneByNumber {
+	NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"numero"
+																   ascending:YES
+																	selector:@selector(compare:)] ;
 	
+	NSArray *descriptors = [NSArray arrayWithObject:nameDescriptor];
+	NSArray *sortedElements = [[lignesDictionary allValues] sortedArrayUsingDescriptors:descriptors];
+	[nameDescriptor release];
+	return sortedElements;
 }
 
 

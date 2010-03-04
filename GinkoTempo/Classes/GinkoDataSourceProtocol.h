@@ -31,7 +31,6 @@
 // provides a standardized means of asking for the element at the specific
 // index path, regardless of the sorting or display technique for the specific
 // datasource
-- (Station *)StationForIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)showDisclosureIcon;
 
 @optional

@@ -225,10 +225,10 @@
         nL = atoi(reponse.getListeLignesReturn[1]);
         //printf("Lignes %d\n", nL);
         
-        nbObjLignes = nL / nC;
+        nbObjLignes = nL;
         listeLignes = [NSMutableArray arrayWithCapacity:nbObjLignes];
     
-        for (int i=2; i < nbObjLignes; i++) {
+        for (int i=2; i < nbObjLignes+2; i++) {
             
             couleurs = [NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding];
             
@@ -241,14 +241,14 @@
 //          withColorBackground:[WebserviceUtils uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
 
 
-            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
+            l = [[Ligne alloc] initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
                      withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
                 withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
                withColorLabel:[UIColor blackColor]
           withColorBackground:[UIColor whiteColor]];
             
-           //[listeLignes addObject:l];
-            //[l release];
+           [listeLignes addObject:l];
+            [l release];
             //[couleurs release];
             //[tabCouleurs release];
         }

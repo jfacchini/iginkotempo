@@ -22,9 +22,10 @@
 	return @"Liste des lignes";
 }
 
-// Aucune idée de ce à quoi ça sert
-- (BOOL)showDisclosureIcon {
-	return NO;
+// C'est la flèche sur le coté !!!
+- (BOOL)showDisclosureIcon
+{
+	return YES;
 }
 
 // Icone dans la TabBar
@@ -38,20 +39,23 @@
 };
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView  {
+	// this table has only one section
+	return 1;
 }
+
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[LignesController sharedLignesController] lignesDictionary] count];
+    return [[[LignesController sharedLignesController] ligneSortedByNumber] count];
 }
 
 // return the atomic element at the index 
 - (Ligne *)LignesForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[[LignesController sharedLignesController] ligneNameIndexArray] objectAtIndex:indexPath.row];
-	// return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    return [[[LignesController sharedLignesController] ligneSortedByNumber] objectAtIndex:indexPath.row];
+	
+    // return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
 }  
 
@@ -73,6 +77,9 @@
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
     cell.ligne = [self LignesForIndexPath:indexPath];
     
+    //cell.ligne
+    
+    //printf("%s\n",[cell.ligne.numero cString]);
     
     cell.labelView.text = @"Cool";
     

@@ -90,11 +90,30 @@
 //}
 
 // the user selected a row in the table.
+// the user selected a row in the table.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
-
+    
+	// deselect the new row using animation
+    [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+	
+	// get the element that is represented by the selected row.
+	//Station *station = [dataSource StationForIndexPath:newIndexPath];
+	
+	
+    // create an AtomicElementViewController. This controller will display the full size tile for the element
+	LignesTableViewController *ligneController = [[LignesTableViewController alloc] initWithDataSource:dataSource];
+    
+    
+	// set the element for the controller
+	//stationController.station = station;
+	
+	// push the element view controller onto the navigation stack to display it
+	[[self navigationController] pushViewController:ligneController animated:YES];
+	[ligneController release];
     
 }
+
 
 
 

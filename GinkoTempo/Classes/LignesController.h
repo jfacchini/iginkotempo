@@ -12,12 +12,12 @@
 @interface LignesController : NSObject {
     
 	NSMutableDictionary *lignesDictionary;
-    NSArray *ligneNameIndexArray;
+    NSArray *ligneSortedByNumber;
     
 }
 
 @property (nonatomic,retain) NSMutableDictionary *lignesDictionary;
-@property (nonatomic,retain) NSArray *ligneNameIndexArray;
+@property (nonatomic,retain) NSArray *ligneSortedByNumber;
 
 + (LignesController*)sharedLignesController;
 
