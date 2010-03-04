@@ -114,7 +114,6 @@
     [localNavigationController release];
     
     
-    
     // Bouton 2
     localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class] withViewController:[LignesTableViewController class]];
 	[localViewControllersArray addObject:localNavigationController];
@@ -141,8 +140,8 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 
     // configure the portrait user interface (pas de landscape, juste portrait)
-	//[self setupUserInterface];
-    [WebserviceUtils getListeLignes];
+	[self setupUserInterface];
+    //[WebserviceUtils getListeLignes];
     
     // Override point for customization after application launch
     // [window makeKeyAndVisible];

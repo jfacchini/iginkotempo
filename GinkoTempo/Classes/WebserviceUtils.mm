@@ -211,10 +211,10 @@
         //return [WebserviceUtils creerTableau2DString:reponse.getListeLignesReturn];
     
         nC = atoi(reponse.getListeLignesReturn[0]);
-        printf("Colonnes %d\n", nC);
+        //printf("Colonnes %d\n", nC);
     
         nL = atoi(reponse.getListeLignesReturn[1]);
-        printf("Lignes %d\n", nL);
+        //printf("Lignes %d\n", nL);
         
         nbObjLignes = nL / nC;
         listeLignes = [NSMutableArray arrayWithCapacity:nbObjLignes];
@@ -222,17 +222,26 @@
         for (int i=2; i < nbObjLignes; i++) {
             
             couleurs = [NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding];
+            
             tabCouleurs = [couleurs componentsSeparatedByString:@"-"];
             
-            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding] 
+//            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
+//                     withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
+//                withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
+//               withColorLabel:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:0]]
+//          withColorBackground:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:1]]];
+
+
+            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
                      withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
                 withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-               withColorLabel:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:0]]
-          withColorBackground:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:1]]];
-            [listeLignes addObject:l];
-            [l release];
-            [couleurs release];
-            [tabCouleurs release];
+               withColorLabel:[UIColor blackColor]
+          withColorBackground:[UIColor whiteColor]];
+            
+           //[listeLignes addObject:l];
+            //[l release];
+            //[couleurs release];
+            //[tabCouleurs release];
         }
         
         return listeLignes;

@@ -21,6 +21,8 @@
 @implementation LignesController
 
 @synthesize lignesDictionary;
+@synthesize ligneNameIndexArray;
+
 
 static LignesController *sharedLignesControllerInstance = nil;
 
@@ -80,7 +82,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 }
 
 - (void)setupLignesArray {
-	NSArray *eachLigne;
+	Ligne *eachLigne;
 	
 	// create dictionaries that contain the arrays of element data indexed by
 	// name
@@ -88,7 +90,7 @@ static LignesController *sharedLignesControllerInstance = nil;
     
 	// unique first characters (for the Name index table)
 	//self.nameIndexesDictionary = [NSMutableDictionary dictionary];
-    
+        
     /*
      
      #define UIColorFromRGB(rgbValue) [UIColor \  
@@ -101,17 +103,18 @@ static LignesController *sharedLignesControllerInstance = nil;
 	// read the element data from the plist
     NSArray *rawLignesArray = [WebserviceUtils getListeLignes];
 
-    
+
 	// iterate over the values in the raw elements dictionary
 	for (eachLigne in rawLignesArray)
 	{
         //printf("> %s\n", [eachStation cString]);
 		
         // create an atomic element instance for each
-		//Ligne *aLigne = ;
+		Ligne *aLigne = eachLigne;
+        
 		
 		// store that item in the elements dictionary with the name as the key
-		//[lignesDictionary setObject:aLigne forKey:aLigne.numero];
+		[lignesDictionary setObject:aLigne forKey:aLigne.numero];
         
 		// release the element, it is held by the various collections
 		//[aLigne release];

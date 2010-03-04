@@ -12,6 +12,11 @@
 
 @implementation LigneTableViewCell
 
+
+@synthesize ligne;
+@synthesize ligneTileView;
+@synthesize labelView;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     //SI il n'est pas encore initialité, on le fait, sinon on passe.
@@ -40,7 +45,7 @@
 		label.backgroundColor = [UIColor clearColor];
 		label.font = [UIFont boldSystemFontOfSize:20];
         
-		//self.labelView = label;
+		self.labelView = label;
         
 		[self.contentView addSubview:label];
 		[label release];
