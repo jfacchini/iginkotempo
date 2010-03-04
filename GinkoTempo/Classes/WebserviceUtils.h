@@ -105,4 +105,6 @@
 
 + (void) afficheTableau2D:(NSArray*)tab;
 
++ (UIColor *) colorWithHexString: (NSString *) stringToConvert;
+
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "WebserviceUtils.h"
+#import "Ligne.h"
 #import "TempoApiSoapBinding.nsmap"
+
 #define FAC 0
 
 @implementation WebserviceUtils
@@ -181,8 +183,17 @@
 
 + (NSArray*) getListeLignes {
     
-    // Initialisation de gsoap
 	struct soap soap;
+    NSMutableArray *listeLignes; // Tableau de Lignes de bus
+    int nbObjLignes; // Nombre d'objet a creer
+    int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
+    
+    // Variable temporaire pour la creation des Lignes
+    Ligne *l;
+    NSString *couleurs;
+    NSArray *tabCouleurs;
+    
+    // Initialisation de gsoap
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
@@ -197,8 +208,35 @@
 	if (!soap_call___ns1__getListeLignes(&soap, ADRESSEWS, NULL,
                                          &requete, &reponse)) {
         
-        return [WebserviceUtils creerTableau2DString:reponse.getListeLignesReturn];
-	}
+        //return [WebserviceUtils creerTableau2DString:reponse.getListeLignesReturn];
+    
+        nC = atoi(reponse.getListeLignesReturn[0]);
+        printf("Colonnes %d\n", nC);
+    
+        nL = atoi(reponse.getListeLignesReturn[1]);
+        printf("Lignes %d\n", nL);
+        
+        nbObjLignes = nL / nC;
+        listeLignes = [NSMutableArray arrayWithCapacity:nbObjLignes];
+    
+        for (int i=2; i < nbObjLignes; i++) {
+            
+            couleurs = [NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding];
+            tabCouleurs = [couleurs componentsSeparatedByString:@"-"];
+            
+            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding] 
+                     withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
+                withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
+               withColorLabel:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:0]]
+          withColorBackground:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:1]]];
+            [listeLignes addObject:l];
+            [l release];
+            [couleurs release];
+            [tabCouleurs release];
+        }
+        
+        return listeLignes;
+    }
 	
 	NSLog(@"Erreur: Appel SOAP: getListeLignes");
     
@@ -477,5 +515,41 @@
     }
     printf("---- Fin tableau ----\n");
 }
+
++ (UIColor *) colorWithHexString: (NSString *) stringToConvert {
+    
+    NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return nil;
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return nil;
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+} 
 
 @end

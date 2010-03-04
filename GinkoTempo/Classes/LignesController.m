@@ -111,10 +111,10 @@ static LignesController *sharedLignesControllerInstance = nil;
 		//Ligne *aLigne = ;
 		
 		// store that item in the elements dictionary with the name as the key
-		[lignesDictionary setObject:aLigne forKey:aLigne.numero];
+		//[lignesDictionary setObject:aLigne forKey:aLigne.numero];
         
 		// release the element, it is held by the various collections
-		[aLigne release];
+		//[aLigne release];
 	}
 	// release the raw element data
     

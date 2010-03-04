@@ -17,7 +17,7 @@
 @synthesize couleurTexte;
 @synthesize couleurFond;
 
-- (id)initWithNumero:(NSNumber *)aNumero 
+- (id)initWithNumero:(NSString *)aNumero 
             withSens:(NSString *)aSens 
        withDirection:(NSString *)aDirection 
       withColorLabel:(UIColor *)aColorLabel 
