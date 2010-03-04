@@ -12,6 +12,15 @@
 
 #define FAC 0
 
+@interface WebserviceUtils(mymethods)
+
++ (UIColor *) uiColorWithHexString:(NSString *)s;
++ (int) intValueForHexChar:(char) c;
+
+@end
+
+
+
 @implementation WebserviceUtils
 
 + (int) addLigneStationBornePerso:(NSString*) Idenditifiant
@@ -228,8 +237,8 @@
 //            [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
 //                     withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
 //                withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-//               withColorLabel:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:0]]
-//          withColorBackground:[WebserviceUtils colorWithHexString:[tabCouleurs objectAtIndex:1]]];
+//               withColorLabel:[WebserviceUtils uiColorWithHexString:[tabCouleurs objectAtIndex:0]]
+//          withColorBackground:[WebserviceUtils uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
 
 
             [l initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
@@ -525,40 +534,47 @@
     printf("---- Fin tableau ----\n");
 }
 
-+ (UIColor *) colorWithHexString: (NSString *) stringToConvert {
++ (UIColor *) uiColorWithHexString:(NSString *) s {
+    CGFloat r = (CGFloat) ([WebserviceUtils intValueForHexChar:[s characterAtIndex:0]] * 16 +
+    [WebserviceUtils intValueForHexChar:[s characterAtIndex:1]]) / 255.0f,
     
-    NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    g = (CGFloat) ([WebserviceUtils intValueForHexChar:[s characterAtIndex:2]] * 16 +
+    [WebserviceUtils intValueForHexChar:[s characterAtIndex:3]]) / 255.0f,
     
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) return nil;
+    b = (CGFloat) ([WebserviceUtils intValueForHexChar:[s characterAtIndex:4]] * 16 +
+    [WebserviceUtils intValueForHexChar:[s characterAtIndex:5]]) / 255.0f;
     
-    // strip 0X if it appears
-    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    printf("r : %f\ng : %f\nb : %f\n", r,g,b);
     
-    if ([cString length] != 6) return nil;
-    
-    // Separate into r, g, b substrings
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    NSString *rString = [cString substringWithRange:range];
-    
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f)
-                           green:((float) g / 255.0f)
-                            blue:((float) b / 255.0f)
-                           alpha:1.0f];
-} 
+    return [UIColor colorWithRed:r green:g blue:b alpha:0.1f];
+}
+
++ (int) intValueForHexChar:(char) c {
+    switch (c) {
+        case '0': return 0;
+        case '1': return 1;
+        case '2': return 2;
+        case '3': return 3;
+        case '4': return 4;
+        case '5': return 5;
+        case '6': return 6;
+        case '7': return 7;
+        case '8': return 8;
+        case '9': return 9;
+        case 'a':
+        case 'A': return 10;
+        case 'b':
+        case 'B': return 11;
+        case 'c':
+        case 'C': return 12;
+        case 'd':
+        case 'D': return 13;
+        case 'e':
+        case 'E': return 14;
+        case 'f':
+        case 'F': return 15;
+        default: return nil;
+    }
+}
 
 @end
