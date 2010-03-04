@@ -33,6 +33,7 @@
 // datasource
 - (Station *)StationForIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)showDisclosureIcon;
+- (UITableViewController *) getViewController;
 
 @optional
 

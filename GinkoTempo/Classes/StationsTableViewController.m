@@ -43,7 +43,7 @@
         
         // create a custom navigation bar button and set it to always say "back"
         UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
-        temporaryBarButtonItem.title=@"Back";
+        temporaryBarButtonItem.title=@"Retour";
         self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         [temporaryBarButtonItem release];
         
@@ -124,6 +124,7 @@
 	
     // create an AtomicElementViewController. This controller will display the full size tile for the element
 	StationsTableViewController *stationController = [[StationsTableViewController alloc] initWithDataSource:dataSource];
+    
     
 	// set the element for the controller
 	//stationController.station = station;

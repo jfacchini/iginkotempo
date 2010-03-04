@@ -29,7 +29,7 @@
 
 // Icone dans la TabBar
 - (UIImage *)tabBarImage {
-	return [UIImage imageNamed:@"Station.png"];
+	return [UIImage imageNamed:@"Carte.png"];
 }
 
 // atomic name is displayed in a plain style tableview
@@ -44,7 +44,8 @@
     return [[[StationsController sharedStationsController] stationsWithInitialLetter:[[[StationsController sharedStationsController] stationNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 	// return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 
-}  
+} 
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

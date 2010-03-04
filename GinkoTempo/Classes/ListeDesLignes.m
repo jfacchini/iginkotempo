@@ -29,7 +29,7 @@
 
 // Icone dans la TabBar
 - (UIImage *)tabBarImage {
-	return [UIImage imageNamed:@"Ginko.png"];
+	return [UIImage imageNamed:@"Borne.png"];
 }
 
 // atomic name is displayed in a plain style tableview

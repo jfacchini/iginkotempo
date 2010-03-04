@@ -10,6 +10,7 @@
 #import "ListeDesStations.h"
 #import "ListeDesLignes.h"
 #import "StationsTableViewController.h"
+#import "LignesTableViewController.h"
 
 @implementation GinkoTempoAppDelegate
 
@@ -28,7 +29,7 @@
 
 // Methode pour eviter la repetition du code pour lier une view à un bouton
 // de la TabBar (Copier/coller d'un tuto).
-- (UINavigationController *)newNavigationControllerWrappingViewControllerForDataSourceOfClass:(Class)datasourceClass {
+- (UINavigationController *)newNavigationControllerWrappingViewControllerForDataSourceOfClass:(Class)datasourceClass withViewController:(Class)viewController{
 	// this is entirely a convenience method to reduce the repetition of the code
 	// in the setupPortaitUserInterface
 	// it returns a retained instance of the UINavigationController class. This is unusual, but 
@@ -43,19 +44,18 @@
 	// and factoring this out makes the setup code much easier to follow, but you can still see the actual
 	// implementation here
     
-
 	
 	// the class type for the datasource is not crucial, but that it implements the 
 	// ElementsDataSource protocol and the UITableViewDataSource Protocol is.
 	id<GinkoDataSource,UITableViewDataSource> dataSource = [[datasourceClass alloc] init];
 	
 	// create the ElementsTableViewController and set the datasource
-	StationsTableViewController *theViewController;	
-	theViewController = [[StationsTableViewController alloc] initWithDataSource:dataSource];
+	UITableViewController *theViewController;	
+	theViewController = [[viewController alloc] initWithDataSource:dataSource];
 	
 	// create the navigation controller with the view controller
 	UINavigationController *theNavigationController;
-	theNavigationController = [[UINavigationController alloc] initWithRootViewController:theViewController];
+	theNavigationController = [[UINavigationController alloc] initWithRootViewController: theViewController];
 	
 	// before we return we can release the dataSource (it is now managed by the ElementsTableViewController instance
 	[dataSource release];
@@ -107,7 +107,7 @@
 
 
     // Bouton 1
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesStations class]];
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesStations class] withViewController:[StationsTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
@@ -115,12 +115,11 @@
     
     
     // Bouton 2
-	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class]];
+                                 localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class] withViewController:[LignesTableViewController class]];
 	[localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
 
-     
     
     // On relie la liste des boutons a la Tabbar
     tabBarController.viewControllers = localViewControllersArray;
