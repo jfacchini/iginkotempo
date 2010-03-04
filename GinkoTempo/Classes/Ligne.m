@@ -11,19 +11,22 @@
 
 @implementation Ligne
 
+@synthesize ident;
 @synthesize numero;
 @synthesize direction;
 @synthesize sens;
 @synthesize couleurTexte;
 @synthesize couleurFond;
 
-- (id)initWithNumero:(NSString *)aNumero 
-            withSens:(NSString *)aSens 
-       withDirection:(NSString *)aDirection 
-      withColorLabel:(UIColor *)aColorLabel 
- withColorBackground:(UIColor *)aColorBackground
+- (id)initWithIdent:(NSNumber *)anIdent
+     initWithNumero:(NSString *)aNumero 
+           withSens:(NSString *)aSens 
+      withDirection:(NSString *)aDirection 
+     withColorLabel:(UIColor *)aColorLabel 
+withColorBackground:(UIColor *)aColorBackground
 {
 	if ([self init]) {
+        self.ident         = anIdent;
 		self.numero        = aNumero;
 		self.direction     = aDirection;
 		self.sens          = aSens;
@@ -34,6 +37,7 @@
 }
 
 - (void)dealloc {
+	[ident release];
 	[numero release];
 	[direction release];
 	[couleurTexte release];

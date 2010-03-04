@@ -88,6 +88,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 	// name
 	self.lignesDictionary = [NSMutableDictionary dictionary];
     
+    
 	// unique first characters (for the Name index table)
 	//self.nameIndexesDictionary = [NSMutableDictionary dictionary];
         
@@ -104,14 +105,17 @@ static LignesController *sharedLignesControllerInstance = nil;
     NSArray *rawLignesArray = [WebserviceUtils getListeLignes];
 
 
-    printf("%i\n",[rawLignesArray count]);
+    printf("Resultat getListeLigne : %i\n",[rawLignesArray count]);
     
 	// iterate over the values in the raw elements dictionary
 	for (aLigne in rawLignesArray)
 	{
-    
+        
 		// store that item in the elements dictionary with the name as the key
-		[lignesDictionary setObject:aLigne forKey:aLigne.numero];
+        [lignesDictionary setObject:aLigne forKey:aLigne.ident];
+                
+        //printf("%i\n",[rawLignesArray count]);
+
         
 	}
     
@@ -119,6 +123,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 
     //On fait le tri des lignes par Numéro pour l'affichage
     self.ligneSortedByNumber = [self presortLigneByNumber];
+    
 
 	
 }
@@ -127,7 +132,7 @@ static LignesController *sharedLignesControllerInstance = nil;
 - (NSArray *)presortLigneByNumber {
 	NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"numero"
 																   ascending:YES
-																	selector:@selector(compare:)] ;
+																	selector:@selector(localizedCaseInsensitiveCompare:)] ;
 	
 	NSArray *descriptors = [NSArray arrayWithObject:nameDescriptor];
 	NSArray *sortedElements = [[lignesDictionary allValues] sortedArrayUsingDescriptors:descriptors];

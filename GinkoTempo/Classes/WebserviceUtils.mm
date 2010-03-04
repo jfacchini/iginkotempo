@@ -241,11 +241,12 @@
 //          withColorBackground:[WebserviceUtils uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
 
 
-            l = [[Ligne alloc] initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
-                     withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
-                withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-               withColorLabel:[UIColor blackColor]
-          withColorBackground:[UIColor whiteColor]];
+            l = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2]
+                              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
+                                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
+                               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
+                              withColorLabel:[UIColor blackColor]
+                         withColorBackground:[UIColor whiteColor]];
             
            [listeLignes addObject:l];
             [l release];

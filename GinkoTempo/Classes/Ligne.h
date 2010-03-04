@@ -10,6 +10,7 @@
 
 
 @interface Ligne : NSObject {
+    NSNumber *ident;
     NSString *numero;
     NSString *direction;
     NSString *sens;
@@ -17,16 +18,18 @@
     UIColor *couleurFond;
 }
 
+@property (nonatomic, retain) NSNumber *ident;
 @property (nonatomic, retain) NSString *numero;
 @property (nonatomic, retain) NSString *direction;
 @property (nonatomic, retain) NSString *sens;
 @property (nonatomic, retain) UIColor *couleurTexte;
 @property (nonatomic, retain) UIColor *couleurFond;
 
-- (id)initWithNumero:(NSString *)aNumero 
-            withSens:(NSString *)aSens 
-       withDirection:(NSString *)aDirection 
-      withColorLabel:(UIColor *)aColorLabel 
- withColorBackground:(UIColor *)aColorBackground;
+- (id)initWithIdent:(NSNumber *)anIdent
+     initWithNumero:(NSString *)aNumero 
+           withSens:(NSString *)aSens 
+      withDirection:(NSString *)aDirection 
+     withColorLabel:(UIColor *)aColorLabel 
+withColorBackground:(UIColor *)aColorBackground;
 
 @end
