@@ -81,7 +81,7 @@
     
 	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
-                      printf("Ligne selecionnee : %s\n", [iF.titre cStringUsingEncoding:NSASCIIStringEncoding]);
+                      printf("Ligne selecionnee : %s\n", [iF.titre cStringUsingEncoding:NSUTF8StringEncoding]);
 	
     // cree un controleur de vue d'une InfoTrafic. This controller will display the full size tile for the element
 	//UneInfoTraficViewController *uneInfoTraficController = [[UneInfoTraficTableViewController alloc] initWithDataSource:dataSource];

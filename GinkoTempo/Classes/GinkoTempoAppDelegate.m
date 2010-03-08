@@ -13,6 +13,8 @@
 #import "StationsTableViewController.h"
 #import "LignesTableViewController.h"
 #import "InfoTraficTableViewController.h"
+#import "WebserviceUtils.h"
+#import "InfoTrafic.h"
 
 @implementation GinkoTempoAppDelegate
 
@@ -150,7 +152,6 @@
 
     // configure the portrait user interface (pas de landscape, juste portrait)
 	[self setupUserInterface];
-    //[WebserviceUtils getListeLignes];
     
     // Override point for customization after application launch
     // [window makeKeyAndVisible];
