@@ -8,6 +8,7 @@
 
 #import "WebserviceUtils.h"
 #import "Ligne.h"
+#import "InfoTrafic.h"
 #import "TempoApiSoapBinding.nsmap"
 
 #define FAC 0
@@ -134,6 +135,13 @@
     
     // Initialisation de gsoap
 	struct soap soap;
+    NSMutableArray *listeInfosTrafic; // Tableau d'infos trafic
+    int nbObjInfoTrafic; // Nombre d'objet a creer
+    int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
+    
+    // Variable temporaire pour la creation des Lignes
+    InfoTrafic *iT;
+    
 	soap_init(&soap);
     if (FAC == 1) {
         soap.proxy_host = "proxy-web.univ-fcomte.fr";
@@ -147,8 +155,26 @@
     //Appel du service web
 	if (!soap_call___ns1__getInfoTrafic(&soap, ADRESSEWS, NULL,
                                         &requete, &reponse)) {
+        nC = atoi(reponse.getInfoTraficReturn[0]);
         
-        return [WebserviceUtils creerTableau2DString:reponse.getInfoTraficReturn];
+        nL = atoi(reponse.getInfoTraficReturn[1]);
+        
+        nbObjInfoTrafic = nL;
+        listeInfosTrafic = [NSMutableArray arrayWithCapacity:nbObjInfoTrafic];
+        
+        for (int i=2; i < nbObjInfoTrafic+2; i++) {
+            
+            iT = [[InfoTrafic alloc] initWithTitle:[NSString stringWithCString:reponse.getInfoTraficReturn[i] encoding:NSASCIIStringEncoding]
+                                            withId:[NSString stringWithCString:reponse.getInfoTraficReturn[i+nbObjInfoTrafic * 4] encoding:NSASCIIStringEncoding]
+                                          withBody:[NSString stringWithCString:reponse.getInfoTraficReturn[i+nbObjInfoTrafic * 3] encoding:NSASCIIStringEncoding]
+                                          withLink:[NSURL URLWithString:[NSString stringWithCString:reponse.getInfoTraficReturn[i+nbObjInfoTrafic * 2] encoding:NSASCIIStringEncoding]]
+                                      withPriority:(reponse.getInfoTraficReturn[i+nbObjInfoTrafic][0] == '1') ? YES : NO];
+            
+            [listeInfosTrafic addObject:iT];
+            [iT release];
+        }
+        
+        return listeInfosTrafic;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: getInfoTrafic");
@@ -216,8 +242,6 @@
 	//Appel du service web
 	if (!soap_call___ns1__getListeLignes(&soap, ADRESSEWS, NULL,
                                          &requete, &reponse)) {
-        
-        //return [WebserviceUtils creerTableau2DString:reponse.getListeLignesReturn];
     
         nC = atoi(reponse.getListeLignesReturn[0]);
         //printf("Colonnes %d\n", nC);
@@ -249,7 +273,7 @@
 //                              withColorLabel:[UIColor blackColor]
 //                         withColorBackground:[UIColor whiteColor]];
             
-           [listeLignes addObject:l];
+            [listeLignes addObject:l];
             [l release];
             //[couleurs release];
             //[tabCouleurs release];

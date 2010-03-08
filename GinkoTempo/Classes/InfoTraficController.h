@@ -10,7 +10,13 @@
 
 
 @interface InfoTraficController : NSObject {
-
+    
+    NSArray *InfosTraficArray;
+    
 }
+
+@property (nonatomic,retain) NSArray *InfosTraficArray;
+
++ (InfoTraficController*)sharedInfoTraficController;
 
 @end
