@@ -11,7 +11,7 @@
 #import "InfoTrafic.h"
 #import "TempoApiSoapBinding.nsmap"
 
-#define FAC 0
+#define FAC 1
 
 @interface WebserviceUtils(mymethods)
 
@@ -265,18 +265,9 @@
               withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
          withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
             
-
-//            l = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2]
-//                              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
-//                                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
-//                               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-//                              withColorLabel:[UIColor blackColor]
-//                         withColorBackground:[UIColor whiteColor]];
-            
+           
             [listeLignes addObject:l];
             [l release];
-            //[couleurs release];
-            //[tabCouleurs release];
         }
         
         return listeLignes;
@@ -319,7 +310,11 @@
 + (NSArray*) getListeStationsParLigne:(NSString*) ligne
                                       :(NSString*) sens
 {
+     
+    
+    //printf("getListeStationsParLigne %s, %s", [ligne cString], [sens cSting]);
     // Initialisation de gsoap
+    
 	struct soap soap;
 	soap_init(&soap);
     if (FAC == 1) {
@@ -337,7 +332,7 @@
     //Appel du service web
 	if (!soap_call___ns1__getListeStationsParLigne(&soap, ADRESSEWS, NULL,
                                                    &requete, &reponse)) {
-    
+
         return [WebserviceUtils
                 creerTableauString:reponse.getListeStationsParLigneReturn
                    ayantPourTaille:reponse.__sizegetListeStationsParLigneReturn];

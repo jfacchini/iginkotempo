@@ -53,7 +53,7 @@
 }
 
 // return the atomic element at the index 
-- (Ligne *)LignesForIndexPath:(NSIndexPath *)indexPath {
+- (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
     return [[[LignesController sharedLignesController] ligneSortedByNumber] objectAtIndex:indexPath.row];
 	
@@ -78,11 +78,11 @@
     // set the element for this cell as specified by the datasource. The atomicElementForIndexPath: is declared
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
     //cell.ligne = [self LignesForIndexPath:indexPath];
-    //cell.ligneTileView.ligne = [self LignesForIndexPath:indexPath];
+    //cell.ligneTileView.ligne = [self objectForIndexPath:indexPath];
     
     //[cell setElement: [self LignesForIndexPath:indexPath]];
     
-    cell.ligne = [self LignesForIndexPath:indexPath];
+    cell.ligne = [self objectForIndexPath:indexPath];
     
     cell.ligneTileView.ligne = cell.ligne;
 	cell.labelView.text = cell.ligne.direction;

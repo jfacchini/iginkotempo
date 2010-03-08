@@ -29,7 +29,7 @@
 
 // Icone dans la TabBar
 - (UIImage *)tabBarImage {
-	return [UIImage imageNamed:@"Carte.png"];
+	return [UIImage imageNamed:@"Station.png"];
 }
 
 // atomic name is displayed in a plain style tableview
@@ -39,7 +39,7 @@
 
 
 // return the atomic element at the index 
-- (Station *)StationForIndexPath:(NSIndexPath *)indexPath {
+- (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
     return [[[StationsController sharedStationsController] stationsWithInitialLetter:[[[StationsController sharedStationsController] stationNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 	// return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
@@ -62,7 +62,7 @@
 
     // set the element for this cell as specified by the datasource. The atomicElementForIndexPath: is declared
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
-    cell.station = [self StationForIndexPath:indexPath];
+    cell.station = [self objectForIndexPath:indexPath];
 
 
     

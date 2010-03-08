@@ -104,7 +104,6 @@ static LignesController *sharedLignesControllerInstance = nil;
 		// store that item in the elements dictionary with the name as the key
         [lignesDictionary setObject:aLigne forKey:aLigne.ident];
                 
-        //printf("%i\n",[rawLignesArray count]);
 	}
     
 	//self.ligneNameIndexArray = [[nameIndexesDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];

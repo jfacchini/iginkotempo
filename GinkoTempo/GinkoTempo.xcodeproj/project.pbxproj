@@ -23,6 +23,8 @@
 		336781BF1124BAA300E9571F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781BE1124BAA300E9571F /* Station.m */; };
 		336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */; };
 		3388234F11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */; };
+		338823EF114111CA001B72E0 /* StationParLigneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */; };
+		3388253E114126C3001B72E0 /* StationsParLigneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388253D114126C3001B72E0 /* StationsParLigneController.m */; };
 		338DDEC911249BDA00FB0316 /* Borne.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC411249BDA00FB0316 /* Borne.png */; };
 		338DDECA11249BDA00FB0316 /* Carte.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC511249BDA00FB0316 /* Carte.png */; };
 		338DDECB11249BDA00FB0316 /* Ginko.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC611249BDA00FB0316 /* Ginko.png */; };
@@ -37,8 +39,6 @@
 		C28170F311358412006A7C4B /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170ED11358412006A7C4B /* soapClient.cpp */; };
 		C28170F411358412006A7C4B /* TempoAPISoapBinding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */; };
 		C28170FA11358482006A7C4B /* WebserviceUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C28170F911358482006A7C4B /* WebserviceUtils.mm */; };
-		C2E50A3B1143C981003B68DA /* ListeDesInfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E50A3A1143C981003B68DA /* ListeDesInfoTrafic.m */; };
-		C2E50A8E1143DAB9003B68DA /* InfoTraficTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E50A8D1143DAB9003B68DA /* InfoTraficTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +72,10 @@
 		336781D61124C1EE00E9571F /* StationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsTableViewController.m; sourceTree = "<group>"; };
 		3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStationsPourUneLigne.h; sourceTree = "<group>"; };
 		3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStationsPourUneLigne.m; sourceTree = "<group>"; };
+		338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationParLigneTableViewController.h; sourceTree = "<group>"; };
+		338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationParLigneTableViewController.m; sourceTree = "<group>"; };
+		3388253C114126C3001B72E0 /* StationsParLigneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsParLigneController.h; sourceTree = "<group>"; };
+		3388253D114126C3001B72E0 /* StationsParLigneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsParLigneController.m; sourceTree = "<group>"; };
 		338DDEC411249BDA00FB0316 /* Borne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Borne.png; sourceTree = "<group>"; };
 		338DDEC511249BDA00FB0316 /* Carte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Carte.png; sourceTree = "<group>"; };
 		338DDEC611249BDA00FB0316 /* Ginko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ginko.png; sourceTree = "<group>"; };
@@ -95,10 +99,6 @@
 		C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TempoAPISoapBinding.nsmap; sourceTree = "<group>"; };
 		C28170F811358482006A7C4B /* WebserviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceUtils.h; sourceTree = "<group>"; };
 		C28170F911358482006A7C4B /* WebserviceUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebserviceUtils.mm; sourceTree = "<group>"; };
-		C2E50A391143C981003B68DA /* ListeDesInfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesInfoTrafic.h; sourceTree = "<group>"; };
-		C2E50A3A1143C981003B68DA /* ListeDesInfoTrafic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesInfoTrafic.m; sourceTree = "<group>"; };
-		C2E50A8C1143DAB9003B68DA /* InfoTraficTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficTableViewController.h; sourceTree = "<group>"; };
-		C2E50A8D1143DAB9003B68DA /* InfoTraficTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				C28170F61135844A006A7C4B /* Utils */,
-				336781D41124C1C100E9571F /* View Controller */,
+				336781D41124C1C100E9571F /* SimpleView Representation */,
 				336781BC1124BA9500E9571F /* Données */,
-				336781AC1124A84A00E9571F /* TableView Representation */,
+				336781AC1124A84A00E9571F /* TabBar TableView Representation */,
 				336781AA1124A82B00E9571F /* Source de l'application */,
 			);
 			path = Classes;
@@ -184,8 +184,6 @@
 				336781D61124C1EE00E9571F /* StationsTableViewController.m */,
 				333C13AC1135189E00647B5C /* LignesTableViewController.h */,
 				333C13AD1135189E00647B5C /* LignesTableViewController.m */,
-				C2E50A8C1143DAB9003B68DA /* InfoTraficTableViewController.h */,
-				C2E50A8D1143DAB9003B68DA /* InfoTraficTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -199,7 +197,7 @@
 			name = "Source de l'application";
 			sourceTree = "<group>";
 		};
-		336781AC1124A84A00E9571F /* TableView Representation */ = {
+		336781AC1124A84A00E9571F /* TabBar TableView Representation */ = {
 			isa = PBXGroup;
 			children = (
 				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
@@ -209,12 +207,8 @@
 				336781AE1124A8A900E9571F /* ListeDesStations.m */,
 				333C130411350A5200647B5C /* ListeDesLignes.h */,
 				333C130511350A5200647B5C /* ListeDesLignes.m */,
-				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
-				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
-				C2E50A391143C981003B68DA /* ListeDesInfoTrafic.h */,
-				C2E50A3A1143C981003B68DA /* ListeDesInfoTrafic.m */,
 			);
-			name = "TableView Representation";
+			name = "TabBar TableView Representation";
 			sourceTree = "<group>";
 		};
 		336781BC1124BA9500E9571F /* Données */ = {
@@ -226,6 +220,8 @@
 				333C132111350B9100647B5C /* Ligne.m */,
 				33D54E4C113199AD00C04524 /* StationsController.h */,
 				33D54E4D113199AD00C04524 /* StationsController.m */,
+				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
+				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
 				333C134311350E7600647B5C /* LignesController.h */,
 				333C134411350E7600647B5C /* LignesController.m */,
 				33EFB461113FF69000803577 /* InfoTrafic.h */,
@@ -236,11 +232,23 @@
 			name = "Données";
 			sourceTree = "<group>";
 		};
-		336781D41124C1C100E9571F /* View Controller */ = {
+		336781D41124C1C100E9571F /* SimpleView Representation */ = {
 			isa = PBXGroup;
 			children = (
+				338823EC114111AD001B72E0 /* View Controllers */,
+				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
+				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
 			);
-			name = "View Controller";
+			name = "SimpleView Representation";
+			sourceTree = "<group>";
+		};
+		338823EC114111AD001B72E0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */,
+				338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		338DDEB911249BAE00FB0316 /* Images */ = {
@@ -379,8 +387,8 @@
 				33EFB465113FF69000803577 /* InfoTrafic.m in Sources */,
 				33EFB466113FF69000803577 /* InfoTraficController.m in Sources */,
 				3388234F11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m in Sources */,
-				C2E50A3B1143C981003B68DA /* ListeDesInfoTrafic.m in Sources */,
-				C2E50A8E1143DAB9003B68DA /* InfoTraficTableViewController.m in Sources */,
+				338823EF114111CA001B72E0 /* StationParLigneTableViewController.m in Sources */,
+				3388253E114126C3001B72E0 /* StationsParLigneController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

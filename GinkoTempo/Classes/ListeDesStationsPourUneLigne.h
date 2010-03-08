@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "GinkoDataSourceProtocol.h"
+#import "Ligne.h"
+#import "StationsParLigneController.h"
 
-@interface ListeDesStationsPourUneLigne : NSObject <UITableViewDataSource,GinkoDataSource> {
+@interface ListeDesStationsPourUneLigne : NSObject {
+    Ligne *ligne;
     
 }
+
+@property (nonatomic,retain) Ligne *ligne;
+
+- (UITableViewStyle)tableViewStyle;
+-(id)initWithLigne:(Ligne *)aLigne;
 
 @end

@@ -7,19 +7,18 @@
 //
 
 #import "ListeDesStationsPourUneLigne.h"
-#import "StationsController.h"
+#import "StationsParLigneController.h"
 #import "StationTableViewCell.h"
 
 @implementation ListeDesStationsPourUneLigne
 
-// Nom de la page
-- (NSString *)name {
-	return @"Stations";
-}
+@synthesize ligne;
 
-// Nom dans la TabBar
-- (NSString *)navigationBarName {
-	return @"Liste des stations";
+-(id)initWithLigne:(Ligne *)aLigne{
+    if (self = [super init]) {
+        ligne = aLigne;
+    }
+    return self;
 }
 
 // Aucune idée de ce à quoi ça sert
@@ -27,25 +26,17 @@
 	return NO;
 }
 
-// Icone dans la TabBar
-- (UIImage *)tabBarImage {
-	return [UIImage imageNamed:@"Carte.png"];
-}
-
 // atomic name is displayed in a plain style tableview
 - (UITableViewStyle)tableViewStyle {
 	return UITableViewStylePlain;
 };
 
-
 // return the atomic element at the index 
 - (Station *)StationForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[[StationsController sharedStationsController] stationsWithInitialLetter:[[[StationsController sharedStationsController] stationNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-	// return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    return [[[StationsParLigneController sharedStationsController:ligne] stationsWithInitialLetter:[[[StationsParLigneController sharedStationsController:ligne] stationNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
 } 
-
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +67,7 @@
     // this table has multiple sections. One for each unique character that an element begins with
     // [A,B,C,D,E,F,G,H,I,K,L,M,N,O,P,R,S,T,U,V,X,Y,Z]
     // return the count of that array
-    return [[[StationsController sharedStationsController] stationNameIndexArray] count];
+    return [[[StationsParLigneController sharedStationsController:ligne] stationNameIndexArray] count];
 }
 
 
@@ -84,7 +75,7 @@
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     // returns the array of section titles. There is one entry for each unique character that an element begins with
     // [A,B,C,D,E,F,G,H,I,K,L,M,N,O,P,R,S,T,U,V,X,Y,Z]
-    return [[StationsController sharedStationsController] stationNameIndexArray];
+    return [[StationsParLigneController sharedStationsController:ligne] stationNameIndexArray];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
@@ -95,10 +86,10 @@
 - (NSInteger)tableView:(UITableView *)tableView  numberOfRowsInSection:(NSInteger)section {
     // the section represents the initial letter of the element
     // return that letter
-    NSString *initialLetter = [[[StationsController sharedStationsController] stationNameIndexArray] objectAtIndex:section];
+    NSString *initialLetter = [[[StationsParLigneController sharedStationsController:ligne] stationNameIndexArray] objectAtIndex:section];
     
     // get the array of elements that begin with that letter
-    NSArray *elementsWithInitialLetter = [[StationsController sharedStationsController] stationsWithInitialLetter:initialLetter];
+    NSArray *elementsWithInitialLetter = [[StationsParLigneController sharedStationsController:ligne] stationsWithInitialLetter:initialLetter];
     
     // return the count
     
@@ -112,7 +103,7 @@
     // return the letter that represents the requested section
     // this is actually a delegate method, but we forward the request to the datasource in the view controller
     
-    return [[[StationsController sharedStationsController] stationNameIndexArray] objectAtIndex:section];
+    return [[[StationsParLigneController sharedStationsController:ligne] stationNameIndexArray] objectAtIndex:section];
 }
 
 

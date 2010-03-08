@@ -11,6 +11,7 @@
 #import "ListeDesLignes.h"
 #import "GinkoTempoAppDelegate.h"
 #import "Ligne.h"
+#import "StationParLigneTableViewController.h"
 
 //Si on click sur une ligne, go liste des Stations de la ligne
 #import "ListeDesStationsPourUneLigne.h"
@@ -102,19 +103,19 @@
 	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
 	
+    
 	// get the element that is represented by the selected row.
-	//Station *station = [dataSource StationForIndexPath:newIndexPath];
-	
-	
+    Ligne *aLigne = [dataSource objectForIndexPath:newIndexPath];
+
+    
     // create an AtomicElementViewController. This controller will display the full size tile for the element
 	//StationsTableViewController *stationController = [[StationsTableViewController alloc] initWithDataSource:[ListeDesStations class]];
+
     
-    
-    
-    id<GinkoDataSource,UITableViewDataSource> dSource = [[[ListeDesStationsPourUneLigne class] alloc] init];
+    id dSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
     
     UITableViewController *theViewController;	
-	theViewController = [[StationsTableViewController alloc] initWithDataSource:dSource];
+	theViewController = [[StationParLigneTableViewController alloc] initWithDataSource:dSource];
     
 	// set the element for the controller
 	//stationController.station = station;

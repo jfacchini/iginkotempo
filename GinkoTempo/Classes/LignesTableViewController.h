@@ -14,7 +14,7 @@
 
 @interface LignesTableViewController : UITableViewController {
 	UITableView *theTableView;
-	id<GinkoDataSource,UITableViewDataSource> dataSource;
+    id<GinkoDataSource,UITableViewDataSource> dataSource;
 }
 
 @property (nonatomic,retain) UITableView *theTableView;
