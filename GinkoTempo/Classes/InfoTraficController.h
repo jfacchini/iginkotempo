@@ -12,10 +12,12 @@
 @interface InfoTraficController : NSObject {
     
     NSArray *InfosTraficArray;
+    NSNumber *nbInfosTraficPrioritaires;
     
 }
 
 @property (nonatomic,retain) NSArray *InfosTraficArray;
+@property (nonatomic, retain) NSNumber *nbInfosTraficPrioritaires;
 
 + (InfoTraficController*)sharedInfoTraficController;
 

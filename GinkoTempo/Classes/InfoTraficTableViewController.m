@@ -29,6 +29,9 @@
         self.title = [dataSource name];
         self.tabBarItem.image = [dataSource tabBarImage];
         
+        NSNumber *nbITP = [[InfoTraficController sharedInfoTraficController] nbInfosTraficPrioritaires];
+        if ([nbITP intValue] > 0) self.tabBarItem.badgeValue = [nbITP stringValue];
+        
         // set the long name shown in the navigation bar
         self.navigationItem.title=[dataSource navigationBarName];
         
@@ -81,7 +84,6 @@
     
 	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
-                      printf("Ligne selecionnee : %s\n", [iF.titre cStringUsingEncoding:NSUTF8StringEncoding]);
 	
     // cree un controleur de vue d'une InfoTrafic. This controller will display the full size tile for the element
 	//UneInfoTraficViewController *uneInfoTraficController = [[UneInfoTraficTableViewController alloc] initWithDataSource:dataSource];

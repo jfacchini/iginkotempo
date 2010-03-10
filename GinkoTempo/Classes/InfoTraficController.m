@@ -7,17 +7,20 @@
 //
 
 #import "InfoTraficController.h"
+#import "InfoTrafic.h"
 #import "WebserviceUtils.h"
 
 
 @interface InfoTraficController(mymethods)
 // these are private methods that outside classes need not use
 - (void)setupInfosTraficArray;
+- (NSNumber*) countNbITPrioritaires;
 @end
 
 @implementation InfoTraficController
 
 @synthesize InfosTraficArray;
+@synthesize nbInfosTraficPrioritaires;
 
 static InfoTraficController *sharedInfoTraficControllerInstance = nil;
 
@@ -66,8 +69,23 @@ static InfoTraficController *sharedInfoTraficControllerInstance = nil;
 - init {
 	if (self = [super init]) {
 		[self setupInfosTraficArray];
+        nbInfosTraficPrioritaires = [self countNbITPrioritaires];
 	}
 	return self;
+}
+
+- (NSNumber*) countNbITPrioritaires {
+    int nbTot = [[sharedInfoTraficControllerInstance InfosTraficArray] count],
+        nb = 0;
+    InfoTrafic *it;
+    
+    for (int i = 0; i < nbTot; i++) {
+        
+        it = [[sharedInfoTraficControllerInstance InfosTraficArray] objectAtIndex:i];
+        
+        if (it.priorite) nb++;
+    }
+    return [NSNumber numberWithInt:nb];
 }
 
 - (void) setupInfosTraficArray {

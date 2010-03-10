@@ -49,7 +49,7 @@
 }
 
 // Retourne l'InfoTrafic correspond à l'indexPath
-- (InfoTrafic *)infoTraficForIndexPath:(NSIndexPath *)indexPath {
+- (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
     return [[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:indexPath.row];
     
@@ -57,6 +57,8 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    InfoTrafic *uneIT;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
@@ -67,9 +69,16 @@
     // configure cell contents
     // all the rows should show the disclosure indicator
     if ([self showDisclosureIcon])
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
-    cell.textLabel.text = [self infoTraficForIndexPath:indexPath].titre;
+    uneIT = [self objectForIndexPath:indexPath];
+    
+    cell.textLabel.text = uneIT.titre;
+    
+    if (uneIT.priorite) [cell.textLabel setTextColor:[UIColor redColor]];
+    
+    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    cell.textLabel.numberOfLines = 2;
     
     return cell;
 }
