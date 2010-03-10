@@ -109,10 +109,12 @@
 
     
     // create an AtomicElementViewController. This controller will display the full size tile for the element
-	//StationsTableViewController *stationController = [[StationsTableViewController alloc] initWithDataSource:[ListeDesStations class]];
 
-    
     id dSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
+    [[StationsParLigneController sharedStationsController:aLigne] setLigne:aLigne];
+    
+    //id dSource = [ListeDesStationsPourUneLigne alloc];
+
     
     UITableViewController *theViewController;	
 	theViewController = [[StationParLigneTableViewController alloc] initWithDataSource:dSource];

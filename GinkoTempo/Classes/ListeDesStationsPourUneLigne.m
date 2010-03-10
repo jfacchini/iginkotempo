@@ -18,6 +18,7 @@
     if (self = [super init]) {
         ligne = aLigne;
     }
+
     return self;
 }
 

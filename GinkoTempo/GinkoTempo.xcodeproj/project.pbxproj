@@ -22,6 +22,8 @@
 		336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781AE1124A8A900E9571F /* ListeDesStations.m */; };
 		336781BF1124BAA300E9571F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781BE1124BAA300E9571F /* Station.m */; };
 		336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */; };
+		33855DBF11453DA1005127B8 /* InfoTraficTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */; };
+		33855DC011453DA1005127B8 /* ListeDesInfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */; };
 		3388234F11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */; };
 		338823EF114111CA001B72E0 /* StationParLigneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */; };
 		3388253E114126C3001B72E0 /* StationsParLigneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388253D114126C3001B72E0 /* StationsParLigneController.m */; };
@@ -39,8 +41,6 @@
 		C28170F311358412006A7C4B /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170ED11358412006A7C4B /* soapClient.cpp */; };
 		C28170F411358412006A7C4B /* TempoAPISoapBinding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */; };
 		C28170FA11358482006A7C4B /* WebserviceUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C28170F911358482006A7C4B /* WebserviceUtils.mm */; };
-		C2FDAD641145701C00F25E32 /* InfoTraficTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FDAD631145701C00F25E32 /* InfoTraficTableViewController.m */; };
-		C2FDAD671145702E00F25E32 /* ListeDesInfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FDAD661145702E00F25E32 /* ListeDesInfoTrafic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +72,11 @@
 		336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoDataSourceProtocol.h; sourceTree = "<group>"; };
 		336781D51124C1EE00E9571F /* StationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsTableViewController.h; sourceTree = "<group>"; };
 		336781D61124C1EE00E9571F /* StationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsTableViewController.m; sourceTree = "<group>"; };
+		33855DBA11453DA1005127B8 /* InfoTraficTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficTableViewController.h; sourceTree = "<group>"; };
+		33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficTableViewController.m; sourceTree = "<group>"; };
+		33855DBC11453DA1005127B8 /* ListeDesInfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesInfoTrafic.h; sourceTree = "<group>"; };
+		33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesInfoTrafic.m; sourceTree = "<group>"; };
+		33855DBE11453DA1005127B8 /* StationTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTileView.h; sourceTree = "<group>"; };
 		3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStationsPourUneLigne.h; sourceTree = "<group>"; };
 		3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStationsPourUneLigne.m; sourceTree = "<group>"; };
 		338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationParLigneTableViewController.h; sourceTree = "<group>"; };
@@ -101,10 +106,6 @@
 		C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TempoAPISoapBinding.nsmap; sourceTree = "<group>"; };
 		C28170F811358482006A7C4B /* WebserviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceUtils.h; sourceTree = "<group>"; };
 		C28170F911358482006A7C4B /* WebserviceUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebserviceUtils.mm; sourceTree = "<group>"; };
-		C2FDAD621145701C00F25E32 /* InfoTraficTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficTableViewController.h; sourceTree = "<group>"; };
-		C2FDAD631145701C00F25E32 /* InfoTraficTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficTableViewController.m; sourceTree = "<group>"; };
-		C2FDAD651145702E00F25E32 /* ListeDesInfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesInfoTrafic.h; sourceTree = "<group>"; };
-		C2FDAD661145702E00F25E32 /* ListeDesInfoTrafic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesInfoTrafic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,12 +187,12 @@
 		333703821131BDC600DC5AD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2FDAD621145701C00F25E32 /* InfoTraficTableViewController.h */,
-				C2FDAD631145701C00F25E32 /* InfoTraficTableViewController.m */,
 				336781D51124C1EE00E9571F /* StationsTableViewController.h */,
 				336781D61124C1EE00E9571F /* StationsTableViewController.m */,
 				333C13AC1135189E00647B5C /* LignesTableViewController.h */,
 				333C13AD1135189E00647B5C /* LignesTableViewController.m */,
+				33855DBA11453DA1005127B8 /* InfoTraficTableViewController.h */,
+				33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -208,13 +209,13 @@
 		336781AC1124A84A00E9571F /* TabBar TableView Representation */ = {
 			isa = PBXGroup;
 			children = (
-				C2FDAD651145702E00F25E32 /* ListeDesInfoTrafic.h */,
-				C2FDAD661145702E00F25E32 /* ListeDesInfoTrafic.m */,
 				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
 				333703821131BDC600DC5AD4 /* View Controllers */,
 				33D54E321131900300C04524 /* User Interface Elements */,
 				336781AD1124A8A900E9571F /* ListeDesStations.h */,
 				336781AE1124A8A900E9571F /* ListeDesStations.m */,
+				33855DBC11453DA1005127B8 /* ListeDesInfoTrafic.h */,
+				33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */,
 				333C130411350A5200647B5C /* ListeDesLignes.h */,
 				333C130511350A5200647B5C /* ListeDesLignes.m */,
 			);
@@ -288,6 +289,7 @@
 				33D54E371131903700C04524 /* StationTableViewCell.m */,
 				333C1491113558DE00647B5C /* LigneTableViewCell.h */,
 				333C1492113558DE00647B5C /* LigneTableViewCell.m */,
+				33855DBE11453DA1005127B8 /* StationTileView.h */,
 				333C14941135590000647B5C /* LigneTileView.h */,
 				333C14951135590000647B5C /* LigneTileView.m */,
 			);
@@ -399,8 +401,8 @@
 				3388234F11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m in Sources */,
 				338823EF114111CA001B72E0 /* StationParLigneTableViewController.m in Sources */,
 				3388253E114126C3001B72E0 /* StationsParLigneController.m in Sources */,
-				C2FDAD641145701C00F25E32 /* InfoTraficTableViewController.m in Sources */,
-				C2FDAD671145702E00F25E32 /* ListeDesInfoTrafic.m in Sources */,
+				33855DBF11453DA1005127B8 /* InfoTraficTableViewController.m in Sources */,
+				33855DC011453DA1005127B8 /* ListeDesInfoTrafic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

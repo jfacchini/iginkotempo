@@ -36,6 +36,7 @@ static StationsParLigneController *sharedStationsControllerInstance = nil;
         if (sharedStationsControllerInstance == nil) {
             [[self alloc] initWithLigne:aLigne]; // assignment not done here
         }
+        
     }
     return sharedStationsControllerInstance;
 	// note: Xcode (3.2) static analyzer will report this singleton as a false positive
@@ -80,13 +81,16 @@ static StationsParLigneController *sharedStationsControllerInstance = nil;
 - initWithLigne:(Ligne*)aLigne {
 	if (self = [super init]) {
         
-        ligne = aLigne;
-
-        
-		[self setupStationsArray];
 	}
 	return self;
 }
+
+// setup the data collection
+- (void)setLigne:(Ligne*)aLigne {
+    ligne = aLigne;
+    [self setupStationsArray];
+}
+
 
 - (void)setupStationsArray {
 	NSString *eachStation;
@@ -102,9 +106,6 @@ static StationsParLigneController *sharedStationsControllerInstance = nil;
 	NSArray *rawStationsArray = [WebserviceUtils getListeStationsParLigne:ligne.numero
                                                                          :ligne.sens];
     
-    
-    printf("> %d\n", [rawStationsArray count]);
-
     //[rawStationsArray addObject:nil];
     
 	// iterate over the values in the raw elements dictionary

@@ -22,7 +22,7 @@
 @property (nonatomic,retain) NSMutableDictionary *nameIndexesDictionary;
 @property (nonatomic,retain) NSArray *stationNameIndexArray;
 
-+ (StationsParLigneController*)sharedStationsController:(Ligne*)aLigne;
++ (StationsParLigneController*)sharedStationsParLigneController:(Ligne*)aLigne;
 
 - (NSArray *)stationsWithInitialLetter:(NSString*)aKey;
 
