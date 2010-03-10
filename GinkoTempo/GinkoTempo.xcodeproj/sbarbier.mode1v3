@@ -273,7 +273,6 @@
 								<string>336781BC1124BA9500E9571F</string>
 								<string>336781AC1124A84A00E9571F</string>
 								<string>333703821131BDC600DC5AD4</string>
-								<string>33D54E321131900300C04524</string>
 								<string>336781AA1124A82B00E9571F</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>C28170E911358412006A7C4B</string>
@@ -285,14 +284,15 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>11</integer>
+									<integer>8</integer>
+									<integer>6</integer>
+									<integer>5</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {309, 760}}</string>
+							<string>{{0, 532}, {309, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -331,7 +331,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>StationsParLigneController.m</string>
+								<string>StationParLigneTableViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -339,60 +339,60 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>StationsParLigneController.m</string>
+										<string>StationParLigneTableViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>334A75341147D968005E4E3B</string>
+										<string>334A75DE1147E8DA005E4E3B</string>
 										<key>history</key>
 										<array>
 											<string>338DDED711249D4900FB0316</string>
 											<string>33D54DEF113189CA00C04524</string>
 											<string>333C135A1135116800647B5C</string>
 											<string>333C135B1135116800647B5C</string>
-											<string>33112AF11135BBAB007B8D55</string>
 											<string>33112AF31135BBAB007B8D55</string>
 											<string>3312EBE0113E886300735487</string>
 											<string>33EFB534114000F800803577</string>
 											<string>33EFB5C511401EB400803577</string>
-											<string>336A145B11402B7100AB93F9</string>
-											<string>336A145D11402B7100AB93F9</string>
 											<string>336A1529114034EE00AB93F9</string>
 											<string>3337A43B1140676000A439A4</string>
 											<string>3337A4D011406C8900A439A4</string>
-											<string>3337A539114072BE00A439A4</string>
-											<string>338823921141065F001B72E0</string>
 											<string>338823951141065F001B72E0</string>
-											<string>338824101141138B001B72E0</string>
 											<string>338824FB114124BC001B72E0</string>
-											<string>3388252711412649001B72E0</string>
-											<string>3388252B11412649001B72E0</string>
-											<string>3388255711412759001B72E0</string>
-											<string>3388257D11412803001B72E0</string>
 											<string>3388258A11412858001B72E0</string>
 											<string>338825C711412DB6001B72E0</string>
-											<string>3388261711412F99001B72E0</string>
-											<string>33E9B5A811453AD90008525B</string>
-											<string>33E9B5A911453AD90008525B</string>
 											<string>33855DC311453DBE005127B8</string>
-											<string>33855DC411453DBE005127B8</string>
 											<string>33855DC511453DBE005127B8</string>
 											<string>33855DCA11453DBE005127B8</string>
 											<string>33855DCB11453DBE005127B8</string>
 											<string>33855DCD11453DBE005127B8</string>
 											<string>33855DD411453DE9005127B8</string>
-											<string>334A746E1147D13E005E4E3B</string>
-											<string>334A746F1147D13E005E4E3B</string>
-											<string>334A74961147D2C5005E4E3B</string>
-											<string>334A74971147D2C5005E4E3B</string>
-											<string>334A74EE1147D562005E4E3B</string>
-											<string>334A74EF1147D562005E4E3B</string>
 											<string>334A75171147D7B9005E4E3B</string>
 											<string>334A75181147D7B9005E4E3B</string>
-											<string>334A751F1147D837005E4E3B</string>
-											<string>334A752D1147D933005E4E3B</string>
-											<string>334A752E1147D933005E4E3B</string>
-											<string>334A752F1147D933005E4E3B</string>
+											<string>334A75511147E151005E4E3B</string>
+											<string>334A75531147E151005E4E3B</string>
+											<string>334A757A1147E2DD005E4E3B</string>
+											<string>334A757B1147E2DD005E4E3B</string>
+											<string>334A757D1147E2DD005E4E3B</string>
+											<string>334A75991147E55B005E4E3B</string>
+											<string>334A759B1147E55B005E4E3B</string>
+											<string>334A759C1147E55B005E4E3B</string>
+											<string>334A759D1147E55B005E4E3B</string>
+											<string>334A759E1147E55B005E4E3B</string>
+											<string>334A759F1147E55B005E4E3B</string>
+											<string>334A75A01147E55B005E4E3B</string>
+											<string>334A75A11147E55B005E4E3B</string>
+											<string>334A75B11147E6C1005E4E3B</string>
+											<string>334A75B21147E6C1005E4E3B</string>
+											<string>334A75B71147E79B005E4E3B</string>
+											<string>334A75B81147E79B005E4E3B</string>
+											<string>334A75B91147E79B005E4E3B</string>
+											<string>334A75C21147E7F8005E4E3B</string>
+											<string>334A75C71147E853005E4E3B</string>
+											<string>334A75C91147E853005E4E3B</string>
+											<string>334A75CA1147E853005E4E3B</string>
+											<string>334A75CE1147E871005E4E3B</string>
+											<string>334A75CF1147E871005E4E3B</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -592,10 +592,10 @@
 	<array>
 		<string>334A74E31147D50F005E4E3B</string>
 		<string>334A74D71147D4DA005E4E3B</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>338DDEA611249AA100FB0316</string>
 		<string>/Users/sbarbier/Documents/Universite/Master 1/Semestre2/Projet_Ginko/iPhone/GinkoTempo/GinkoTempo/GinkoTempo.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1440 819 0 0 1440 878 </string>
@@ -614,14 +614,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>LignesTableViewController.m</string>
+								<string>StationsParLigneController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -638,6 +636,8 @@
 							<string>411pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -690,7 +690,7 @@
 			<key>WindowToolGUID</key>
 			<string>338DDEA611249AA100FB0316</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -946,7 +946,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {775, 337}}</string>
 								<key>RubberWindowFrame</key>
-								<string>398 367 775 378 0 0 1440 878 </string>
+								<string>472 367 775 378 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -975,11 +975,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>398 367 775 378 0 0 1440 878 </string>
+			<string>472 367 775 378 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

@@ -56,9 +56,7 @@
 - (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
     return [[[LignesController sharedLignesController] ligneSortedByNumber] objectAtIndex:indexPath.row];
-	
-    // return [[[PeriodicElements sharedPeriodicElements] elementsWithInitialLetter:[[[PeriodicElements sharedPeriodicElements] elementNameIndexArray] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    
+	    
 }  
 
 // Customize the appearance of table view cells.

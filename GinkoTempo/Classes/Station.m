@@ -15,10 +15,22 @@
 @implementation Station
 
 @synthesize name;
+@synthesize ident;
+
 
 - (id)initWithName:(NSString *)aName {
 	if ([self init]) {
 		self.name = aName;
+        self.ident = 0;
+	}
+	return self;
+}
+
+- (id)initWithName:(NSString *)aName 
+         withIdent:(NSNumber *)aNumber {
+	if ([self init]) {
+		self.name = aName;
+        self.ident = aNumber;
 	}
 	return self;
 }

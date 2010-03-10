@@ -13,10 +13,16 @@
 
 
 @interface Station : NSObject {
+    NSNumber *ident;
 	NSString *name;
 }
 
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSNumber *ident;
 
+- (id)initWithName:(NSString *)aName;
+
+- (id)initWithName:(NSString *)aName 
+         withIdent:(NSNumber *)aNumber;
 
 @end

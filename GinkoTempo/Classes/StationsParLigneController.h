@@ -12,19 +12,18 @@
 @interface StationsParLigneController : NSObject {
     Ligne *ligne;
 	NSMutableDictionary *stationsDictionary;
-	NSMutableDictionary *nameIndexesDictionary;
-	NSArray *stationNameIndexArray;
+	//NSMutableDictionary *nameIndexesDictionary;
+	NSArray *stationNameByOrder;
     
 }
 
 @property (nonatomic,retain) Ligne *ligne;
 @property (nonatomic,retain) NSMutableDictionary *stationsDictionary;
-@property (nonatomic,retain) NSMutableDictionary *nameIndexesDictionary;
-@property (nonatomic,retain) NSArray *stationNameIndexArray;
+@property (nonatomic,retain) NSArray *stationNameByOrder;
 
 + (StationsParLigneController*)sharedStationsParLigneController:(Ligne*)aLigne;
 
-- (NSArray *)stationsWithInitialLetter:(NSString*)aKey;
+- (NSArray *)presortStationByOrder;
 
 
 @end

@@ -23,7 +23,7 @@
         self.dataSource = theDataSource;
         // set the title, and tab bar images from the dataSource
         // object. These are part of the ElementsDataSource Protocol
-        self.title = [NSString stringWithFormat:@"[%@] %@",dataSource.ligne.numero,dataSource.ligne.direction];
+        self.title = [NSString stringWithFormat:@"%@ %@",dataSource.ligne.numero,dataSource.ligne.direction];
         
         //dataSource.ligne.numero + dataSource.ligne.direction;
         
@@ -96,6 +96,7 @@
 // the user selected a row in the table.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
+    [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
     
     
 }
