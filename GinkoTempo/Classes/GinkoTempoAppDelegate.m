@@ -14,7 +14,10 @@
 #import "LignesTableViewController.h"
 #import "InfoTraficTableViewController.h"
 #import "WebserviceUtils.h"
-#import "InfoTrafic.h"
+
+#import "InfoTraficController.h"
+#import "StationsController.h"
+#import "LignesController.h"
 
 @implementation GinkoTempoAppDelegate
 
@@ -111,6 +114,9 @@
 	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] 
                                                  initWithCapacity:2];
 
+    [StationsController sharedStationsController];
+    [LignesController sharedLignesController];
+    [InfoTraficController sharedInfoTraficController];
 
     // Bouton 1
 	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesStations class] withViewController:[StationsTableViewController class]];
