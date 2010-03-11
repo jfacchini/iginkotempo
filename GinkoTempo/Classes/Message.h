@@ -11,12 +11,12 @@
 
 @interface Message : NSObject {
     
-    NSNumber identifiant;
+    NSNumber *identifiant;
     
-    NSString titre;
-    NSString contenu;
+    NSString *titre;
+    NSString *contenu;
     
-    NSNumber type; // 0 Message d'invalidation
+    NSNumber *type; // 0 Message d'invalidation
                    // 1 Message d'informations 
     
 }

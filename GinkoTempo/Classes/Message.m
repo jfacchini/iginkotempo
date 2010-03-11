@@ -11,4 +11,17 @@
 
 @implementation Message
 
+@synthesize identifiant;
+@synthesize titre;
+@synthesize contenu;
+@synthesize type;
+
+- (void)dealloc {
+	[identifiant release];
+	[titre release];
+	[contenu release];
+	[type release];
+    [super dealloc];
+}
+
 @end

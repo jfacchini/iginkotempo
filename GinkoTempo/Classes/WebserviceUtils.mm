@@ -408,6 +408,8 @@
 
 + (NSArray*) getTempsParStation:(NSString*) nomStation {
     
+    NSMutableArray *listeTemps; // Tableau de Lignes de bus
+    
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
@@ -426,7 +428,8 @@
 	if (!soap_call___ns1__getTempsParStation(&soap, ADRESSEWS, NULL,
                                              &requete, &reponse)) {
         
-        return [WebserviceUtils creerTableau2DString:reponse.getTempsParStationReturn];
+        
+        return listeTemps;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: getTempsParStation");

@@ -19,8 +19,11 @@
 		333C13AE1135189E00647B5C /* LignesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C13AD1135189E00647B5C /* LignesTableViewController.m */; };
 		333C1493113558DE00647B5C /* LigneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C1492113558DE00647B5C /* LigneTableViewCell.m */; };
 		333C14961135590000647B5C /* LigneTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C14951135590000647B5C /* LigneTileView.m */; };
-		33592CF21149260E007B7C12 /* HoraireLigne.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF11149260E007B7C12 /* HoraireLigne.m */; };
+		33592CF21149260E007B7C12 /* TempsAttentes.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF11149260E007B7C12 /* TempsAttentes.m */; };
 		33592CF911492C0F007B7C12 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF811492C0F007B7C12 /* Message.m */; };
+		33592D481149376A007B7C12 /* TempsAttentesLignesParStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */; };
+		33592D6111493B6F007B7C12 /* TempsAttentesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D6011493B6F007B7C12 /* TempsAttentesController.m */; };
+		33592D9E1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */; };
 		336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781AE1124A8A900E9571F /* ListeDesStations.m */; };
 		336781BF1124BAA300E9571F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781BE1124BAA300E9571F /* Station.m */; };
 		336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */; };
@@ -67,10 +70,16 @@
 		333C1492113558DE00647B5C /* LigneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTableViewCell.m; sourceTree = "<group>"; };
 		333C14941135590000647B5C /* LigneTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigneTileView.h; sourceTree = "<group>"; };
 		333C14951135590000647B5C /* LigneTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTileView.m; sourceTree = "<group>"; };
-		33592CF01149260E007B7C12 /* HoraireLigne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoraireLigne.h; sourceTree = "<group>"; };
-		33592CF11149260E007B7C12 /* HoraireLigne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoraireLigne.m; sourceTree = "<group>"; };
+		33592CF01149260E007B7C12 /* TempsAttentes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentes.h; sourceTree = "<group>"; };
+		33592CF11149260E007B7C12 /* TempsAttentes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentes.m; sourceTree = "<group>"; };
 		33592CF711492C0F007B7C12 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		33592CF811492C0F007B7C12 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		33592D461149376A007B7C12 /* TempsAttentesLignesParStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesLignesParStation.h; sourceTree = "<group>"; };
+		33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesLignesParStation.m; sourceTree = "<group>"; };
+		33592D5F11493B6F007B7C12 /* TempsAttentesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesController.h; sourceTree = "<group>"; };
+		33592D6011493B6F007B7C12 /* TempsAttentesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesController.m; sourceTree = "<group>"; };
+		33592D9C1149410B007B7C12 /* TempsAttentesLignesParStationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesLignesParStationViewController.h; sourceTree = "<group>"; };
+		33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesLignesParStationViewController.m; sourceTree = "<group>"; };
 		336781AD1124A8A900E9571F /* ListeDesStations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStations.h; sourceTree = "<group>"; };
 		336781AE1124A8A900E9571F /* ListeDesStations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStations.m; sourceTree = "<group>"; };
 		336781BD1124BAA300E9571F /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -235,20 +244,22 @@
 				336781BE1124BAA300E9571F /* Station.m */,
 				333C132011350B9100647B5C /* Ligne.h */,
 				333C132111350B9100647B5C /* Ligne.m */,
-				33592CF01149260E007B7C12 /* HoraireLigne.h */,
-				33592CF11149260E007B7C12 /* HoraireLigne.m */,
+				33592CF01149260E007B7C12 /* TempsAttentes.h */,
+				33592CF11149260E007B7C12 /* TempsAttentes.m */,
 				33592CF711492C0F007B7C12 /* Message.h */,
 				33592CF811492C0F007B7C12 /* Message.m */,
 				33EFB461113FF69000803577 /* InfoTrafic.h */,
 				33EFB462113FF69000803577 /* InfoTrafic.m */,
 				33D54E4C113199AD00C04524 /* StationsController.h */,
 				33D54E4D113199AD00C04524 /* StationsController.m */,
-				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
-				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
 				333C134311350E7600647B5C /* LignesController.h */,
 				333C134411350E7600647B5C /* LignesController.m */,
 				33EFB463113FF69000803577 /* InfoTraficController.h */,
 				33EFB464113FF69000803577 /* InfoTraficController.m */,
+				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
+				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
+				33592D5F11493B6F007B7C12 /* TempsAttentesController.h */,
+				33592D6011493B6F007B7C12 /* TempsAttentesController.m */,
 			);
 			name = "Données";
 			sourceTree = "<group>";
@@ -259,6 +270,8 @@
 				338823EC114111AD001B72E0 /* View Controllers */,
 				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
 				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
+				33592D461149376A007B7C12 /* TempsAttentesLignesParStation.h */,
+				33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */,
 			);
 			name = "SimpleView Representation";
 			sourceTree = "<group>";
@@ -268,6 +281,8 @@
 			children = (
 				338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */,
 				338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */,
+				33592D9C1149410B007B7C12 /* TempsAttentesLignesParStationViewController.h */,
+				33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -413,8 +428,11 @@
 				3388253E114126C3001B72E0 /* StationsParLigneController.m in Sources */,
 				33855DBF11453DA1005127B8 /* InfoTraficTableViewController.m in Sources */,
 				33855DC011453DA1005127B8 /* ListeDesInfoTrafic.m in Sources */,
-				33592CF21149260E007B7C12 /* HoraireLigne.m in Sources */,
+				33592CF21149260E007B7C12 /* TempsAttentes.m in Sources */,
 				33592CF911492C0F007B7C12 /* Message.m in Sources */,
+				33592D481149376A007B7C12 /* TempsAttentesLignesParStation.m in Sources */,
+				33592D6111493B6F007B7C12 /* TempsAttentesController.m in Sources */,
+				33592D9E1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
