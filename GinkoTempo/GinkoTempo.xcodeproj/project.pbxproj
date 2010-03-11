@@ -41,6 +41,7 @@
 		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
 		33EFB465113FF69000803577 /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB462113FF69000803577 /* InfoTrafic.m */; };
 		33EFB466113FF69000803577 /* InfoTraficController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB464113FF69000803577 /* InfoTraficController.m */; };
+		C272A600114956F900A8F842 /* DetailsInfosTraficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */; };
 		C28170F111358412006A7C4B /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170EA11358412006A7C4B /* stdsoap2.cpp */; };
 		C28170F211358412006A7C4B /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170EC11358412006A7C4B /* soapC.cpp */; };
 		C28170F311358412006A7C4B /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170ED11358412006A7C4B /* soapClient.cpp */; };
@@ -112,6 +113,8 @@
 		33EFB463113FF69000803577 /* InfoTraficController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficController.h; sourceTree = "<group>"; };
 		33EFB464113FF69000803577 /* InfoTraficController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GinkoTempo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GinkoTempo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C272A5FE114956F900A8F842 /* DetailsInfosTraficViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsInfosTraficViewController.h; sourceTree = "<group>"; };
+		C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsInfosTraficViewController.m; sourceTree = "<group>"; };
 		C28170EA11358412006A7C4B /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
 		C28170EB11358412006A7C4B /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
 		C28170EC11358412006A7C4B /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 		338823EC114111AD001B72E0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C272A5FE114956F900A8F842 /* DetailsInfosTraficViewController.h */,
+				C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */,
 				338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */,
 				338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */,
 				33592D9C1149410B007B7C12 /* TempsAttentesLignesParStationViewController.h */,
@@ -433,6 +438,7 @@
 				33592D481149376A007B7C12 /* TempsAttentesLignesParStation.m in Sources */,
 				33592D6111493B6F007B7C12 /* TempsAttentesController.m in Sources */,
 				33592D9E1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m in Sources */,
+				C272A600114956F900A8F842 /* DetailsInfosTraficViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,8 +80,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
-    InfoTrafic *iF = [[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:newIndexPath.row];
-    
 	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
 	
