@@ -31,6 +31,7 @@
     self.detailsInfosTraficView = [[UITextView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     self.detailsInfosTraficView.text = self.uneInfoTrafic.corps;
     self.detailsInfosTraficView.font = [UIFont systemFontOfSize:18];
+    [self.detailsInfosTraficView setEditable:NO];
     self.view = detailsInfosTraficView;
 }
 
