@@ -116,7 +116,7 @@
 
     [StationsController sharedStationsController];
     [LignesController sharedLignesController];
-    [InfoTraficController sharedInfoTraficController];
+    //[InfoTraficController sharedInfoTraficController];
 
     // Bouton 1
 	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesStations class] withViewController:[StationsTableViewController class]];

@@ -12,13 +12,15 @@
 
 @interface DetailsInfosTraficViewController : UIViewController {
     
-    UIScrollView *detailsInfosTraficView;
+    UITextView *detailsInfosTraficView;
     
     InfoTrafic *uneInfoTrafic;
 
 }
 
-@property (nonatomic,retain) UIScrollView *detailsInfosTraficView;
+@property (nonatomic,retain) UITextView *detailsInfosTraficView;
 @property (nonatomic,retain) InfoTrafic *uneInfoTrafic;
+
+- (id)initWithInfoTrafic:(InfoTrafic *)myInfoTrafic;
 
 @end

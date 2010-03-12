@@ -16,7 +16,7 @@
     
 }
 
-@property (nonatomic,retain) NSArray *InfosTraficArray;
+@property (nonatomic, retain) NSArray *InfosTraficArray;
 @property (nonatomic, retain) NSNumber *nbInfosTraficPrioritaires;
 
 + (InfoTraficController*)sharedInfoTraficController;

@@ -9,6 +9,7 @@
 #import "InfoTraficTableViewController.h"
 #import "InfoTraficController.h"
 #import "InfoTrafic.h"
+#import "DetailsInfosTraficViewController.h"
 
 
 @implementation InfoTraficTableViewController
@@ -82,13 +83,17 @@
     
 	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+    
+    printf("indexpath.row : %d\n",newIndexPath.row);
+    
+    InfoTrafic *iT = [[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:newIndexPath.row];
 	
-    // cree un controleur de vue d'une InfoTrafic. This controller will display the full size tile for the element
-	//UneInfoTraficViewController *uneInfoTraficController = [[UneInfoTraficTableViewController alloc] initWithDataSource:dataSource];
+    // cree un controleur de vue d'une InfoTrafic.
+	DetailsInfosTraficViewController *unDetailsInfosTraficController = [[DetailsInfosTraficViewController alloc] initWithInfoTrafic:iT];
 	
 	// push the info trafic view controller onto the navigation stack to display it
-	//[[self navigationController] pushViewController:uneInfoTraficController animated:YES];
-	//[uneInfoTraficController release];
+	[[self navigationController] pushViewController:unDetailsInfosTraficController animated:YES];
+	[unDetailsInfosTraficController release];
     
 }
 
