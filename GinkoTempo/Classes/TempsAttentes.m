@@ -12,6 +12,8 @@
 
 @synthesize station;
 @synthesize ligne;
+@synthesize direction1;
+@synthesize direction2;
 @synthesize horaire1;
 @synthesize horaire2;
 @synthesize infoComplementaire1;
@@ -22,6 +24,8 @@
 // Initialisation pour la borne perso, avec des stations différentes.
 - (id)initWithStation:(Station *)s
             withLigne:(Ligne *)l 
+       withDirection1:(NSString *)d1
+       withDirection2:(NSString *)d2 
          withHoraire1:(NSString *)h1
          withHoraire2:(NSString *)h2  
             withInfo1:(NSString *)i1 
@@ -31,6 +35,8 @@
     if ([self init]) {
         self.station                = s;
 		self.ligne                  = l;
+		self.direction1             = d1;
+		self.direction2             = d2;
 		self.horaire1               = h1;
 		self.horaire2               = h2;
 		self.infoComplementaire1    = i1;
@@ -43,6 +49,8 @@
 
 // Cette initialisation est pour les temps d'attentes pour une même station.
 - (id)initwithLigne:(Ligne *)l 
+     withDirection1:(NSString *)d1
+     withDirection2:(NSString *)d2
        withHoraire1:(NSString *)h1
        withHoraire2:(NSString *)h2  
           withInfo1:(NSString *)i1 
@@ -51,6 +59,8 @@
 {    
     return [self initWithStation:NULL 
                        withLigne:l
+                  withDirection1:d1
+                  withDirection2:d2
                     withHoraire1:h1 
                     withHoraire2:h2 
                        withInfo1:i1 
@@ -62,6 +72,8 @@
 - (void)dealloc {
 	[station release];
 	[ligne release];
+	[direction1 release];
+	[direction2 release];
 	[horaire1 release];
 	[horaire2 release];
 	[infoComplementaire1 release];

@@ -6,8 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+
 #import "WebserviceUtils.h"
 #import "Ligne.h"
+#import "TempsAttentes.h"
 #import "InfoTrafic.h"
 #import "TempoApiSoapBinding.nsmap"
 
@@ -30,7 +32,7 @@
                                  :(NSString*) ligne
                                  :(NSString*) sens
 {
- 
+    
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
@@ -83,7 +85,7 @@
     
     //Appel du service web
 	if (!soap_call___ns1__createBornePerso(&soap, ADRESSEWS, NULL,
-                                        &requete, &reponse)) {
+                                           &requete, &reponse)) {
         
         return reponse.createBornePersoReturn;
 	}
@@ -100,7 +102,7 @@
                                     :(NSString*) ligne
                                     :(NSString*) sens
 {
- 
+    
     // Initialisation de gsoap
 	struct soap soap;
 	soap_init(&soap);
@@ -184,7 +186,7 @@
 }
 
 + (NSArray*) getLigneStationBornePerso:(NSString*) Idenditifiant
-                                       :(NSString*) MotDePasseMD5
+                                      :(NSString*) MotDePasseMD5
 {
     
     // Initialisation de gsoap
@@ -242,37 +244,37 @@
 	//Appel du service web
 	if (!soap_call___ns1__getListeLignes(&soap, ADRESSEWS, NULL,
                                          &requete, &reponse)) {
-    
+        
         nC = atoi(reponse.getListeLignesReturn[0]);
         //printf("Colonnes %d\n", nC);
-    
+        
         nL = atoi(reponse.getListeLignesReturn[1]);
         //printf("Lignes %d\n", nL);
         
         nbObjLignes = nL;
         listeLignes = [NSMutableArray arrayWithCapacity:nbObjLignes];
-    
+        
         for (int i=2; i < nbObjLignes+2; i++) {
             
             couleurs = [NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding];
-                        
+            
             tabCouleurs = [couleurs componentsSeparatedByString:@"-"];
             
             l = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2]
-              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
-                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
-               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
-              withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
-         withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
+                              initWithNumero:[NSString stringWithCString:reponse.getListeLignesReturn[i] encoding:NSASCIIStringEncoding]
+                                    withSens:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes] encoding:NSASCIIStringEncoding]
+                               withDirection:[NSString stringWithCString:reponse.getListeLignesReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding]
+                              withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
+                         withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]];
             
-           
+            
             [listeLignes addObject:l];
             [l release];
         }
         
         return listeLignes;
     }
-	
+    
 	NSLog(@"Erreur: Appel SOAP: getListeLignes");
     
     // Si la requete echoue on test nil
@@ -308,9 +310,9 @@
 }
 
 + (NSArray*) getListeStationsParLigne:(NSString*) ligne
-                                      :(NSString*) sens
+                                     :(NSString*) sens
 {
-     
+    
     
     //printf("getListeStationsParLigne %s, %s", [ligne cString], [sens cSting]);
     // Initialisation de gsoap
@@ -332,10 +334,10 @@
     //Appel du service web
 	if (!soap_call___ns1__getListeStationsParLigne(&soap, ADRESSEWS, NULL,
                                                    &requete, &reponse)) {
-
+        
         return [WebserviceUtils
                 creerTableauString:reponse.getListeStationsParLigneReturn
-                   ayantPourTaille:reponse.__sizegetListeStationsParLigneReturn];
+                ayantPourTaille:reponse.__sizegetListeStationsParLigneReturn];
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getListeStationsParLigne");
@@ -373,7 +375,7 @@
 }
 
 + (NSArray*) getStationsLesPlusProches:(NSString*) Longitute
-                                       :(NSString*)Latitude
+                                      :(NSString*)Latitude
 {
     
     // Initialisation de gsoap
@@ -394,7 +396,7 @@
     //Appel du service web
 	if (!soap_call___ns1__getStationsLesPlusProches(&soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
-    
+        
         return [WebserviceUtils 
                 creerTableauString:reponse.getStationsLesPlusProchesReturn
                 ayantPourTaille:reponse.__sizegetStationsLesPlusProchesReturn];
@@ -409,6 +411,17 @@
 + (NSArray*) getTempsParStation:(NSString*) nomStation {
     
     NSMutableArray *listeTemps; // Tableau de Lignes de bus
+    int nbObjLignes; // Nombre d'objet a creer
+    int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
+    
+    NSString *couleurs;
+    NSArray *tabCouleurs;
+    
+    NSString *dir, *dir1, *dir2;
+    
+    
+    TempsAttentes *l;
+    Ligne *ligne;
     
     // Initialisation de gsoap
 	struct soap soap;
@@ -428,6 +441,46 @@
 	if (!soap_call___ns1__getTempsParStation(&soap, ADRESSEWS, NULL,
                                              &requete, &reponse)) {
         
+        nC = atoi(reponse.getTempsParStationReturn[0]);
+        //printf("Colonnes %d\n", nC);
+        
+        nL = atoi(reponse.getTempsParStationReturn[1]);
+        //printf("Lignes %d\n", nL);
+        
+        nbObjLignes = nL;
+        listeTemps = [NSMutableArray arrayWithCapacity:nbObjLignes];
+        
+        
+        for (int i=2; i < nbObjLignes+2; i++) {
+            
+            couleurs = [NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 10] encoding:NSASCIIStringEncoding];
+            
+            tabCouleurs = [couleurs componentsSeparatedByString:@"-"];
+            
+            dir1 = [NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 4] encoding:NSASCIIStringEncoding];
+            dir2 = [NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 5] encoding:NSASCIIStringEncoding];
+            dir = dir1;
+            
+            ligne = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2] 
+                                  initWithNumero:[NSString stringWithCString:reponse.getTempsParStationReturn[i] encoding:NSASCIIStringEncoding] 
+                                        withSens:[NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 1] encoding:NSASCIIStringEncoding] 
+                                   withDirection:dir 
+                                  withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
+                             withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]]; 
+            
+            l = [[TempsAttentes alloc] initwithLigne:ligne 
+                                      withDirection1:dir1
+                                      withDirection2:dir2
+                                        withHoraire1:[NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding] 
+                                        withHoraire2:[NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding] 
+                                           withInfo1:[NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 6] encoding:NSASCIIStringEncoding] 
+                                           withInfo2:[NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 7] encoding:NSASCIIStringEncoding] 
+                                        withMessages:NULL];
+            
+            [listeTemps addObject:l];
+            [ligne release];
+            [l release];
+        }
         
         return listeTemps;
     }
@@ -491,7 +544,7 @@
 + (NSArray*) creerTableau2DString:(char**) tabString {
     
     int nColonnes, nLignes,
-        debutColonne = 2;
+    debutColonne = 2;
     NSMutableArray *tableauRetour = [NSMutableArray arrayWithCapacity:nColonnes];
     NSMutableArray *tableauLignes;
     NSString *tmp;
@@ -509,7 +562,7 @@
         for (int j=0; j<nLignes; j++) {
             tmp = [NSString stringWithCString:tabString[debutColonne+j]
                                      encoding:NSASCIIStringEncoding];
-
+            
             if (tmp != nil) { // Une insertion de nil fait planter l'appli
                 [tableauLignes addObject:tmp];
             }
@@ -525,7 +578,7 @@
     
     id elt;
     NSEnumerator *itElt = [tab objectEnumerator];
-
+    
     printf("=== Debut tableau ===\n");
     
     while ((elt = [itElt nextObject])) {
@@ -561,13 +614,13 @@
 + (UIColor *) uiColorWithHexString:(NSString *) s {
     
     CGFloat r = (CGFloat) ([self intValueForHexChar:[s characterAtIndex:0]] * 16 +
-    [self intValueForHexChar:[s characterAtIndex:1]]) / 255.0f,
+                           [self intValueForHexChar:[s characterAtIndex:1]]) / 255.0f,
     
     g = (CGFloat) ([self intValueForHexChar:[s characterAtIndex:2]] * 16 +
-    [self intValueForHexChar:[s characterAtIndex:3]]) / 255.0f,
+                   [self intValueForHexChar:[s characterAtIndex:3]]) / 255.0f,
     
     b = (CGFloat) ([self intValueForHexChar:[s characterAtIndex:4]] * 16 +
-    [self intValueForHexChar:[s characterAtIndex:5]]) / 255.0f;
+                   [self intValueForHexChar:[s characterAtIndex:5]]) / 255.0f;
     
     //printf("r : %f\ng : %f\nb : %f\n", r,g,b);
     
