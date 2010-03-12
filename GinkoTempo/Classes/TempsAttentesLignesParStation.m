@@ -62,7 +62,7 @@
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
     cell.station = [self ObjectForIndexPath:indexPath];
     
-    cell.labelView.text = cell.station.name;
+    cell.labelView.text = @"Cool";
     
     return cell;
 }

@@ -468,7 +468,8 @@
                                   withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
                              withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]]; 
             
-            l = [[TempsAttentes alloc] initwithLigne:ligne 
+            l = [[TempsAttentes alloc] initWithIdent:[NSNumber numberWithInt: i-2]
+                                           withLigne:ligne 
                                       withDirection1:dir1
                                       withDirection2:dir2
                                         withHoraire1:[NSString stringWithCString:reponse.getTempsParStationReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding] 

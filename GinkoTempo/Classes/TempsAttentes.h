@@ -11,6 +11,7 @@
 #import "Ligne.h"
 
 @interface TempsAttentes : NSObject {
+    NSNumber *ident;
     Station *station;
     Ligne *ligne;
     NSString *direction1;
@@ -22,6 +23,7 @@
     NSArray *message;
 }
 
+@property (nonatomic, retain) NSNumber *ident;
 @property (nonatomic, retain) Station *station;
 @property (nonatomic, retain) Ligne *ligne;
 @property (nonatomic, retain) NSString *direction1;
@@ -33,7 +35,8 @@
 @property (nonatomic, retain) NSArray *message;
 
 // Initialisation pour la borne perso, avec des stations différentes.
-- (id)initWithStation:(Station *)station
+- (id)initWithIdent:(NSNumber*)ident
+            withStation:(Station *)station
             withLigne:(Ligne *)ligne  
        withDirection1:(NSString *)direction1
        withDirection2:(NSString *)direction2 
@@ -44,7 +47,8 @@
          withMessages:(NSArray *)message;
 
 // Cette initialisation est pour les temps d'attentes pour une même station.
-- (id)initwithLigne:(Ligne *)ligne  
+- (id)initWithIdent:(NSNumber*)ident
+          withLigne:(Ligne *)ligne  
      withDirection1:(NSString *)direction1
      withDirection2:(NSString *)direction2 
        withHoraire1:(NSString *)horaire1
