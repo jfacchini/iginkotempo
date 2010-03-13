@@ -47,9 +47,7 @@
 		// set the label view to have a clear background and a 20 point font
 		label.backgroundColor = [UIColor clearColor];
 		label.font = [UIFont boldSystemFontOfSize:18];
-        
-        label.text = temps.ligne.direction;
-        
+                
 		self.labelView = label;
         
 		[self.contentView addSubview:label];
@@ -110,6 +108,7 @@
     ligneTileView.ligne = temps.ligne;
 	labelView.text = temps.ligne.direction;
 	[labelView setNeedsDisplay];
+    [ligneTileView setNeedsDisplay];
 }
 
 @end

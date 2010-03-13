@@ -35,9 +35,9 @@
 	
     //printf("%s\n", [ligne.numero cString]);
     
-    [ligne.couleurFond set]; // red team color
-
-    UIRectFill(ligneColorRect); // this will fill the upper rect all red, 
+    [ligne.couleurFond set];
+    
+    UIRectFill(ligneColorRect); // this will fill the upper rect all, 
 	
 	[ligne.couleurTexte set];
     
@@ -47,6 +47,7 @@
 	point = CGPointMake((ligneColorRect.size.width-stringSize.width)/2,7);
 	
 	[ligne.numero drawAtPoint:point withFont:font];
+    
     
 }
 

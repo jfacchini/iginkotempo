@@ -66,7 +66,7 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     // set the tableview delegate to this object and the datasource to the datasource which has already been set
-    //tableView.delegate = self;
+    tableView.delegate = self;
     tableView.dataSource = dataSource;
     
     tableView.sectionIndexMinimumDisplayRowCount=10;
@@ -77,6 +77,22 @@
     [tableView release];
     
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+	// Configure the table view.
+    self.theTableView.rowHeight = 73.0;
+    /*
+    self.tableView.backgroundColor = DARK_BACKGROUND;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+	// Load the data.
+    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
+    self.data = [NSArray arrayWithContentsOfFile:dataPath];
+     */
+}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -98,8 +114,7 @@
     
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
 
-    
-    
+
 }
 
 

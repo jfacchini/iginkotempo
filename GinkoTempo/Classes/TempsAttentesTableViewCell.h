@@ -22,6 +22,8 @@
 @property (nonatomic,retain) TempsAttentes *temps;
 @property (nonatomic,retain) LigneTileView *ligneTileView;
 @property (nonatomic,retain) UILabel *labelView;
+@property (nonatomic,retain) NSString *horaire1;
+@property (nonatomic,retain) NSString *horaire2;
 
 - (void)setElement:(TempsAttentes *)aTemps;
 
