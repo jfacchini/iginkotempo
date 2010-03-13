@@ -36,19 +36,12 @@
     //printf("%s\n", [ligne.numero cString]);
     
     [ligne.couleurFond set]; // red team color
-	
-    //[[UIColor blueColor] set]; // red team color
 
     UIRectFill(ligneColorRect); // this will fill the upper rect all red, 
 	
 	[ligne.couleurTexte set];
     
     UIFont *font = [UIFont boldSystemFontOfSize:18];
-    
-	// draw the element symbol
-//	font = [UIFont boldSystemFontOfSize:18];
-//    point = CGPointMake(3,2);
-//    [[ligne.sens cString] drawAtPoint:point withFont:font];
     
 	CGSize stringSize = [ligne.numero sizeWithFont:font];
 	point = CGPointMake((ligneColorRect.size.width-stringSize.width)/2,7);

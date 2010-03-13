@@ -8,7 +8,7 @@
 
 #import "TempsAttentesLignesParStation.h"
 #import "TempsAttentesController.h"
-#import "StationTableViewCell.h"
+#import "TempsAttentesTableViewCell.h"
 #import "TempsAttentes.h"
 
 @implementation TempsAttentesLignesParStation
@@ -24,7 +24,7 @@
 
 // Aucune idée de ce à quoi ça sert
 - (BOOL)showDisclosureIcon {
-	return YES;
+	return NO;
 }
 
 // atomic name is displayed in a plain style tableview
@@ -48,9 +48,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"StationTableViewCell"];
+    TempsAttentesTableViewCell *cell = (TempsAttentesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"StationTableViewCell"];
     if (cell == nil) {
-        cell = [[[StationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StationTableViewCell"] autorelease];
+        cell = [[[TempsAttentesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StationTableViewCell"] autorelease];
     }
     
     // configure cell contents
@@ -60,9 +60,12 @@
     
     // set the element for this cell as specified by the datasource. The atomicElementForIndexPath: is declared
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
-    cell.station = [self ObjectForIndexPath:indexPath];
     
-    cell.labelView.text = @"Cool";
+    [cell setElement:[self ObjectForIndexPath:indexPath]];
+    
+    //cell.labelView.text = cell.temps.ligne.direction;
+    
+    [cell.labelView setNeedsDisplay];
     
     return cell;
 }

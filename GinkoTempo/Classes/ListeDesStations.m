@@ -63,8 +63,6 @@
     // set the element for this cell as specified by the datasource. The atomicElementForIndexPath: is declared
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row
     cell.station = [self objectForIndexPath:indexPath];
-
-
     
     cell.labelView.text = cell.station.name;
     

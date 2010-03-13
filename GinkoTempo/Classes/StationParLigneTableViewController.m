@@ -7,6 +7,9 @@
 //
 
 #import "StationParLigneTableViewController.h"
+#import "TempsAttentesLignesParStationViewController.h"
+#import "TempsAttentesController.h"
+
 
 @implementation StationParLigneTableViewController
 
@@ -66,7 +69,7 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     // set the tableview delegate to this object and the datasource to the datasource which has already been set
-    //tableView.delegate = self;
+    tableView.delegate = self;
     tableView.dataSource = dataSource;
     
     tableView.sectionIndexMinimumDisplayRowCount=10;
@@ -96,8 +99,30 @@
 // the user selected a row in the table.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
+	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+	
     
+    
+    
+	// get the element that is represented by the selected row.
+	Station *station = [dataSource StationForIndexPath:newIndexPath];
+    
+    //printf("%@",station.name);
+	
+    id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
+    [[TempsAttentesController sharedTempsAttentesController:station] setStation:station];
+    
+    // create an AtomicElementViewController. This controller will display the full size tile for the element
+	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithDataSource:dSource];
+    
+    
+	// set the element for the controller
+	//stationController.station = station;
+	
+	// push the element view controller onto the navigation stack to display it
+	[[self navigationController] pushViewController:stationController animated:YES];
+	[stationController release];  
     
 }
 

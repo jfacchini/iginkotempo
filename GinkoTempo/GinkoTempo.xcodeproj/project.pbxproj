@@ -24,6 +24,7 @@
 		33592D481149376A007B7C12 /* TempsAttentesLignesParStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */; };
 		33592D6111493B6F007B7C12 /* TempsAttentesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D6011493B6F007B7C12 /* TempsAttentesController.m */; };
 		33592D9E1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */; };
+		335B41E6114B9C1600C08E4E /* TempsAttentesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 335B41E5114B9C1600C08E4E /* TempsAttentesTableViewCell.m */; };
 		336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781AE1124A8A900E9571F /* ListeDesStations.m */; };
 		336781BF1124BAA300E9571F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781BE1124BAA300E9571F /* Station.m */; };
 		336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */; };
@@ -82,6 +83,8 @@
 		33592D6011493B6F007B7C12 /* TempsAttentesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesController.m; sourceTree = "<group>"; };
 		33592D9C1149410B007B7C12 /* TempsAttentesLignesParStationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesLignesParStationViewController.h; sourceTree = "<group>"; };
 		33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesLignesParStationViewController.m; sourceTree = "<group>"; };
+		335B41E4114B9C1600C08E4E /* TempsAttentesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesTableViewCell.h; sourceTree = "<group>"; };
+		335B41E5114B9C1600C08E4E /* TempsAttentesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesTableViewCell.m; sourceTree = "<group>"; };
 		336781AD1124A8A900E9571F /* ListeDesStations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStations.h; sourceTree = "<group>"; };
 		336781AE1124A8A900E9571F /* ListeDesStations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStations.m; sourceTree = "<group>"; };
 		336781BD1124BAA300E9571F /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -217,6 +220,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		335B41E3114B9BFA00C08E4E /* User Interface Elements */ = {
+			isa = PBXGroup;
+			children = (
+				335B41E4114B9C1600C08E4E /* TempsAttentesTableViewCell.h */,
+				335B41E5114B9C1600C08E4E /* TempsAttentesTableViewCell.m */,
+			);
+			name = "User Interface Elements";
+			sourceTree = "<group>";
+		};
 		336781AA1124A82B00E9571F /* Source de l'application */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +284,7 @@
 		336781D41124C1C100E9571F /* SimpleView Representation */ = {
 			isa = PBXGroup;
 			children = (
+				335B41E3114B9BFA00C08E4E /* User Interface Elements */,
 				338823EC114111AD001B72E0 /* View Controllers */,
 				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
 				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
@@ -443,6 +456,7 @@
 				33592D6111493B6F007B7C12 /* TempsAttentesController.m in Sources */,
 				33592D9E1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m in Sources */,
 				C272A600114956F900A8F842 /* DetailsInfosTraficViewController.m in Sources */,
+				335B41E6114B9C1600C08E4E /* TempsAttentesTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -112,7 +112,7 @@ static TempsAttentesController *sharedTempsAttentesControllerInstance = nil;
 	// read the element data from the plist
     NSArray *rawLignesArray = [WebserviceUtils getTempsParStation:station.name];
     
-    printf("%i\n", [rawLignesArray count]);
+    //printf("%i\n", [rawLignesArray count]);
 	// iterate over the values in the raw elements dictionary
 	for (tempsAttentes in rawLignesArray)
 	{
