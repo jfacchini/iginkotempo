@@ -11,12 +11,14 @@
 #import "ListeDesLignes.h"
 #import "ListeDesInfoTrafic.h"
 #import "StationsTableViewController.h"
+#import "GeolocalisationTableViewController.h"
 #import "LignesTableViewController.h"
 #import "InfoTraficTableViewController.h"
 #import "WebserviceUtils.h"
 
 #import "InfoTraficController.h"
 #import "StationsController.h"
+#import "ListeGeolocalise.h"
 #import "LignesController.h"
 
 @implementation GinkoTempoAppDelegate
@@ -131,11 +133,20 @@
     
     [localNavigationController release];
 
-    // Controller du Bouton 3 : les Infos trafic
+    
+    // Bouton 3
+    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeGeolocalise class] withViewController:[GeolocalisationTableViewController class]];
+    [localViewControllersArray addObject:localNavigationController];
+    
+    [localNavigationController release];
+    
+    
+    // Controller du Bouton 4 : les Infos trafic
     localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesInfoTrafic class] withViewController:[InfoTraficTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
+
     
     // On attribut la liste des controllers, correspondant aux boutons
     // de la tabBar, au controller de la barre d'onglet.

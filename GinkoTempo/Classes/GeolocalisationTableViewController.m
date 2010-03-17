@@ -1,22 +1,30 @@
 //
-//  StationParLigneViewController.m
+//  LignesTableViewController.m
 //  GinkoTempo
 //
-//  Created by Sébastien BARBIER on 05/03/10.
+//  Created by Sébastien BARBIER on 24/02/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "GeolocalisationTableViewController.h"
+#import "LignesTableViewController.h"
+#import "ListeDesLignes.h"
+#import "GinkoTempoAppDelegate.h"
+#import "Ligne.h"
 #import "StationParLigneTableViewController.h"
-#import "TempsAttentesLignesParStationViewController.h"
-#import "TempsAttentesController.h"
+
+//Si on click sur une ligne, go liste des Stations de la ligne
+#import "ListeDesStationsPourUneLigne.h"
 
 
-@implementation StationParLigneTableViewController
+@implementation GeolocalisationTableViewController
 
+// Donne accès aux variables
 @synthesize theTableView;
 @synthesize dataSource;
 
-- (id)initWithDataSource:(id)theDataSource {
+
+- (id)initWithDataSource:(id<GinkoDataSource,UITableViewDataSource>)theDataSource {
     
     if ([self init]) {
         
@@ -26,25 +34,28 @@
         self.dataSource = theDataSource;
         // set the title, and tab bar images from the dataSource
         // object. These are part of the ElementsDataSource Protocol
-        self.title = [NSString stringWithFormat:@"%@ %@",dataSource.ligne.numero,dataSource.ligne.direction];
-                
-        //dataSource.ligne.numero + dataSource.ligne.direction;
+        self.title = [dataSource name];
+        self.tabBarItem.image = [dataSource tabBarImage];
         
         // set the long name shown in the navigation bar
-        //self.navigationItem.title=[dataSource navigationBarName];
+        self.navigationItem.title=[dataSource navigationBarName];
         
         // create a custom navigation bar button and set it to always say "back"
         UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
         temporaryBarButtonItem.title=@"Retour";
         self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         [temporaryBarButtonItem release];
-        
+
+        UIBarButtonItem *tmp=[[UIBarButtonItem alloc] init];
+        tmp.title=@"Localiser";
+        self.navigationItem.rightBarButtonItem = tmp;
+        [tmp release];
+
+
     }
     
     return self;
 }
-
-
 
 - (void)dealloc {
     theTableView.delegate = nil;
@@ -54,6 +65,12 @@
     [super dealloc];
 }
 
+
+-(void)viewDidLoad {
+
+    //Il faut activer une fois la localisation
+
+}
 
 - (void)loadView {
     
@@ -70,9 +87,9 @@
     
     // set the tableview delegate to this object and the datasource to the datasource which has already been set
     tableView.delegate = self;
-    tableView.dataSource = dataSource;
+    //tableView.dataSource = dataSource;
     
-    tableView.sectionIndexMinimumDisplayRowCount=10;
+    //tableView.sectionIndexMinimumDisplayRowCount=10;
     
     // set the tableview as the controller view
     self.theTableView = tableView;
@@ -81,30 +98,27 @@
     
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    
-    // force the tableview to load
-    [theTableView reloadData];
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
+// Customize the number of rows in the table view.
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return [dataSource ];
+//}
 
-
-//
-//
-// UITableViewDelegate methods
-//
-//
-
+// the user selected a row in the table.
 // the user selected a row in the table.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
-	// deselect the new row using animation
+    
+  	// deselectthe new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
-	    
+    /*
 	// get the element that is represented by the selected row.
 	Station *station = [dataSource StationForIndexPath:newIndexPath];
-    	
+    
     id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
     
     // create an AtomicElementViewController. This controller will display the full size tile for the element
@@ -117,8 +131,9 @@
 	// push the element view controller onto the navigation stack to display it
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];  
-    
+    */
 }
+
 
 
 

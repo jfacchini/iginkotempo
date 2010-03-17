@@ -14,6 +14,9 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		333B5EA81150FC7800204E57 /* TempsAttentesTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 333B5EA71150FC7800204E57 /* TempsAttentesTileView.m */; };
+		333B60C611511DF300204E57 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333B60C511511DF300204E57 /* CoreLocation.framework */; };
+		333B60F81151251E00204E57 /* ListeGeolocalise.m in Sources */ = {isa = PBXBuildFile; fileRef = 333B60F71151251E00204E57 /* ListeGeolocalise.m */; };
+		333B61221151274000204E57 /* GeolocalisationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333B61211151274000204E57 /* GeolocalisationTableViewController.m */; };
 		333C130611350A5200647B5C /* ListeDesLignes.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C130511350A5200647B5C /* ListeDesLignes.m */; };
 		333C132211350B9100647B5C /* Ligne.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C132111350B9100647B5C /* Ligne.m */; };
 		333C134511350E7600647B5C /* LignesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C134411350E7600647B5C /* LignesController.m */; };
@@ -64,6 +67,11 @@
 		32CA4F630368D1EE00C91783 /* GinkoTempo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoTempo_Prefix.pch; sourceTree = "<group>"; };
 		333B5EA61150FC7800204E57 /* TempsAttentesTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesTileView.h; sourceTree = "<group>"; };
 		333B5EA71150FC7800204E57 /* TempsAttentesTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesTileView.m; sourceTree = "<group>"; };
+		333B60C511511DF300204E57 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		333B60F61151251E00204E57 /* ListeGeolocalise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeGeolocalise.h; sourceTree = "<group>"; };
+		333B60F71151251E00204E57 /* ListeGeolocalise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeGeolocalise.m; sourceTree = "<group>"; };
+		333B61201151274000204E57 /* GeolocalisationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeolocalisationTableViewController.h; sourceTree = "<group>"; };
+		333B61211151274000204E57 /* GeolocalisationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeolocalisationTableViewController.m; sourceTree = "<group>"; };
 		333C130411350A5200647B5C /* ListeDesLignes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesLignes.h; sourceTree = "<group>"; };
 		333C130511350A5200647B5C /* ListeDesLignes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesLignes.m; sourceTree = "<group>"; };
 		333C132011350B9100647B5C /* Ligne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ligne.h; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				333B60C611511DF300204E57 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +212,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				333B60C511511DF300204E57 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -219,6 +229,8 @@
 				333C13AD1135189E00647B5C /* LignesTableViewController.m */,
 				33855DBA11453DA1005127B8 /* InfoTraficTableViewController.h */,
 				33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */,
+				333B61201151274000204E57 /* GeolocalisationTableViewController.h */,
+				333B61211151274000204E57 /* GeolocalisationTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -255,6 +267,8 @@
 				33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */,
 				333C130411350A5200647B5C /* ListeDesLignes.h */,
 				333C130511350A5200647B5C /* ListeDesLignes.m */,
+				333B60F61151251E00204E57 /* ListeGeolocalise.h */,
+				333B60F71151251E00204E57 /* ListeGeolocalise.m */,
 			);
 			name = "TabBar TableView Representation";
 			sourceTree = "<group>";
@@ -463,6 +477,8 @@
 				C272A600114956F900A8F842 /* DetailsInfosTraficViewController.m in Sources */,
 				335B41E6114B9C1600C08E4E /* TempsAttentesTableViewCell.m in Sources */,
 				333B5EA81150FC7800204E57 /* TempsAttentesTileView.m in Sources */,
+				333B60F81151251E00204E57 /* ListeGeolocalise.m in Sources */,
+				333B61221151274000204E57 /* GeolocalisationTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

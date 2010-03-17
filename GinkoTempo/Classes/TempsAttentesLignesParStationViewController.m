@@ -6,8 +6,17 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+
+#import <CoreLocation/CoreLocation.h>
+#import <CoreLocation/CLLocationManagerDelegate.h>
+
+
+
 #import "TempsAttentesLignesParStationViewController.h"
 #import "TempsAttentesController.h"
+
+
+
 
 @implementation TempsAttentesLignesParStationViewController
 
