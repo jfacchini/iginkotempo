@@ -65,7 +65,6 @@
     
     //cell.labelView.text = cell.temps.ligne.direction;
     
-    [cell.labelView setNeedsDisplay];
     
     return cell;
 }

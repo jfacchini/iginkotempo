@@ -7,6 +7,7 @@
 //
 
 #import "TempsAttentesLignesParStationViewController.h"
+#import "TempsAttentesController.h"
 
 @implementation TempsAttentesLignesParStationViewController
 
@@ -23,9 +24,8 @@
         self.dataSource = theDataSource;
         // set the title, and tab bar images from the dataSource
         // object. These are part of the ElementsDataSource Protocol
-        self.title = [NSString stringWithFormat:@"Temps d'attente"];
+        self.title = self.dataSource.station.name;
         
-        //dataSource.ligne.numero + dataSource.ligne.direction;
         
         // set the long name shown in the navigation bar
         //self.navigationItem.title=[dataSource navigationBarName];
@@ -36,6 +36,7 @@
         self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         [temporaryBarButtonItem release];
         
+
     }
     
     return self;
@@ -68,9 +69,7 @@
     // set the tableview delegate to this object and the datasource to the datasource which has already been set
     tableView.delegate = self;
     tableView.dataSource = dataSource;
-    
-    tableView.sectionIndexMinimumDisplayRowCount=10;
-    
+        
     // set the tableview as the controller view
     self.theTableView = tableView;
     self.view = tableView;
@@ -82,7 +81,7 @@
     [super viewDidLoad];
     
 	// Configure the table view.
-    self.theTableView.rowHeight = 73.0;
+    self.theTableView.rowHeight = 58.0;
     /*
     self.tableView.backgroundColor = DARK_BACKGROUND;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -91,19 +90,18 @@
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
     self.data = [NSArray arrayWithContentsOfFile:dataPath];
      */
-}
+}//
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
     // force the tableview to load
     [theTableView reloadData];
 }
 
 
 
-//
+
 //
 // UITableViewDelegate methods
 //
@@ -114,6 +112,11 @@
     
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
 
+    [[TempsAttentesController sharedTempsAttentesController:self.dataSource.station] setupTempsAttentesArray];
+    
+    //Permet de mettre à jours les valeurs de la view
+    [theTableView reloadData];
+    
 
 }
 

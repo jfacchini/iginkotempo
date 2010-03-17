@@ -10,18 +10,16 @@
 #import <UIKit/UIKit.h>
 
 @class TempsAttentes;
-@class LigneTileView;
+@class TempsAttentesTileView;
 
 
 @interface TempsAttentesTableViewCell : UITableViewCell {
 	TempsAttentes *temps;
-    LigneTileView *ligneTileView;
-	UILabel *labelView;
+    TempsAttentesTileView *ligneTileView;
 }
 
 @property (nonatomic,retain) TempsAttentes *temps;
-@property (nonatomic,retain) LigneTileView *ligneTileView;
-@property (nonatomic,retain) UILabel *labelView;
+@property (nonatomic,retain) TempsAttentesTileView *ligneTileView;
 @property (nonatomic,retain) NSString *horaire1;
 @property (nonatomic,retain) NSString *horaire2;
 

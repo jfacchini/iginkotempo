@@ -11,13 +11,12 @@
 
 #import "TempsAttentesTableViewCell.h"
 #import "TempsAttentes.h"
-#import "LigneTileView.h"
+#import "TempsAttentesTileView.h"
 
 @implementation TempsAttentesTableViewCell
 
 
 @synthesize temps;
-@synthesize labelView;
 @synthesize ligneTileView;
 
 
@@ -28,7 +27,6 @@
         
         //On réunitialise tout à nil
 		temps = nil;
-		labelView = nil;
         ligneTileView = nil;
         
 		// create the elementTileView and the labelView
@@ -37,22 +35,12 @@
         // On initialise le StationTileView (icone à droite)
 		
         
-        LigneTileView *tileView = [[LigneTileView alloc] initWithFrame:CGRectZero];
+        TempsAttentesTileView *tileView = [[TempsAttentesTileView alloc] initWithFrame:CGRectZero];
         self.ligneTileView = tileView;
         [self.contentView addSubview:tileView];
         [tileView release];
         
         
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-		// set the label view to have a clear background and a 20 point font
-		label.backgroundColor = [UIColor clearColor];
-		label.font = [UIFont boldSystemFontOfSize:18];
-                
-		self.labelView = label;
-        
-		[self.contentView addSubview:label];
-		[label release];
-		
 		
 		// add both the label and elementTile to the TableViewCell view
     }
@@ -72,22 +60,14 @@
 	
 	// position the image tile in the content rect.
 	CGRect elementTileRect = self.contentView.bounds;
-	elementTileRect.size = [LigneTileView preferredViewSize];
-	elementTileRect = CGRectOffset(elementTileRect,10,3);
+	elementTileRect.size = [TempsAttentesTileView preferredViewSize];
 	ligneTileView.frame = elementTileRect;
-    
-    
-	// position the elment name in the content rect
-	CGRect labelRect = contentRect;
-	labelRect.origin.x = labelRect.origin.x+56;
-	labelRect.origin.y = labelRect.origin.y+3;
-	labelView.frame = labelRect;	
+
 }
 
 
 - (void)dealloc {
 	[temps release];
-	[labelView release];
     [super dealloc];
 }
 
@@ -105,9 +85,7 @@
 		temps = aTemps;
 	}
     
-    ligneTileView.ligne = temps.ligne;
-	labelView.text = temps.ligne.direction;
-	[labelView setNeedsDisplay];
+    ligneTileView.temps = temps;
     [ligneTileView setNeedsDisplay];
 }
 
