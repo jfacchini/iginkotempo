@@ -10,13 +10,16 @@
 #import "GinkoDataSourceProtocol.h"
 #import "Station.h"
 #import "StationsParLigneController.h"
+#import "TempsAttentesController.h"
 
 @interface TempsAttentesLignesParStation : NSObject {
     Station *station;
-    
+    TempsAttentesController *tempsAttentesController;
 }
 
 @property (nonatomic,retain) Station *station;
+@property (nonatomic,retain) TempsAttentesController *tempsAttentesController;
+
 
 - (UITableViewStyle)tableViewStyle;
 -(id)initWithStation:(Station *)aStation;

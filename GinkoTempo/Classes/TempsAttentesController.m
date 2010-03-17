@@ -25,36 +25,6 @@
 @synthesize tempsAttentesSortedByNumber;
 
 
-static TempsAttentesController *sharedTempsAttentesControllerInstance = nil;
-
-// Aucune idée de à quoi cela sert.
-+ (TempsAttentesController*) sharedTempsAttentesController:(Station*) aStation {
-
-    @synchronized(self) {
-        if (sharedTempsAttentesControllerInstance == nil) {
-            [[self alloc] initWithStation:aStation]; // assignment not done here
-        }
-    }
-    
-    return sharedTempsAttentesControllerInstance;
-	// note: Xcode (3.2) static analyzer will report this singleton as a false positive
-	// '(Potential leak of an object allocated')
-}
-
-
-+ (id)allocWithZone:(NSZone *)zone {
-    
-    @synchronized(self) {
-        if (sharedTempsAttentesControllerInstance == nil) {
-            sharedTempsAttentesControllerInstance = [super allocWithZone:zone];
-            return sharedTempsAttentesControllerInstance;  // assignment and return on first allocation
-        }
-    }
-    
-    
-    return nil; //on subsequent allocation attempts return nil
-}
-
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }
@@ -87,7 +57,8 @@ static TempsAttentesController *sharedTempsAttentesControllerInstance = nil;
 // setup the data collection
 - initWithStation:(Station *)aStation {
 	if (self = [super init]) {
-        
+        station = aStation;
+        [self setupTempsAttentesArray];
 	}
 	return self;
 }

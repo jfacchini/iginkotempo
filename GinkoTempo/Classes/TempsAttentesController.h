@@ -20,7 +20,6 @@
 @property (nonatomic,retain) NSMutableDictionary *tempsAttentesDictionary;
 @property (nonatomic,retain) NSArray *tempsAttentesSortedByNumber;
 
-+ (TempsAttentesController *)sharedTempsAttentesController:(Station*) aStation;
 
 
 @end

@@ -14,10 +14,12 @@
 @implementation TempsAttentesLignesParStation
 
 @synthesize station;
+@synthesize tempsAttentesController;
 
 -(id)initWithStation:(Station *)aStation{
     if (self = [super init]) {
         station = aStation;
+        tempsAttentesController = [[TempsAttentesController alloc] initWithStation:aStation];
     }
     return self;
 }
@@ -41,7 +43,7 @@
 // return the atomic element at the index 
 - (TempsAttentes *)ObjectForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[[TempsAttentesController sharedTempsAttentesController:station] tempsAttentesSortedByNumber] objectAtIndex:indexPath.row];
+    return [[tempsAttentesController tempsAttentesSortedByNumber] objectAtIndex:indexPath.row];
     
 } 
 
@@ -78,13 +80,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [[[TempsAttentesController sharedTempsAttentesController:station] tempsAttentesDictionary] count];
+    return [[tempsAttentesController tempsAttentesDictionary] count];
 }
 
 
 
 
 - (void)dealloc {
+    [station dealloc];
+    [tempsAttentesController dealloc];
     [super dealloc];
 }
 

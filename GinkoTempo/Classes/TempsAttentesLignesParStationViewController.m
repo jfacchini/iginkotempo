@@ -111,8 +111,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
     
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
-
-    [[TempsAttentesController sharedTempsAttentesController:self.dataSource.station] setupTempsAttentesArray];
+    
+    [[dataSource tempsAttentesController] setupTempsAttentesArray];
     
     //Permet de mettre à jours les valeurs de la view
     [theTableView reloadData];

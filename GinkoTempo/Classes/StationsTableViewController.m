@@ -124,7 +124,6 @@
 	Station *station = [dataSource objectForIndexPath:newIndexPath];
 	
     id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
-    [[TempsAttentesController sharedTempsAttentesController:station] setStation:station];
 
     // create an AtomicElementViewController. This controller will display the full size tile for the element
 	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithDataSource:dSource];
