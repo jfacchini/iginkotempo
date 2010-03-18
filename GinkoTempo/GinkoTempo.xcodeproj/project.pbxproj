@@ -23,6 +23,7 @@
 		333C13AE1135189E00647B5C /* LignesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C13AD1135189E00647B5C /* LignesTableViewController.m */; };
 		333C1493113558DE00647B5C /* LigneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C1492113558DE00647B5C /* LigneTableViewCell.m */; };
 		333C14961135590000647B5C /* LigneTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C14951135590000647B5C /* LigneTileView.m */; };
+		3350343F11523CCA00D33A57 /* StationsGeolocaliseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */; };
 		33592CF21149260E007B7C12 /* TempsAttentes.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF11149260E007B7C12 /* TempsAttentes.m */; };
 		33592CF911492C0F007B7C12 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF811492C0F007B7C12 /* Message.m */; };
 		33592D481149376A007B7C12 /* TempsAttentesLignesParStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */; };
@@ -84,6 +85,8 @@
 		333C1492113558DE00647B5C /* LigneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTableViewCell.m; sourceTree = "<group>"; };
 		333C14941135590000647B5C /* LigneTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigneTileView.h; sourceTree = "<group>"; };
 		333C14951135590000647B5C /* LigneTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTileView.m; sourceTree = "<group>"; };
+		3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsGeolocaliseController.h; sourceTree = "<group>"; };
+		3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsGeolocaliseController.m; sourceTree = "<group>"; };
 		33592CF01149260E007B7C12 /* TempsAttentes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentes.h; sourceTree = "<group>"; };
 		33592CF11149260E007B7C12 /* TempsAttentes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentes.m; sourceTree = "<group>"; };
 		33592CF711492C0F007B7C12 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				33EFB464113FF69000803577 /* InfoTraficController.m */,
 				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
 				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
+				3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */,
+				3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */,
 				33592D5F11493B6F007B7C12 /* TempsAttentesController.h */,
 				33592D6011493B6F007B7C12 /* TempsAttentesController.m */,
 			);
@@ -479,6 +484,7 @@
 				333B5EA81150FC7800204E57 /* TempsAttentesTileView.m in Sources */,
 				333B60F81151251E00204E57 /* ListeGeolocalise.m in Sources */,
 				333B61221151274000204E57 /* GeolocalisationTableViewController.m in Sources */,
+				3350343F11523CCA00D33A57 /* StationsGeolocaliseController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
