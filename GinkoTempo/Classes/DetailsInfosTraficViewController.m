@@ -13,13 +13,17 @@
 
 @synthesize detailsInfosTraficView;
 @synthesize titreInfoTrafic;
+@synthesize corpsInfoTrafic;
 @synthesize uneInfoTrafic;
 
 - (id)initWithInfoTrafic:(InfoTrafic *)myInfoTrafic {
     
     if([self init]) {
+        self.title = @"Information";
+        
         self.detailsInfosTraficView = nil;
         self.titreInfoTrafic = nil;
+        self.corpsInfoTrafic = nil;
         self.uneInfoTrafic = myInfoTrafic;
     }
     
@@ -29,27 +33,40 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
     
-    titreInfoTrafic = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 50)];
+    CGSize tailleMax = CGSizeMake(310, 9999);
+    CGSize tailleRect = [uneInfoTrafic.titre sizeWithFont:[UIFont boldSystemFontOfSize:18] constrainedToSize:tailleMax];
+    
+    titreInfoTrafic = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, tailleRect.height)];
     
     titreInfoTrafic.text = uneInfoTrafic.titre;
-    titreInfoTrafic.numberOfLines = 2;
+    titreInfoTrafic.numberOfLines = tailleRect.height / 18;
     titreInfoTrafic.font = [UIFont boldSystemFontOfSize:18];
-    titreInfoTrafic.adjustsFontSizeToFitWidth = YES;
-    titreInfoTrafic.minimumFontSize = 10;
     
     [titreInfoTrafic setTextAlignment:UITextAlignmentCenter];
     
-    corpsInfoTrafic = [[UITextView alloc] initWithFrame:CGRectMake(5, 65, 310, 302)];
-    corpsInfoTrafic.text = [NSString stringWithFormat:@"%@\n\n%@", uneInfoTrafic.corps, uneInfoTrafic.lienSurGinkobus];
-    corpsInfoTrafic.font = [UIFont systemFontOfSize:16];
-    corpsInfoTrafic.dataDetectorTypes = UIDataDetectorTypeAll;
-    [corpsInfoTrafic setScrollEnabled:YES];
-    [corpsInfoTrafic setEditable:NO];
+    CGFloat nouveauY = tailleRect.height + 15;
+    tailleRect = [uneInfoTrafic.corps sizeWithFont:[UIFont systemFontOfSize:16] constrainedToSize:tailleMax];
     
-    detailsInfosTraficView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    corpsInfoTrafic = [[UILabel alloc] initWithFrame:CGRectMake(5, nouveauY, 310, tailleRect.height)];
+    corpsInfoTrafic.text = uneInfoTrafic.corps;
+    corpsInfoTrafic.numberOfLines = tailleRect.height / 16;
+    corpsInfoTrafic.font = [UIFont systemFontOfSize:16];
+    
+    nouveauY += tailleRect.height + 20;
+    
+    UILabel *plusDinfo = [[UILabel alloc] initWithFrame:CGRectMake(5, nouveauY, 310, 14)];
+    plusDinfo.text = @"Information détaillée sur Ginkobus.com";
+    plusDinfo.font = [UIFont systemFontOfSize:14];
+    plusDinfo.textColor = [UIColor blueColor];
+    
+    detailsInfosTraficView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     
     [detailsInfosTraficView addSubview:titreInfoTrafic];
     [detailsInfosTraficView addSubview:corpsInfoTrafic];
+    [detailsInfosTraficView addSubview:plusDinfo];
+    [detailsInfosTraficView setScrollEnabled:YES];
+    
+    [plusDinfo release];
     
     self.view = detailsInfosTraficView;
 }
@@ -84,7 +101,8 @@
 
 - (void)dealloc {
     [detailsInfosTraficView release];
-    //[titreInfoTrafic release];
+    [titreInfoTrafic release];
+    [corpsInfoTrafic release];
     [uneInfoTrafic release];
     [super dealloc];
 }
