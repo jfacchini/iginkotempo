@@ -370,30 +370,31 @@ struct soap *soap = NULL;
                                     :(NSString*) latitude
                                     :(float) precision
 {
-    /*
+    
      if (soap == NULL) {
      // Initialisation de gsoap
      [WebserviceUtils initSoap];
      }
 	
 	// Creation des objet Requete/Reponse
-	struct _ns1__getStationsLesPlusProches requete;
+	struct _ns1__getListeStationsProches requete;
     requete.Longitute = (char*) [Longitute UTF8String];
     requete.Latitude = (char*) [Latitude UTF8String];
+    requete.precision = precision;
     
-	struct _ns1__getStationsLesPlusProchesResponse reponse;
+	struct _ns1__getListeStationsProches reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getStationsLesPlusProches(soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getListeStationsProches(soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
         return [WebserviceUtils 
-                creerTableauString:reponse.getStationsLesPlusProchesReturn
-                ayantPourTaille:reponse.__sizegetStationsLesPlusProchesReturn];
+                creerTableauString:reponse.getListeStationsProchesReturn
+                ayantPourTaille:reponse.__sizegetListeStationsProchesReturn];
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getStationsLesPlusProches");
-    */ 
+    
     // Si la requete echoue on test nil
     return nil;
 }
