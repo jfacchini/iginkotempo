@@ -59,7 +59,7 @@
 
         
         // Bouton style refresh par default, sinon faire initWithTitle:style:target:action
-        localiser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startLocalisation)];
+        localiser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startStopLocalisation)];
         self.navigationItem.rightBarButtonItem = localiser;
 
 
@@ -132,7 +132,7 @@
  *
  */
 
--(void) startLocalisation{
+-(void) startStopLocalisation{
     printf("Géolocalisation");
     
     //Voir la doc pour savoir ce que ça fait.
@@ -186,6 +186,8 @@
     self.theTableView = tableView;
     self.view = tableView;
     [tableView release];
+    
+    [self startStopLocalisation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *) error{

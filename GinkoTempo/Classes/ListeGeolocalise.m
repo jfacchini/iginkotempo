@@ -7,9 +7,9 @@
 //
 
 #import "ListeGeolocalise.h"
-#import "LignesController.h"
+#import "StationsGeolocaliseController.h"
 #import "LigneTableViewCell.h"
-#import "LigneTileView.h"
+#import "StationTableViewCell.h"
 #import "Ligne.h"
 
 @implementation ListeGeolocalise
@@ -49,23 +49,23 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[LignesController sharedLignesController] ligneSortedByNumber] count];
+    return [[[StationsGeolocaliseController sharedStationsGeolocaliseController] stationNameByOrder] count];
 }
 
 // return the atomic element at the index 
 - (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[[LignesController sharedLignesController] ligneSortedByNumber] objectAtIndex:indexPath.row];
+    return [[[StationsGeolocaliseController sharedStationsGeolocaliseController] stationNameByOrder] objectAtIndex:indexPath.row];
     
 }  
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    LigneTableViewCell *cell = (LigneTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LigneTableViewCell"];
+    StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"StationTableViewCell"];
     
     if (cell == nil) {
-        cell = [[[LigneTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LigneTableViewCell"] autorelease];
+        cell = [[[StationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StationTableViewCell"] autorelease];
     }
     
     // configure cell contents
@@ -80,13 +80,12 @@
     
     //[cell setElement: [self LignesForIndexPath:indexPath]];
     
-    cell.ligne = [self objectForIndexPath:indexPath];
+    cell.station = [self objectForIndexPath:indexPath];
     
-    cell.ligneTileView.ligne = cell.ligne;
-	cell.labelView.text = cell.ligne.direction;
+	cell.labelView.text = cell.station.name;
     
     //On met à jours les colonnes pour un affichage cohérent.
-    [cell.ligneTileView setNeedsDisplay];
+    [cell.stationTileView setNeedsDisplay];
 	[cell.labelView setNeedsDisplay];
     
     //cell.labelView.text = cell.ligne.direction;

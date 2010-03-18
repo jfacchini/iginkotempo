@@ -378,11 +378,13 @@ struct soap *soap = NULL;
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getListeStationsProches requete;
-    requete.Longitute = (char*) [Longitute UTF8String];
-    requete.Latitude = (char*) [Latitude UTF8String];
+    
+    requete.Longitute = (char*) [longitute UTF8String];
+    requete.Latitude = (char*) [latitude UTF8String];
     requete.precision = precision;
     
-	struct _ns1__getListeStationsProches reponse;
+
+	struct _ns1__getListeStationsProchesResponse reponse;
     
     //Appel du service web
 	if (!soap_call___ns1__getListeStationsProches(soap, ADRESSEWS, NULL,

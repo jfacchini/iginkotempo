@@ -35,6 +35,6 @@
 @property (nonatomic,retain) id<GinkoDataSource,UITableViewDataSource> dataSource;
 
 - (id)initWithDataSource:(id<GinkoDataSource,UITableViewDataSource>)theDataSource;
-- (void)startLocalisation;
+- (void)startStopLocalisation;
 
 @end

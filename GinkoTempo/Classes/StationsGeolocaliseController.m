@@ -93,8 +93,9 @@ static StationsGeolocaliseController *sharedStationsControllerInstance = nil;
 	self.stationsDictionary = [NSMutableDictionary dictionary];
     
 	// read the element data from the plist
-	NSArray *rawStationsArray = [WebserviceUtils getStationsLesPlusProches: [NSString stringWithFormat: @"%f", longitude] 
-                                                                         :[NSString stringWithFormat: @"%f", latitude] ];
+	NSArray *rawStationsArray = [WebserviceUtils getListeStationsProches: [NSString stringWithFormat: @"%f", longitude] 
+                                                                        : [NSString stringWithFormat: @"%f", latitude]
+                                                                        : 10.0];
     //[rawStationsArray addObject:nil];
     int i = 0;
     
