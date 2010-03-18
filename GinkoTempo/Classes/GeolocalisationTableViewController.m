@@ -119,9 +119,27 @@
 //}
 
 // the user selected a row in the table.
-// the user selected a row in the table.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
- 
+ 	// deselect the new row using animation
+    [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+	
+	// get the element that is represented by the selected row.
+	Station *station = [dataSource objectForIndexPath:newIndexPath];
+	
+    id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
+    
+    // create an AtomicElementViewController. This controller will display the full size tile for the element
+	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithDataSource:dSource];
+    
+    
+	// set the element for the controller
+	//stationController.station = station;
+	
+	// push the element view controller onto the navigation stack to display it
+	[[self navigationController] pushViewController:stationController animated:YES];
+	[stationController release];
+    
+    
 }
 
 
@@ -133,8 +151,9 @@
  */
 
 -(void) startStopLocalisation{
-    printf("Géolocalisation");
-    
+
+    //printf("Géolocalisation %s\n", enCoursDeGeolocalisation ? "oui" : "non");
+
     //Voir la doc pour savoir ce que ça fait.
     [locManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
@@ -187,7 +206,8 @@
     self.view = tableView;
     [tableView release];
     
-    [self startStopLocalisation];
+    enCoursDeGeolocalisation = NO;
+    [locManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *) error{

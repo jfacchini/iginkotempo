@@ -95,15 +95,13 @@ static StationsGeolocaliseController *sharedStationsControllerInstance = nil;
 	// read the element data from the plist
 	NSArray *rawStationsArray = [WebserviceUtils getListeStationsProches: [NSString stringWithFormat: @"%f", longitude] 
                                                                         : [NSString stringWithFormat: @"%f", latitude]
-                                                                        : 10.0];
+                                                                        : 5.0];
     //[rawStationsArray addObject:nil];
     int i = 0;
     
 	// iterate over the values in the raw elements dictionary
 	for (eachStation in rawStationsArray)
 	{
-        
-        printf("%@", eachStation);
         // create an atomic element instance for each
 		Station *aStation = [[Station alloc] initWithName:eachStation withIdent:[NSNumber numberWithInt:i]];
 		
