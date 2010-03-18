@@ -84,8 +84,6 @@
 	// deselect the new row using animation
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
     
-    printf("indexpath.row : %d\n",newIndexPath.row);
-    
     InfoTrafic *iT = [[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:newIndexPath.row];
 	
     // cree un controleur de vue d'une InfoTrafic.
