@@ -17,14 +17,33 @@
 
 @interface WebserviceUtils(mymethods)
 
++ (void)initSoap;
 + (UIColor *) uiColorWithHexString:(NSString *)s;
 + (int) intValueForHexChar:(char) c;
+/*
+ * Cree un tableau de type NSArray a partir d'un
+ * tableau de chaines de caracteres
+ */
++ (NSArray*) creerTableauString:(char**) tabString
+                ayantPourTaille:(int) taille;
 
 @end
 
 
-
 @implementation WebserviceUtils
+
+struct soap *soap = NULL;
+
++ (void)initSoap {
+    if (soap == NULL) {
+        soap = (struct soap *) malloc(sizeof(struct soap));
+        soap_init(soap);
+        if (FAC == 1) {
+            soap->proxy_host = "proxy-web.univ-fcomte.fr";
+            soap->proxy_port = 3128;
+        }
+    }
+}
 
 + (int) addLigneStationBornePerso:(NSString*) Idenditifiant
                                  :(NSString*) MotDePasseMD5
@@ -33,12 +52,9 @@
                                  :(NSString*) sens
 {
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -52,7 +68,7 @@
 	struct _ns1__addLigneStationBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__addLigneStationBornePerso(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__addLigneStationBornePerso(soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
         return reponse.addLigneStationBornePersoReturn;
@@ -68,12 +84,9 @@
                         :(NSString*) MotDePasseMD5
 {
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -84,7 +97,7 @@
 	struct _ns1__createBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__createBornePerso(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__createBornePerso(soap, ADRESSEWS, NULL,
                                            &requete, &reponse)) {
         
         return reponse.createBornePersoReturn;
@@ -103,12 +116,9 @@
                                     :(NSString*) sens
 {
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -122,7 +132,7 @@
 	struct _ns1__deleteLigneStationBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__deleteLigneStationBornePerso(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__deleteLigneStationBornePerso(soap, ADRESSEWS, NULL,
                                                        &requete, &reponse)) {
         
         return reponse.deleteLigneStationBornePersoReturn;
@@ -135,8 +145,6 @@
 
 + (NSArray*) getInfoTrafic {
     
-    // Initialisation de gsoap
-	struct soap soap;
     NSMutableArray *listeInfosTrafic; // Tableau d'infos trafic
     int nbObjInfoTrafic; // Nombre d'objet a creer
     int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
@@ -144,10 +152,9 @@
     // Variable temporaire pour la creation des Lignes
     InfoTrafic *iT;
     
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+	if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -155,7 +162,7 @@
 	struct _ns1__getInfoTraficResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getInfoTrafic(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getInfoTrafic(soap, ADRESSEWS, NULL,
                                         &requete, &reponse)) {
         nC = atoi(reponse.getInfoTraficReturn[0]);
         
@@ -189,12 +196,9 @@
                                       :(NSString*) MotDePasseMD5
 {
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -205,11 +209,11 @@
 	struct _ns1__getLigneStationBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getLigneStationBornePerso(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getLigneStationBornePerso(soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
-        return [WebserviceUtils creerTableau2DString:
-                reponse.getLigneStationBornePersoReturn];
+        /*return [WebserviceUtils creerTableau2DString:
+                reponse.getLigneStationBornePersoReturn];*/
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getLigneStationBornePerso");
@@ -220,7 +224,6 @@
 
 + (NSArray*) getListeLignes {
     
-	struct soap soap;
     NSMutableArray *listeLignes; // Tableau de Lignes de bus
     int nbObjLignes; // Nombre d'objet a creer
     int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
@@ -230,11 +233,9 @@
     NSString *couleurs;
     NSArray *tabCouleurs;
     
-    // Initialisation de gsoap
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -242,7 +243,7 @@
 	struct _ns1__getListeLignesResponse reponse;
 	
 	//Appel du service web
-	if (!soap_call___ns1__getListeLignes(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getListeLignes(soap, ADRESSEWS, NULL,
                                          &requete, &reponse)) {
         
         nC = atoi(reponse.getListeLignesReturn[0]);
@@ -283,12 +284,9 @@
 
 + (NSArray*) getListeStations {
 	
-	// Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+	if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -296,7 +294,7 @@
 	struct _ns1__getListeStationsResponse reponse;
 	
 	//Appel du service web
-	if (!soap_call___ns1__getListeStations(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getListeStations(soap, ADRESSEWS, NULL,
                                            &requete, &reponse)) {
         
 		return [WebserviceUtils creerTableauString:reponse.getListeStationsReturn
@@ -315,13 +313,10 @@
     
     
     //printf("getListeStationsParLigne %s, %s", [ligne cString], [sens cSting]);
-    // Initialisation de gsoap
     
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+	if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -332,7 +327,7 @@
 	struct _ns1__getListeStationsParLigneResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getListeStationsParLigne(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getListeStationsParLigne(soap, ADRESSEWS, NULL,
                                                    &requete, &reponse)) {
         
         return [WebserviceUtils
@@ -348,12 +343,9 @@
 
 + (NSArray*) getMessages:(NSString*) listeIdMessage {
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -363,9 +355,9 @@
 	struct _ns1__getMessagesResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getMessages(&soap, ADRESSEWS, NULL, &requete, &reponse)) {
+	if (!soap_call___ns1__getMessages(soap, ADRESSEWS, NULL, &requete, &reponse)) {
         
-        return [WebserviceUtils creerTableau2DString:reponse.getMessagesReturn];
+        /*return [WebserviceUtils creerTableau2DString:reponse.getMessagesReturn];*/
 	}
     
     NSLog(@"Erreur: Appel SOAP: getMessages");
@@ -374,17 +366,15 @@
     return nil;
 }
 
-+ (NSArray*) getStationsLesPlusProches:(NSString*) Longitute
-                                      :(NSString*)Latitude
++ (NSArray*) getListeStationsProches:(NSString*) longitute
+                                    :(NSString*) latitude
+                                    :(float) precision
 {
-    
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
-    }
+    /*
+     if (soap == NULL) {
+     // Initialisation de gsoap
+     [WebserviceUtils initSoap];
+     }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getStationsLesPlusProches requete;
@@ -394,7 +384,7 @@
 	struct _ns1__getStationsLesPlusProchesResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getStationsLesPlusProches(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getStationsLesPlusProches(soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
         return [WebserviceUtils 
@@ -403,7 +393,7 @@
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getStationsLesPlusProches");
-    
+    */ 
     // Si la requete echoue on test nil
     return nil;
 }
@@ -423,12 +413,9 @@
     TempsAttentes *l;
     Ligne *ligne;
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -438,7 +425,7 @@
 	struct _ns1__getTempsParStationResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__getTempsParStation(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__getTempsParStation(soap, ADRESSEWS, NULL,
                                              &requete, &reponse)) {
         
         nC = atoi(reponse.getTempsParStationReturn[0]);
@@ -496,12 +483,9 @@
                        :(NSString*) MotDePasseMD5
 {
     
-    // Initialisation de gsoap
-	struct soap soap;
-	soap_init(&soap);
-    if (FAC == 1) {
-        soap.proxy_host = "proxy-web.univ-fcomte.fr";
-        soap.proxy_port = 3128;
+    if (soap == NULL) {
+        // Initialisation de gsoap
+        [WebserviceUtils initSoap];
     }
 	
 	// Creation des objet Requete/Reponse
@@ -512,7 +496,7 @@
 	struct _ns1__verifBornePersoResponse reponse;
     
     //Appel du service web
-	if (!soap_call___ns1__verifBornePerso(&soap, ADRESSEWS, NULL,
+	if (!soap_call___ns1__verifBornePerso(soap, ADRESSEWS, NULL,
                                           &requete, &reponse)) {
         
         return reponse.verifBornePersoReturn;
@@ -540,76 +524,6 @@
     }
     
     return tableauRetour;
-}
-
-+ (NSArray*) creerTableau2DString:(char**) tabString {
-    
-    int nColonnes, nLignes,
-    debutColonne = 2;
-    NSMutableArray *tableauRetour = [NSMutableArray arrayWithCapacity:nColonnes];
-    NSMutableArray *tableauLignes;
-    NSString *tmp;
-    
-    nColonnes = atoi(tabString[0]);
-    printf("Colonnes %d\n", nColonnes);
-    
-    nLignes = atoi(tabString[1]);
-    printf("Lignes %d\n", nLignes);
-    
-    for (int i=0; i<nColonnes; i++) {
-        
-        tableauLignes = [NSMutableArray arrayWithCapacity:nLignes];
-        
-        for (int j=0; j<nLignes; j++) {
-            tmp = [NSString stringWithCString:tabString[debutColonne+j]
-                                     encoding:NSASCIIStringEncoding];
-            
-            if (tmp != nil) { // Une insertion de nil fait planter l'appli
-                [tableauLignes addObject:tmp];
-            }
-        }
-        [tableauRetour addObject:tableauLignes];
-        debutColonne += nLignes;
-    }
-    
-    return tableauRetour;
-}
-
-+ (void) afficheTableau:(NSArray*)tab {
-    
-    id elt;
-    NSEnumerator *itElt = [tab objectEnumerator];
-    
-    printf("=== Debut tableau ===\n");
-    
-    while ((elt = [itElt nextObject])) {
-        
-        printf("==> %s\n", [elt UTF8String]);
-    }
-    
-    printf("=== Fin tableau ===\n");
-}
-
-+ (void) afficheTableau2D:(NSArray*)tab {
-    
-    int i=0;
-    id tabCol, tabLigne;
-    NSEnumerator *itCol = [tab objectEnumerator], *itLigne;
-    
-    printf("---- Debut tableau ----\n");
-    
-    while ((tabCol = [itCol nextObject])) {
-        
-        printf("  -- Colonne %d --\n", i);
-        i++;
-        
-        itLigne = [tabCol objectEnumerator];
-        while ((tabLigne = [itLigne nextObject])) {
-            
-            printf("==> %s\n", [tabLigne UTF8String]);
-        }
-    }
-    printf("---- Fin tableau ----\n");
 }
 
 + (UIColor *) uiColorWithHexString:(NSString *) s {

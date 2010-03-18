@@ -73,8 +73,9 @@
  * Appel fonction getStationsLesPlusProches sur le Webservice de Ginkotempo.
  * Voir l'API Ginkotempo pour plus d'information sur la fonction.
  */
-+ (NSArray*) getStationsLesPlusProches:(NSString*) longitute
-                                       :(NSString*) latitude;
++ (NSArray*) getListeStationsProches:(NSString*) longitute
+                                    :(NSString*) latitude
+                                    :(float) precision;
 /*
  * Appel fonction getTempsParStation sur le Webservice de Ginkotempo.
  * Voir l'API Ginkotempo pour plus d'information sur la fonction.
@@ -86,23 +87,5 @@
  */
 + (int) verifBornePerso:(NSString*) idenditifiant
                        :(NSString*) motDePasseMD5;
-/*
- * Cree un tableau de type NSArray a partir d'un
- * tableau de chaines de caracteres
- */
-+ (NSArray*) creerTableauString:(char**) tabString
-                ayantPourTaille:(int) taille;
-/*
- * Transforme un tableau de chaines de caracteres
- * d'une dimension en un tableau a deux dimensions
- *
- * Return : Retourne un objet NSArray contenant des objets
- *          NSArray eux-memes contenant des objets NSString
- */
-+ (NSArray*) creerTableau2DString:(char**) tabString;
-
-+ (void) afficheTableau:(NSArray*)tab;
-
-+ (void) afficheTableau2D:(NSArray*)tab;
 
 @end
