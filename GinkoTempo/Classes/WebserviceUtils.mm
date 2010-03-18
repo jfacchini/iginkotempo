@@ -382,7 +382,6 @@ struct soap *soap = NULL;
     requete.Longitute = (char*) [longitute UTF8String];
     requete.Latitude = (char*) [latitude UTF8String];
     requete.precision = precision;
-    
 
 	struct _ns1__getListeStationsProchesResponse reponse;
     
