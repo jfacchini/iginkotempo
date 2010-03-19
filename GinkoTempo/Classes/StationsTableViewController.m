@@ -12,6 +12,7 @@
 #import "ListeDesStations.h"
 #import "GinkoTempoAppDelegate.h"
 #import "Station.h"
+#import "StationsController.h"
 
 @implementation StationsTableViewController
 
@@ -97,6 +98,16 @@
     [theTableView reloadData];
 }
 
+- (void)viewDidLoad
+{	
+
+}
+
+- (void)viewDidUnload
+{
+
+}
+
 /*
 - (void)transitionDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
 
@@ -137,7 +148,6 @@
 	[stationController release];
      
 }
-
 
 
 

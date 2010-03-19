@@ -101,17 +101,7 @@ static StationsController *sharedStationsControllerInstance = nil;
                                  @"Liberté",
                                  @"UFR Sciences",
                                  @"Granvelle",
-                                 @"La Poste",
-                                 @"8 septembre",
-                                 @"Kepler",
-                                 @"Crédit Lyonnais",
-                                 @"FanArt",
-                                 @"Notre Dame",
-                                 @"Gymnase",
-                                 @"République",
                                  @"St Maurice",
-                                 @"Victor Hugo",
-                                 @"La Station avec le nom le plus long de tout Besançon",
                                  nil];*/
     
     /*
