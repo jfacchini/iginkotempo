@@ -119,14 +119,15 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 290641091;
-			PBXWorkspaceStateSaveDate = 290641091;
+			PBXPerProjectTemplateStateSaveDate = 290690199;
+			PBXWorkspaceStateSaveDate = 290690199;
 		};
 		perUserProjectItems = {
 			33112AF31135BBAB007B8D55 = 33112AF31135BBAB007B8D55 /* PBXBookmark */;
 			331F3C8B114A5CC900A78FA5 = 331F3C8B114A5CC900A78FA5 /* PBXTextBookmark */;
 			331F3CB1114A5D7100A78FA5 = 331F3CB1114A5D7100A78FA5 /* PBXTextBookmark */;
 			331F3CB2114A5D7100A78FA5 = 331F3CB2114A5D7100A78FA5 /* PBXTextBookmark */;
+			3336BEF01153949C00E7B0F3 /* PBXTextBookmark */ = 3336BEF01153949C00E7B0F3 /* PBXTextBookmark */;
 			333B5EE51151008A00204E57 = 333B5EE51151008A00204E57 /* PBXTextBookmark */;
 			333B5EE61151008A00204E57 = 333B5EE61151008A00204E57 /* PBXTextBookmark */;
 			333B5F921151085900204E57 = 333B5F921151085900204E57 /* PBXTextBookmark */;
@@ -175,7 +176,6 @@
 			335036301152913500D33A57 = 335036301152913500D33A57 /* PBXTextBookmark */;
 			335036311152913500D33A57 = 335036311152913500D33A57 /* PBXTextBookmark */;
 			3350363B1152914400D33A57 = 3350363B1152914400D33A57 /* PBXTextBookmark */;
-			3350363C1152914400D33A57 = 3350363C1152914400D33A57 /* PBXTextBookmark */;
 			335036471152945700D33A57 = 335036471152945700D33A57 /* PBXTextBookmark */;
 			335697CF114A3C30009F04BB = 335697CF114A3C30009F04BB /* PlistBookmark */;
 			33592CFC11492CCB007B7C12 = 33592CFC11492CCB007B7C12 /* PBXTextBookmark */;
@@ -194,9 +194,7 @@
 			339794BA11491577002D0A30 = 339794BA11491577002D0A30 /* PBXBookmark */;
 			33D20C28114A563900523EEA = 33D20C28114A563900523EEA /* PBXBookmark */;
 			33D54DEF113189CA00C04524 = 33D54DEF113189CA00C04524 /* PBXTextBookmark */;
-			33E20FDE1152D4D900FEF171 /* PBXTextBookmark */ = 33E20FDE1152D4D900FEF171 /* PBXTextBookmark */;
-			33E20FEC11534E2300FEF171 /* PBXTextBookmark */ = 33E20FEC11534E2300FEF171 /* PBXTextBookmark */;
-			33E20FF511534E5400FEF171 /* PBXTextBookmark */ = 33E20FF511534E5400FEF171 /* PBXTextBookmark */;
+			33E20FFB11534EC000FEF171 = 33E20FFB11534EC000FEF171 /* PBXTextBookmark */;
 			33EFB5C511401EB400803577 = 33EFB5C511401EB400803577 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 338DDEA811249AA100FB0316 /* Source Control */;
@@ -205,15 +203,15 @@
 	};
 	29B97316FDCFA39411CA2CEA /* main.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1070, 539}}";
-			sepNavSelRange = "{435, 0}";
-			sepNavVisRange = "{0, 674}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
+			sepNavSelRange = "{588, 0}";
+			sepNavVisRange = "{0, 635}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
 		};
 	};
 	32CA4F630368D1EE00C91783 /* GinkoTempo_Prefix.pch */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1099, 388}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 189}";
 		};
@@ -251,6 +249,16 @@
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 515;
+	};
+	3336BEF01153949C00E7B0F3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */;
+		name = "StationsTableViewController.m: 38";
+		rLen = 0;
+		rLoc = 1142;
+		rType = 0;
+		vrLen = 1668;
+		vrLoc = 535;
 	};
 	333B5EA61150FC7800204E57 /* TempsAttentesTileView.h */ = {
 		uiCtxt = {
@@ -419,9 +427,9 @@
 	};
 	333B61211151274000204E57 /* GeolocalisationTableViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1097, 3536}}";
-			sepNavSelRange = "{4852, 0}";
-			sepNavVisRange = "{3390, 1547}";
+			sepNavIntBoundsRect = "{{0, 0}, {1181, 3341}}";
+			sepNavSelRange = "{7211, 7}";
+			sepNavVisRange = "{5426, 2089}";
 		};
 	};
 	333B61291151278B00204E57 /* PBXTextBookmark */ = {
@@ -501,7 +509,7 @@
 	};
 	333C132011350B9100647B5C /* Ligne.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 468}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{265, 9}";
 			sepNavVisRange = "{0, 913}";
 		};
@@ -510,12 +518,12 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {991, 637}}";
 			sepNavSelRange = "{516, 0}";
-			sepNavVisRange = "{184, 793}";
+			sepNavVisRange = "{0, 982}";
 		};
 	};
 	333C134311350E7600647B5C /* LignesController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {990, 507}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{0, 499}";
 			sepNavVisRange = "{0, 499}";
 		};
@@ -734,7 +742,7 @@
 	};
 	3350353511525FB500D33A57 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 33855DBE11453DA1005127B8 /* StationTileView.h */;
+		fRef = 33855DBE11453DA1005127B8 /* old.h */;
 		name = "StationTileView.h: 1";
 		rLen = 0;
 		rLoc = 0;
@@ -862,16 +870,6 @@
 		vrLen = 675;
 		vrLoc = 0;
 	};
-	3350363C1152914400D33A57 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */;
-		name = "StationsTableViewController.m: 22";
-		rLen = 0;
-		rLoc = 534;
-		rType = 0;
-		vrLen = 1597;
-		vrLoc = 0;
-	};
 	335036471152945700D33A57 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */;
@@ -904,19 +902,19 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {991, 1209}}";
 			sepNavSelRange = "{2051, 0}";
-			sepNavVisRange = "{3, 862}";
+			sepNavVisRange = "{0, 1273}";
 		};
 	};
 	33592CF711492C0F007B7C12 /* Message.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 482}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{302, 8}";
 			sepNavVisRange = "{0, 604}";
 		};
 	};
 	33592CF811492C0F007B7C12 /* Message.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 482}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{165, 0}";
 			sepNavVisRange = "{0, 401}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
@@ -1057,7 +1055,7 @@
 	};
 	335B41E4114B9C1600C08E4E /* TempsAttentesTableViewCell.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 443}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{487, 0}";
 			sepNavVisRange = "{0, 636}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
@@ -1107,7 +1105,7 @@
 	};
 	336781BD1124BAA300E9571F /* Station.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {940, 507}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{293, 4}";
 			sepNavVisRange = "{0, 519}";
 		};
@@ -1121,23 +1119,23 @@
 	};
 	336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 610}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{712, 14}";
 			sepNavVisRange = "{0, 1203}";
 		};
 	};
 	336781D51124C1EE00E9571F /* StationsTableViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 610}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{584, 0}";
 			sepNavVisRange = "{0, 675}";
 		};
 	};
 	336781D61124C1EE00E9571F /* StationsTableViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 1872}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 1963}}";
 			sepNavSelRange = "{1142, 0}";
-			sepNavVisRange = "{535, 1590}";
+			sepNavVisRange = "{535, 1668}";
 		};
 	};
 	33855DBA11453DA1005127B8 /* InfoTraficTableViewController.h */ = {
@@ -1161,9 +1159,23 @@
 			sepNavVisRange = "{0, 318}";
 		};
 	};
-	33855DBE11453DA1005127B8 /* StationTileView.h */ = {
+	33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 635}}";
+			sepNavIntBoundsRect = "{{0, 0}, {782, 1248}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1337}";
+			sepNavWindowFrame = "{{29, 4}, {750, 874}}";
+		};
+	};
+	33855DBE11453DA1005127B8 /* old.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = old.h;
+		path = "/Users/sbarbier/Documents/Universite/Master 1/Semestre2/Projet_Ginko/iPhone/GinkoTempo/GinkoTempo/Classes/old.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 338}";
 		};
@@ -1180,7 +1192,7 @@
 	};
 	3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 510}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{358, 0}";
 			sepNavVisRange = "{0, 484}";
 		};
@@ -1195,7 +1207,7 @@
 	};
 	338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 635}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{344, 0}";
 			sepNavVisRange = "{0, 653}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
@@ -1203,7 +1215,7 @@
 	};
 	338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1062, 1651}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 1664}}";
 			sepNavSelRange = "{1409, 0}";
 			sepNavVisRange = "{0, 1455}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
@@ -1211,7 +1223,7 @@
 	};
 	3388253C114126C3001B72E0 /* StationsParLigneController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 635}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{665, 36}";
 			sepNavVisRange = "{0, 709}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
@@ -1333,7 +1345,7 @@
 	};
 	33D54E361131903700C04524 /* StationTableViewCell.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 635}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{314, 15}";
 			sepNavVisRange = "{0, 561}";
 		};
@@ -1355,45 +1367,25 @@
 	};
 	33D54E4D113199AD00C04524 /* StationsController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 2444}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 2431}}";
 			sepNavSelRange = "{2752, 0}";
-			sepNavVisRange = "{619, 1142}";
+			sepNavVisRange = "{618, 1143}";
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
 		};
 	};
-	33E20FDE1152D4D900FEF171 /* PBXTextBookmark */ = {
+	33E20FFB11534EC000FEF171 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */;
-		name = "StationsTableViewController.m: 57";
+		name = "StationsTableViewController.m: 38";
 		rLen = 0;
-		rLoc = 1878;
+		rLoc = 1142;
 		rType = 0;
 		vrLen = 1774;
 		vrLoc = 535;
 	};
-	33E20FEC11534E2300FEF171 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */;
-		name = "StationsTableViewController.m: 38";
-		rLen = 0;
-		rLoc = 1142;
-		rType = 0;
-		vrLen = 1590;
-		vrLoc = 535;
-	};
-	33E20FF511534E5400FEF171 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 336781D61124C1EE00E9571F /* StationsTableViewController.m */;
-		name = "StationsTableViewController.m: 38";
-		rLen = 0;
-		rLoc = 1142;
-		rType = 0;
-		vrLen = 1590;
-		vrLoc = 535;
-	};
 	33EFB461113FF69000803577 /* InfoTrafic.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1048, 507}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
 			sepNavSelRange = "{252, 11}";
 			sepNavVisRange = "{0, 764}";
 		};
@@ -1427,11 +1419,18 @@
 			sepNavWindowFrame = "{{15, 4}, {750, 874}}";
 		};
 	};
+	C272A5FE114956F900A8F842 /* DetailsInfosTraficViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {991, 629}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 722}";
+		};
+	};
 	C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {991, 936}}";
+			sepNavIntBoundsRect = "{{0, 0}, {991, 1443}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 935}";
+			sepNavVisRange = "{0, 1491}";
 		};
 	};
 	C28170EF11358412006A7C4B /* soapStub.h */ = {

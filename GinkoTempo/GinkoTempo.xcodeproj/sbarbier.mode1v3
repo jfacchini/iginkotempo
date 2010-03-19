@@ -295,7 +295,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 135}, {366, 760}}</string>
+							<string>{{0, 944}, {366, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -346,7 +346,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>33E20FF511534E5400FEF171</string>
+										<string>3336BEF01153949C00E7B0F3</string>
 										<key>history</key>
 										<array>
 											<string>338DDED711249D4900FB0316</string>
@@ -419,7 +419,7 @@
 											<string>335036301152913500D33A57</string>
 											<string>335036311152913500D33A57</string>
 											<string>3350363B1152914400D33A57</string>
-											<string>335036471152945700D33A57</string>
+											<string>33E20FFB11534EC000FEF171</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -431,14 +431,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1052, 664}}</string>
+								<string>{{0, 0}, {1052, 661}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 59 1440 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>664pt</string>
+							<string>661pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -451,14 +451,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 669}, {1052, 109}}</string>
+								<string>{{0, 666}, {1052, 112}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 59 1440 819 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>109pt</string>
+							<string>112pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -477,9 +477,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>33E20FDF1152D4D900FEF171</string>
+				<string>3336BEF11153949C00E7B0F3</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>33E20FE01152D4D900FEF171</string>
+				<string>3336BEF21153949C00E7B0F3</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -617,11 +617,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>33E20FF611534E5400FEF171</string>
-		<string>33E20FF711534E5400FEF171</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>338DDEA611249AA100FB0316</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/sbarbier/Documents/Universite/Master 1/Semestre2/Projet_Ginko/iPhone/GinkoTempo/GinkoTempo/GinkoTempo.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -702,7 +698,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>338DDEA611249AA100FB0316</string>
-				<string>33E20FE11152D4D900FEF171</string>
+				<string>3336BEF31153949C00E7B0F3</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -996,7 +992,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

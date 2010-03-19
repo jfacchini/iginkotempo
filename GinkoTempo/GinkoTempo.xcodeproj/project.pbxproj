@@ -58,8 +58,8 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GinkoTempoAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GinkoTempoAppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GinkoTempoAppDelegate.h; path = Classes/GinkoTempoAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GinkoTempoAppDelegate.m; path = Classes/GinkoTempoAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GinkoTempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinkoTempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,7 +110,6 @@
 		33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficTableViewController.m; sourceTree = "<group>"; };
 		33855DBC11453DA1005127B8 /* ListeDesInfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesInfoTrafic.h; sourceTree = "<group>"; };
 		33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesInfoTrafic.m; sourceTree = "<group>"; };
-		33855DBE11453DA1005127B8 /* StationTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTileView.h; sourceTree = "<group>"; };
 		3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesStationsPourUneLigne.h; sourceTree = "<group>"; };
 		3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesStationsPourUneLigne.m; sourceTree = "<group>"; };
 		338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationParLigneTableViewController.h; sourceTree = "<group>"; };
@@ -163,11 +162,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C28170F61135844A006A7C4B /* Utils */,
-				336781D41124C1C100E9571F /* SimpleView Representation */,
+				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
+				3336BEFD115398A200E7B0F3 /* Message */,
+				3336BEFC1153987000E7B0F3 /* InfoTrafic */,
+				3336BEFA1153981000E7B0F3 /* TempsAttentes */,
+				3336BEF61153975700E7B0F3 /* Station */,
+				3336BEF9115397C700E7B0F3 /* Ligne */,
+				C28170F61135844A006A7C4B /* WebService */,
 				336781BC1124BA9500E9571F /* Données */,
-				336781AC1124A84A00E9571F /* TabBar TableView Representation */,
-				336781AA1124A82B00E9571F /* Source de l'application */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -195,7 +197,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C28170E911358412006A7C4B /* soap */,
+				1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */,
+				1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */,
 				32CA4F630368D1EE00C91783 /* GinkoTempo_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -223,112 +226,104 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		333703821131BDC600DC5AD4 /* View Controllers */ = {
+		3336BEF61153975700E7B0F3 /* Station */ = {
 			isa = PBXGroup;
 			children = (
-				336781D51124C1EE00E9571F /* StationsTableViewController.h */,
-				336781D61124C1EE00E9571F /* StationsTableViewController.m */,
-				333C13AC1135189E00647B5C /* LignesTableViewController.h */,
-				333C13AD1135189E00647B5C /* LignesTableViewController.m */,
-				33855DBA11453DA1005127B8 /* InfoTraficTableViewController.h */,
-				33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */,
+				333B60F61151251E00204E57 /* ListeGeolocalise.h */,
+				333B60F71151251E00204E57 /* ListeGeolocalise.m */,
 				333B61201151274000204E57 /* GeolocalisationTableViewController.h */,
 				333B61211151274000204E57 /* GeolocalisationTableViewController.m */,
+				336781BD1124BAA300E9571F /* Station.h */,
+				336781BE1124BAA300E9571F /* Station.m */,
+				33D54E4C113199AD00C04524 /* StationsController.h */,
+				33D54E4D113199AD00C04524 /* StationsController.m */,
+				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
+				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
+				3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */,
+				3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */,
+				336781D51124C1EE00E9571F /* StationsTableViewController.h */,
+				336781D61124C1EE00E9571F /* StationsTableViewController.m */,
+				33D54E361131903700C04524 /* StationTableViewCell.h */,
+				33D54E371131903700C04524 /* StationTableViewCell.m */,
+				336781AD1124A8A900E9571F /* ListeDesStations.h */,
+				336781AE1124A8A900E9571F /* ListeDesStations.m */,
+				338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */,
+				338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */,
+				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
+				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
 			);
-			name = "View Controllers";
+			name = Station;
 			sourceTree = "<group>";
 		};
-		335B41E3114B9BFA00C08E4E /* User Interface Elements */ = {
+		3336BEF9115397C700E7B0F3 /* Ligne */ = {
+			isa = PBXGroup;
+			children = (
+				333C132011350B9100647B5C /* Ligne.h */,
+				333C132111350B9100647B5C /* Ligne.m */,
+				333C134311350E7600647B5C /* LignesController.h */,
+				333C134411350E7600647B5C /* LignesController.m */,
+				333C13AC1135189E00647B5C /* LignesTableViewController.h */,
+				333C13AD1135189E00647B5C /* LignesTableViewController.m */,
+				333C1491113558DE00647B5C /* LigneTableViewCell.h */,
+				333C1492113558DE00647B5C /* LigneTableViewCell.m */,
+				333C14941135590000647B5C /* LigneTileView.h */,
+				333C14951135590000647B5C /* LigneTileView.m */,
+				333C130411350A5200647B5C /* ListeDesLignes.h */,
+				333C130511350A5200647B5C /* ListeDesLignes.m */,
+			);
+			name = Ligne;
+			sourceTree = "<group>";
+		};
+		3336BEFA1153981000E7B0F3 /* TempsAttentes */ = {
 			isa = PBXGroup;
 			children = (
 				335B41E4114B9C1600C08E4E /* TempsAttentesTableViewCell.h */,
 				335B41E5114B9C1600C08E4E /* TempsAttentesTableViewCell.m */,
 				333B5EA61150FC7800204E57 /* TempsAttentesTileView.h */,
 				333B5EA71150FC7800204E57 /* TempsAttentesTileView.m */,
+				33592D9C1149410B007B7C12 /* TempsAttentesLignesParStationViewController.h */,
+				33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */,
+				33592D461149376A007B7C12 /* TempsAttentesLignesParStation.h */,
+				33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */,
+				33592CF01149260E007B7C12 /* TempsAttentes.h */,
+				33592CF11149260E007B7C12 /* TempsAttentes.m */,
+				33592D5F11493B6F007B7C12 /* TempsAttentesController.h */,
+				33592D6011493B6F007B7C12 /* TempsAttentesController.m */,
 			);
-			name = "User Interface Elements";
+			name = TempsAttentes;
 			sourceTree = "<group>";
 		};
-		336781AA1124A82B00E9571F /* Source de l'application */ = {
+		3336BEFC1153987000E7B0F3 /* InfoTrafic */ = {
 			isa = PBXGroup;
 			children = (
-				1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */,
-				1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */,
-			);
-			name = "Source de l'application";
-			sourceTree = "<group>";
-		};
-		336781AC1124A84A00E9571F /* TabBar TableView Representation */ = {
-			isa = PBXGroup;
-			children = (
-				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
-				333703821131BDC600DC5AD4 /* View Controllers */,
-				33D54E321131900300C04524 /* User Interface Elements */,
-				336781AD1124A8A900E9571F /* ListeDesStations.h */,
-				336781AE1124A8A900E9571F /* ListeDesStations.m */,
+				C272A5FE114956F900A8F842 /* DetailsInfosTraficViewController.h */,
+				C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */,
+				33EFB461113FF69000803577 /* InfoTrafic.h */,
+				33EFB462113FF69000803577 /* InfoTrafic.m */,
+				33EFB463113FF69000803577 /* InfoTraficController.h */,
+				33EFB464113FF69000803577 /* InfoTraficController.m */,
+				33855DBA11453DA1005127B8 /* InfoTraficTableViewController.h */,
+				33855DBB11453DA1005127B8 /* InfoTraficTableViewController.m */,
 				33855DBC11453DA1005127B8 /* ListeDesInfoTrafic.h */,
 				33855DBD11453DA1005127B8 /* ListeDesInfoTrafic.m */,
-				333C130411350A5200647B5C /* ListeDesLignes.h */,
-				333C130511350A5200647B5C /* ListeDesLignes.m */,
-				333B60F61151251E00204E57 /* ListeGeolocalise.h */,
-				333B60F71151251E00204E57 /* ListeGeolocalise.m */,
 			);
-			name = "TabBar TableView Representation";
+			name = InfoTrafic;
+			sourceTree = "<group>";
+		};
+		3336BEFD115398A200E7B0F3 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				33592CF711492C0F007B7C12 /* Message.h */,
+				33592CF811492C0F007B7C12 /* Message.m */,
+			);
+			name = Message;
 			sourceTree = "<group>";
 		};
 		336781BC1124BA9500E9571F /* Données */ = {
 			isa = PBXGroup;
 			children = (
-				336781BD1124BAA300E9571F /* Station.h */,
-				336781BE1124BAA300E9571F /* Station.m */,
-				333C132011350B9100647B5C /* Ligne.h */,
-				333C132111350B9100647B5C /* Ligne.m */,
-				33592CF01149260E007B7C12 /* TempsAttentes.h */,
-				33592CF11149260E007B7C12 /* TempsAttentes.m */,
-				33592CF711492C0F007B7C12 /* Message.h */,
-				33592CF811492C0F007B7C12 /* Message.m */,
-				33EFB461113FF69000803577 /* InfoTrafic.h */,
-				33EFB462113FF69000803577 /* InfoTrafic.m */,
-				33D54E4C113199AD00C04524 /* StationsController.h */,
-				33D54E4D113199AD00C04524 /* StationsController.m */,
-				333C134311350E7600647B5C /* LignesController.h */,
-				333C134411350E7600647B5C /* LignesController.m */,
-				33EFB463113FF69000803577 /* InfoTraficController.h */,
-				33EFB464113FF69000803577 /* InfoTraficController.m */,
-				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
-				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
-				3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */,
-				3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */,
-				33592D5F11493B6F007B7C12 /* TempsAttentesController.h */,
-				33592D6011493B6F007B7C12 /* TempsAttentesController.m */,
 			);
 			name = "Données";
-			sourceTree = "<group>";
-		};
-		336781D41124C1C100E9571F /* SimpleView Representation */ = {
-			isa = PBXGroup;
-			children = (
-				335B41E3114B9BFA00C08E4E /* User Interface Elements */,
-				338823EC114111AD001B72E0 /* View Controllers */,
-				3388234D11407A7D001B72E0 /* ListeDesStationsPourUneLigne.h */,
-				3388234E11407A7D001B72E0 /* ListeDesStationsPourUneLigne.m */,
-				33592D461149376A007B7C12 /* TempsAttentesLignesParStation.h */,
-				33592D471149376A007B7C12 /* TempsAttentesLignesParStation.m */,
-			);
-			name = "SimpleView Representation";
-			sourceTree = "<group>";
-		};
-		338823EC114111AD001B72E0 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C272A5FE114956F900A8F842 /* DetailsInfosTraficViewController.h */,
-				C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */,
-				338823ED114111CA001B72E0 /* StationParLigneTableViewController.h */,
-				338823EE114111CA001B72E0 /* StationParLigneTableViewController.m */,
-				33592D9C1149410B007B7C12 /* TempsAttentesLignesParStationViewController.h */,
-				33592D9D1149410B007B7C12 /* TempsAttentesLignesParStationViewController.m */,
-			);
-			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		338DDEB911249BAE00FB0316 /* Images */ = {
@@ -352,20 +347,6 @@
 			name = "Tab Bar Images";
 			sourceTree = "<group>";
 		};
-		33D54E321131900300C04524 /* User Interface Elements */ = {
-			isa = PBXGroup;
-			children = (
-				33D54E361131903700C04524 /* StationTableViewCell.h */,
-				33D54E371131903700C04524 /* StationTableViewCell.m */,
-				333C1491113558DE00647B5C /* LigneTableViewCell.h */,
-				333C1492113558DE00647B5C /* LigneTableViewCell.m */,
-				33855DBE11453DA1005127B8 /* StationTileView.h */,
-				333C14941135590000647B5C /* LigneTileView.h */,
-				333C14951135590000647B5C /* LigneTileView.m */,
-			);
-			name = "User Interface Elements";
-			sourceTree = "<group>";
-		};
 		C28170E911358412006A7C4B /* soap */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,16 +359,16 @@
 				C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */,
 			);
 			name = soap;
-			path = Classes;
 			sourceTree = "<group>";
 		};
-		C28170F61135844A006A7C4B /* Utils */ = {
+		C28170F61135844A006A7C4B /* WebService */ = {
 			isa = PBXGroup;
 			children = (
+				C28170E911358412006A7C4B /* soap */,
 				C28170F811358482006A7C4B /* WebserviceUtils.h */,
 				C28170F911358482006A7C4B /* WebserviceUtils.mm */,
 			);
-			name = Utils;
+			name = WebService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -21,8 +21,6 @@ int main(int argc, char *argv[]) {
     
     int retVal = UIApplicationMain(argc, argv, nil, @"GinkoTempoAppDelegate");
     
-    printf("Fin de l'application\n");
-
     [pool release];
     
     return retVal;
