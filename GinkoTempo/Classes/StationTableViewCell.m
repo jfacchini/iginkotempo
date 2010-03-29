@@ -11,13 +11,11 @@
 
 #import "StationTableViewCell.h"
 #import "Station.h"
-#import "StationTileView.h"
 
 @implementation StationTableViewCell
 
 
 @synthesize station;
-@synthesize stationTileView;
 @synthesize labelView;
 
 
@@ -28,7 +26,6 @@
         
         //On réunitialise tout à nil
 		station = nil;
-		stationTileView = nil;
 		labelView = nil;
         
 		// create the elementTileView and the labelView
@@ -77,7 +74,6 @@
 
 - (void)dealloc {
 	[station release];
-	[stationTileView release];
 	[labelView release];
     [super dealloc];
 }
@@ -96,9 +92,7 @@
 		station = aStation;
 	}
     
-	stationTileView.station = station;
 	labelView.text = station.name;
-	[stationTileView setNeedsDisplay];
 	[labelView setNeedsDisplay];
 }
 

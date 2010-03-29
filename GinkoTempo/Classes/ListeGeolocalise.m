@@ -85,7 +85,6 @@
 	cell.labelView.text = cell.station.name;
     
     //On met à jours les colonnes pour un affichage cohérent.
-    [cell.stationTileView setNeedsDisplay];
 	[cell.labelView setNeedsDisplay];
     
     //cell.labelView.text = cell.ligne.direction;

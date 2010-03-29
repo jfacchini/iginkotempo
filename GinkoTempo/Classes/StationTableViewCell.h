@@ -15,12 +15,10 @@
 
 @interface StationTableViewCell : UITableViewCell {
 	Station *station;
-	StationTileView *stationTileView;
 	UILabel *labelView;
 }
 
 @property (nonatomic,retain) Station *station;
-@property (nonatomic,retain) StationTileView *stationTileView;
 @property (nonatomic,retain) UILabel *labelView;
 
 - (void)setElement:(Station *)aStation;
