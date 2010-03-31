@@ -111,7 +111,7 @@
     // create an AtomicElementViewController. This controller will display the full size tile for the element
 
     id dSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
-    [[StationsParLigneController sharedStationsController:aLigne] setLigne:aLigne];
+    [[StationsParLigneController sharedStationsParLigneController:aLigne] setLigne:aLigne];
     
     //id dSource = [ListeDesStationsPourUneLigne alloc];
 

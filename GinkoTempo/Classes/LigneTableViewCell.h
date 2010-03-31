@@ -23,7 +23,5 @@
 @property (nonatomic,retain) LigneTileView *ligneTileView;
 @property (nonatomic,retain) UILabel *labelView;
 
-- (void)setElement:(Ligne *)aLigne;
-
 
 @end

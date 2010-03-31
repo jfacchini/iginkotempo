@@ -228,7 +228,7 @@
 				// "Ne JAMAIS autoriser" ... Vous pouvez faire un reset : Réglages > Général > Réinitialiser > Réinitialiser alertes de localisation
 				// 
 			case kCLErrorDenied:
-				messageErreur = @"Localisation refusee";
+				[messageErreur  setString:@"Localisation refusee"];
 				break;
 				
 				// Ce message d'erreur est usuellement retourné lorsque voter iPhone n'a pas établi de connexion 
@@ -236,12 +236,12 @@
 				//
 				// CoreLocation va continuer d'essayer, vous pouvez donc attendre ou avertir l'utilisateur
 			case kCLErrorLocationUnknown:
-				messageErreur = @"Localisation inconnue";
+				[messageErreur setString:@"Localisation inconnue"];
 				break;
 				
 				// Au cas où il y ait une erreur inconnue ...
 			default:
-				messageErreur = @"Erreur globale localisation";
+				[messageErreur setString:@"Erreur globale localisation" ];
 				break;
 				
 		}
@@ -252,7 +252,7 @@
 		[messageErreur appendFormat:@"Description: \"%@\"\n", [error localizedDescription]];
 	}
 	
-    printf("%@", messageErreur);
+    printf("%s", [messageErreur cStringUsingEncoding:NSASCIIStringEncoding]);
 	//labelInfo.text = messageErreur;
 }
 

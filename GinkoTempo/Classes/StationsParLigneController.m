@@ -29,7 +29,7 @@ static StationsParLigneController *sharedStationsControllerInstance = nil;
 // Aucune idée de à quoi cela sert.
 
 
-+ (StationsParLigneController*) sharedStationsController:(Ligne*)aLigne {
++ (StationsParLigneController*) sharedStationsParLigneController:(Ligne*)aLigne {
     @synchronized(self) {
         if (sharedStationsControllerInstance == nil) {
             [[self alloc] initWithLigne:aLigne]; // assignment not done here

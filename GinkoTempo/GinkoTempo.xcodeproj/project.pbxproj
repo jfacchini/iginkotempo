@@ -162,6 +162,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C2EC7D171163ABB300AC8115 /* parametres */,
 				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
 				3336BEFD115398A200E7B0F3 /* Message */,
 				3336BEFC1153987000E7B0F3 /* InfoTrafic */,
@@ -369,6 +370,13 @@
 				C28170F911358482006A7C4B /* WebserviceUtils.mm */,
 			);
 			name = WebService;
+			sourceTree = "<group>";
+		};
+		C2EC7D171163ABB300AC8115 /* parametres */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = parametres;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

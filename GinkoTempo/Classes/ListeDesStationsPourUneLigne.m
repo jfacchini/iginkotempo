@@ -41,7 +41,7 @@
 // return the atomic element at the index 
 - (Station *)StationForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[[StationsParLigneController sharedStationsController:ligne] stationNameByOrder] objectAtIndex:indexPath.row];
+    return [[[StationsParLigneController sharedStationsParLigneController:ligne] stationNameByOrder] objectAtIndex:indexPath.row];
     
 } 
 
@@ -77,7 +77,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [[[StationsParLigneController sharedStationsController:ligne] stationsDictionary] count];
+    return [[[StationsParLigneController sharedStationsParLigneController:ligne] stationsDictionary] count];
 }
 
 

@@ -24,6 +24,7 @@
 + (StationsParLigneController*)sharedStationsParLigneController:(Ligne*)aLigne;
 
 - (NSArray *)presortStationByOrder;
+- initWithLigne:(Ligne*)aLigne;
 
 
 @end
