@@ -291,7 +291,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 407}, {342, 760}}</string>
+							<string>{{0, 69}, {342, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -342,7 +342,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>33EC3C741164DD5900D93330</string>
+										<string>33EC3F21116506DC00D93330</string>
 										<key>history</key>
 										<array>
 											<string>33D54DEF113189CA00C04524</string>
@@ -387,7 +387,6 @@
 											<string>3336BF0F11539DEC00E7B0F3</string>
 											<string>3336BF1011539DEC00E7B0F3</string>
 											<string>3336BF1111539DEC00E7B0F3</string>
-											<string>3336BF1311539DEC00E7B0F3</string>
 											<string>3336BF1411539DEC00E7B0F3</string>
 											<string>3336BF1511539DEC00E7B0F3</string>
 											<string>3336BF1611539DEC00E7B0F3</string>
@@ -407,20 +406,21 @@
 											<string>33EC3B7D1164CD9B00D93330</string>
 											<string>33EC3B7E1164CD9B00D93330</string>
 											<string>33EC3BD31164D31A00D93330</string>
-											<string>33EC3BD41164D31A00D93330</string>
 											<string>33EC3BD51164D31A00D93330</string>
 											<string>33EC3BD61164D31A00D93330</string>
 											<string>33EC3BED1164D4BE00D93330</string>
 											<string>33EC3BEE1164D4BE00D93330</string>
 											<string>33EC3BFF1164D64F00D93330</string>
-											<string>33EC3C151164D79C00D93330</string>
 											<string>33EC3C6D1164DD5900D93330</string>
 											<string>33EC3C6E1164DD5900D93330</string>
-											<string>33EC3C6F1164DD5900D93330</string>
-											<string>33EC3C701164DD5900D93330</string>
 											<string>33EC3C711164DD5900D93330</string>
-											<string>33EC3C721164DD5900D93330</string>
-											<string>33EC3C731164DD5900D93330</string>
+											<string>33EC3C7B1164DEE800D93330</string>
+											<string>33EC3D2A1164EB2600D93330</string>
+											<string>33EC3D2B1164EB2600D93330</string>
+											<string>33EC3DA71164EFF200D93330</string>
+											<string>33EC3DD81164F37500D93330</string>
+											<string>33EC3F0B1165063E00D93330</string>
+											<string>33EC3F0C1165063E00D93330</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -620,9 +620,9 @@
 	<array>
 		<string>33EC3B471164C89C00D93330</string>
 		<string>33EC3B481164C89C00D93330</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>338DDEA611249AA100FB0316</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/sbarbier/Documents/Universite/Master 1/Semestre2/Projet_Ginko/iPhone/GinkoTempo/GinkoTempo/GinkoTempo.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -642,12 +642,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>StationParLigneTableViewController.m</string>
+								<string>TempsAttentesLignesParStationViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -664,8 +666,6 @@
 							<string>411pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -966,7 +966,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {800, 374}}</string>
 								<key>RubberWindowFrame</key>
-								<string>310 238 800 415 0 0 1440 878 </string>
+								<string>70 290 800 415 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -995,11 +995,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>310 238 800 415 0 0 1440 878 </string>
+			<string>70 290 800 415 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

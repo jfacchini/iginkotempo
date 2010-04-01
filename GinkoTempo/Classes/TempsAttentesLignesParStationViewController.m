@@ -21,12 +21,19 @@
 // these are private methods that outside classes need not use
 -(void)loadData:(id)aStation;
 -(void)displayData;
+-(void)refreshData;
+-(void)refreshDataThread;
 @end
 
 @implementation TempsAttentesLignesParStationViewController
 
 @synthesize theTableView;
+@synthesize timer;
 @synthesize dataSource;
+@synthesize tempsAttente;
+@synthesize date;
+@synthesize activityIndicator;
+
 
 - (id)initWithStation:(Station *)aStation {
     
@@ -55,10 +62,34 @@
         self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         [temporaryBarButtonItem release];
         
-
+        
+        // Texte avec date de dernière mise à jours
+        tempsAttente = [[UILabel alloc] initWithFrame:CGRectMake(10,0, 280, 20)];
+        
+        
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(290,0, 20, 20)];
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+                
+        date = [NSDate date];
+        
     }
     
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode: NSDefaultRunLoopMode];
+
+
+    
+    // force the tableview to load
+    [theTableView reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [timer invalidate];
 }
 
 //Ca c'est le code pour charger les données. A mettre dans un Thread.
@@ -74,6 +105,8 @@
     self.dataSource = [[TempsAttentesLignesParStation alloc] initWithStation:aStation];
     [self displayData];
     
+
+    
     [pool release];
     
 }
@@ -85,14 +118,36 @@
     theTableView.dataSource = nil;
     [theTableView release];
     [dataSource release];
+    [tempsAttente release];
+    //[activityIndicator release];
     [super dealloc];
 }
 
 - (void)displayData {
     
+    UIView *viewGlobale = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    viewGlobale.backgroundColor = [UIColor blackColor];
+    
+
+    date = [NSDate date];
+    tempsAttente.text = [NSString stringWithFormat:@"Dernière mise à jours : %@",
+                         [date descriptionWithCalendarFormat:@"%H:%M:%S" 
+                                                    timeZone:nil
+                                                      locale:nil]];
+    
+    tempsAttente.backgroundColor = [UIColor blackColor];
+    tempsAttente.textColor = [UIColor whiteColor];
+    tempsAttente.font = [UIFont boldSystemFontOfSize:12.0];
+    
+    [viewGlobale addSubview:tempsAttente];
+
+    // On rajoute la roulette de temps
+    [viewGlobale addSubview: activityIndicator];
+    
+    
     // create a new table using the full application frame
     // we'll ask the datasource which type of table to use (plain or grouped)
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] 
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,20, 320, 440) 
                                                           style:[dataSource tableViewStyle]];
     
     // set the autoresizing mask so that the table will always fill the view
@@ -108,18 +163,25 @@
     // set the tableview as the controller view
     self.theTableView = tableView;
     self.theTableView.rowHeight = 58.0;
-    self.view = tableView;
+    
+    
+    [viewGlobale addSubview:tableView];
+    
+    self.view = viewGlobale;
+    
+
+    
     [tableView release];
 }
 
 - (void)loadView {
     chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     
+    //On démarre la roulette du template view
     [[view activityIndicator] startAnimating];
     
     //UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.view = view;
-    
     
     [view release];
     
@@ -139,18 +201,47 @@
 	// Load the data.
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
     self.data = [NSArray arrayWithContentsOfFile:dataPath];
+     
+     
+     
+     //Exemple de Thread pour refresh ci dessous
+     [NSThread detachNewThreadSelector:@selector(loadData:) toTarget:self withObject:aStation];
+     
+     
      */
     
 }//
 
+-(void)refreshData {
 
--(void)viewWillAppear:(BOOL)animated
-{
-    // force the tableview to load
-    [theTableView reloadData];
+    [activityIndicator startAnimating];
+    
+    [NSThread detachNewThreadSelector:@selector(refreshDataThread) toTarget:self withObject:nil];
+
+
 }
 
+-(void)refreshDataThread {
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
+    [[dataSource tempsAttentesController] setupTempsAttentesArray];
+    
+    date = [NSDate date];
+    tempsAttente.text = [NSString stringWithFormat:@"Dernière mise à jours : %@",
+                         [date descriptionWithCalendarFormat:@"%H:%M:%S" 
+                                                    timeZone:nil
+                                                      locale:nil]];
+    
+    
+    //Permet de mettre à jours les valeurs de la view
+    [theTableView reloadData];
+    
+    [activityIndicator stopAnimating];
+    
+    [pool release];
+    
+}
 
 
 //
@@ -163,11 +254,7 @@
     
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
     
-    [[dataSource tempsAttentesController] setupTempsAttentesArray];
-    
-    //Permet de mettre à jours les valeurs de la view
-    [theTableView reloadData];
-    
+    [self refreshData];
 
 }
 
