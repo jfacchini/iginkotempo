@@ -48,6 +48,28 @@
     return [[[InfoTraficController sharedInfoTraficController] InfosTraficArray] count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)Section {
+    NSMutableString *titre = nil;
+    
+    NSLocale *localeFR = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+    NSDate *mnt = [NSDate date]; // Date actuelle
+    NSDateFormatter *formatDate = [[NSDateFormatter alloc] init];
+    
+    [formatDate setTimeStyle:NSDateFormatterShortStyle];
+    [formatDate setDateStyle:NSDateFormatterShortStyle];
+    [formatDate setLocale:localeFR];
+    
+    if (Section == 0) {
+        titre = [NSMutableString stringWithString: @"Infos trafic au "];
+        [titre appendFormat:[formatDate stringFromDate:mnt]];
+    }
+    
+    [localeFR release];
+    [formatDate release];
+    
+    return titre;
+}
+
 // Retourne l'InfoTrafic correspond à l'indexPath
 - (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
