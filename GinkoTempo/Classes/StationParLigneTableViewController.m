@@ -9,6 +9,14 @@
 #import "StationParLigneTableViewController.h"
 #import "TempsAttentesLignesParStationViewController.h"
 #import "TempsAttentesController.h"
+#import "chargementView.h"
+
+
+@interface StationParLigneTableViewController(mymethods)
+// these are private methods that outside classes need not use
+-(void)loadData:(id)aLigne;
+-(void)displayData;
+@end
 
 
 @implementation StationParLigneTableViewController
@@ -16,20 +24,23 @@
 @synthesize theTableView;
 @synthesize dataSource;
 
-- (id)initWithDataSource:(id)theDataSource {
+- (id)initWithLigne:(Ligne *)aLigne{
     
     if ([self init]) {
         
         theTableView = nil;
         
+        
+        [NSThread detachNewThreadSelector:@selector(loadData:) toTarget:self withObject:aLigne];
+        
         // retain the data source
-        self.dataSource = theDataSource;
         // set the title, and tab bar images from the dataSource
         // object. These are part of the ElementsDataSource Protocol
-        self.title = [NSString stringWithFormat:@"%@ %@",dataSource.ligne.numero,dataSource.ligne.direction];
-                
-        //dataSource.ligne.numero + dataSource.ligne.direction;
         
+        
+        //dataSource.ligne.numero + dataSource.ligne.direction;
+        self.title = [NSString stringWithFormat:@"%@ %@",aLigne.numero,aLigne.direction];
+
         // set the long name shown in the navigation bar
         //self.navigationItem.title=[dataSource navigationBarName];
         
@@ -44,18 +55,22 @@
     return self;
 }
 
-
-
-- (void)dealloc {
-    theTableView.delegate = nil;
-    theTableView.dataSource = nil;
-    [theTableView release];
-    [dataSource release];
-    [super dealloc];
+//Ca c'est le code pour charger les données. A mettre dans un Thread.
+-(void)loadData:(id)aLigne {
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    [[StationsParLigneController sharedStationsParLigneController:aLigne] setLigne:aLigne];
+    
+    self.dataSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
+    [self displayData];
+    
+    [pool release];
+    
 }
 
-
-- (void)loadView {
+//Une fois les données chargées, on affiche le résultat avec cette fonction
+- (void)displayData {
     
     // create a new table using the full application frame
     // we'll ask the datasource which type of table to use (plain or grouped)
@@ -78,7 +93,19 @@
     self.theTableView = tableView;
     self.view = tableView;
     [tableView release];
+}
+
+- (void)loadView {
     
+    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+
+    [[view activityIndicator] startAnimating];
+    
+    //UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.view = view;
+    
+    
+    [view release];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -105,10 +132,10 @@
 	// get the element that is represented by the selected row.
 	Station *station = [dataSource StationForIndexPath:newIndexPath];
     	
-    id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
+    //id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
     
     // create an AtomicElementViewController. This controller will display the full size tile for the element
-	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithDataSource:dSource];
+	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithStation:station];
     
     
 	// set the element for the controller
@@ -119,6 +146,16 @@
 	[stationController release];  
     
 }
+
+
+- (void)dealloc {
+    theTableView.delegate = nil;
+    theTableView.dataSource = nil;
+    [theTableView release];
+    [dataSource release];
+    [super dealloc];
+}
+
 
 
 

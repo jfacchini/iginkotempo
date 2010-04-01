@@ -46,6 +46,7 @@
 		33D20C0B114A526300523EEA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D20C0A114A526300523EEA /* Default.png */; };
 		33D54E381131903700C04524 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E371131903700C04524 /* StationTableViewCell.m */; };
 		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
+		33EC3B6C1164CCB200D93330 /* chargementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC3B6B1164CCB200D93330 /* chargementView.m */; };
 		33EFB465113FF69000803577 /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB462113FF69000803577 /* InfoTrafic.m */; };
 		33EFB466113FF69000803577 /* InfoTraficController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB464113FF69000803577 /* InfoTraficController.m */; };
 		C25DEE151163B68700E21715 /* ParametresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DEE141163B68700E21715 /* ParametresTableViewController.m */; };
@@ -128,6 +129,8 @@
 		33D54E371131903700C04524 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
 		33D54E4C113199AD00C04524 /* StationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsController.h; sourceTree = "<group>"; };
 		33D54E4D113199AD00C04524 /* StationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsController.m; sourceTree = "<group>"; };
+		33EC3B6A1164CCB200D93330 /* chargementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chargementView.h; sourceTree = "<group>"; };
+		33EC3B6B1164CCB200D93330 /* chargementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chargementView.m; sourceTree = "<group>"; };
 		33EFB461113FF69000803577 /* InfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTrafic.h; sourceTree = "<group>"; };
 		33EFB462113FF69000803577 /* InfoTrafic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTrafic.m; sourceTree = "<group>"; };
 		33EFB463113FF69000803577 /* InfoTraficController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficController.h; sourceTree = "<group>"; };
@@ -170,13 +173,14 @@
 			children = (
 				C2EC7D171163ABB300AC8115 /* parametres */,
 				336781C81124BEC500E9571F /* GinkoDataSourceProtocol.h */,
+				33EC3B6A1164CCB200D93330 /* chargementView.h */,
+				33EC3B6B1164CCB200D93330 /* chargementView.m */,
 				3336BEFD115398A200E7B0F3 /* Message */,
 				3336BEFC1153987000E7B0F3 /* InfoTrafic */,
 				3336BEFA1153981000E7B0F3 /* TempsAttentes */,
 				3336BEF61153975700E7B0F3 /* Station */,
 				3336BEF9115397C700E7B0F3 /* Ligne */,
 				C28170F61135844A006A7C4B /* WebService */,
-				336781BC1124BA9500E9571F /* Données */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -324,13 +328,6 @@
 				33592CF811492C0F007B7C12 /* Message.m */,
 			);
 			name = Message;
-			sourceTree = "<group>";
-		};
-		336781BC1124BA9500E9571F /* Données */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Données";
 			sourceTree = "<group>";
 		};
 		338DDEB911249BAE00FB0316 /* Images */ = {
@@ -486,6 +483,7 @@
 				3350343F11523CCA00D33A57 /* StationsGeolocaliseController.m in Sources */,
 				C25DEE151163B68700E21715 /* ParametresTableViewController.m in Sources */,
 				C25DEE181164207000E21715 /* ListeDesParametres.m in Sources */,
+				33EC3B6C1164CCB200D93330 /* chargementView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

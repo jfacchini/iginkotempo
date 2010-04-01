@@ -110,21 +110,17 @@
     
     // create an AtomicElementViewController. This controller will display the full size tile for the element
 
-    id dSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
-    [[StationsParLigneController sharedStationsParLigneController:aLigne] setLigne:aLigne];
     
-    //id dSource = [ListeDesStationsPourUneLigne alloc];
-
     
     UITableViewController *theViewController;	
-	theViewController = [[StationParLigneTableViewController alloc] initWithDataSource:dSource];
+	theViewController = [[StationParLigneTableViewController alloc] initWithLigne:aLigne];
     
 	// set the element for the controller
 	//stationController.station = station;
 	
 	// push the element view controller onto the navigation stack to display it
 	[[self navigationController] pushViewController:theViewController animated:YES];
-    [dSource release];
+    
 	[theViewController release];
     
 }

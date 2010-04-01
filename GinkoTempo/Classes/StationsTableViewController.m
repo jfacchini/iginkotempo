@@ -134,10 +134,10 @@
 	// get the element that is represented by the selected row.
 	Station *station = [dataSource objectForIndexPath:newIndexPath];
 	
-    id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
+    //id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
 
     // create an AtomicElementViewController. This controller will display the full size tile for the element
-	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithDataSource:dSource];
+	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithStation:station];
     
     
 	// set the element for the controller

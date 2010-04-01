@@ -14,26 +14,36 @@
 
 #import "TempsAttentesLignesParStationViewController.h"
 #import "TempsAttentesController.h"
+#import "Station.h"
+#import "chargementView.h"
 
-
-
+@interface TempsAttentesLignesParStationViewController(mymethods)
+// these are private methods that outside classes need not use
+-(void)loadData:(id)aStation;
+-(void)displayData;
+@end
 
 @implementation TempsAttentesLignesParStationViewController
 
 @synthesize theTableView;
 @synthesize dataSource;
 
-- (id)initWithDataSource:(id)theDataSource {
+- (id)initWithStation:(Station *)aStation {
     
     if ([self init]) {
         
         theTableView = nil;
         
+        [NSThread detachNewThreadSelector:@selector(loadData:) toTarget:self withObject:aStation];
+
+        
+        //id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
+        
         // retain the data source
-        self.dataSource = theDataSource;
+        //self.dataSource = dSource;
         // set the title, and tab bar images from the dataSource
         // object. These are part of the ElementsDataSource Protocol
-        self.title = self.dataSource.station.name;
+        self.title = aStation.name;
         
         
         // set the long name shown in the navigation bar
@@ -51,6 +61,23 @@
     return self;
 }
 
+//Ca c'est le code pour charger les données. A mettre dans un Thread.
+-(void)loadData:(id)aStation {
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    //[[StationsParLigneController sharedStationsParLigneController:aLigne] setLigne:aLigne];
+    
+    //self.dataSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
+    
+    
+    self.dataSource = [[TempsAttentesLignesParStation alloc] initWithStation:aStation];
+    [self displayData];
+    
+    [pool release];
+    
+}
+
 
 
 - (void)dealloc {
@@ -61,8 +88,7 @@
     [super dealloc];
 }
 
-
-- (void)loadView {
+- (void)displayData {
     
     // create a new table using the full application frame
     // we'll ask the datasource which type of table to use (plain or grouped)
@@ -78,19 +104,34 @@
     // set the tableview delegate to this object and the datasource to the datasource which has already been set
     tableView.delegate = self;
     tableView.dataSource = dataSource;
-        
+    
     // set the tableview as the controller view
     self.theTableView = tableView;
+    self.theTableView.rowHeight = 58.0;
     self.view = tableView;
     [tableView release];
+}
+
+- (void)loadView {
+    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    
+    [[view activityIndicator] startAnimating];
+    
+    //UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.view = view;
+    
+    
+    [view release];
     
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Configure the table view.
-    self.theTableView.rowHeight = 58.0;
+    
+    
     /*
     self.tableView.backgroundColor = DARK_BACKGROUND;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -99,6 +140,7 @@
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
     self.data = [NSArray arrayWithContentsOfFile:dataPath];
      */
+    
 }//
 
 
