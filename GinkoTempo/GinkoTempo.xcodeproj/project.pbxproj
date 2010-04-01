@@ -57,6 +57,7 @@
 		C28170F311358412006A7C4B /* soapClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170ED11358412006A7C4B /* soapClient.cpp */; };
 		C28170F411358412006A7C4B /* TempoAPISoapBinding.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */; };
 		C28170FA11358482006A7C4B /* WebserviceUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C28170F911358482006A7C4B /* WebserviceUtils.mm */; };
+		C29682311164E7B7007EF627 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C29682301164E7B7007EF627 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		C28170F011358412006A7C4B /* TempoAPISoapBinding.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TempoAPISoapBinding.nsmap; sourceTree = "<group>"; };
 		C28170F811358482006A7C4B /* WebserviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceUtils.h; sourceTree = "<group>"; };
 		C28170F911358482006A7C4B /* WebserviceUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebserviceUtils.mm; sourceTree = "<group>"; };
+		C29682301164E7B7007EF627 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C29682301164E7B7007EF627 /* Settings.bundle */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -436,6 +439,7 @@
 				338DDECF11249C5800FB0316 /* icones.png in Resources */,
 				C28170F411358412006A7C4B /* TempoAPISoapBinding.nsmap in Resources */,
 				33D20C0B114A526300523EEA /* Default.png in Resources */,
+				C29682311164E7B7007EF627 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

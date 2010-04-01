@@ -34,12 +34,22 @@
 // atomic name is displayed in a plain style tableview
 - (UITableViewStyle)tableViewStyle {
 	return UITableViewStyleGrouped;
-};
+}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	// this table has only one section
 	return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)Section {
+    NSString *titre = nil;
+    
+    if (Section == 0) {
+        titre = @"Identifants";
+    }
+    
+    return titre;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)Section {
@@ -63,6 +73,10 @@
     }
     
     return cell;
+}
+
+-(id)objectForIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 - (void) dealloc {

@@ -146,11 +146,13 @@
     localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesInfoTrafic class] withViewController:[InfoTraficTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
-    // Controller du Bouton 5 : Paramètres
-    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesParametres class] withViewController:[ParametresTableViewController class]];
-    [localViewControllersArray addObject:localNavigationController];
-    
     [localNavigationController release];
+    
+    // Controller du Bouton 5 : Paramètres
+    //localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesParametres class] withViewController:[ParametresTableViewController class]];
+    //[localViewControllersArray addObject:localNavigationController];
+    
+    //[localNavigationController release];
 
     
     // On attribut la liste des controllers, correspondant aux boutons
