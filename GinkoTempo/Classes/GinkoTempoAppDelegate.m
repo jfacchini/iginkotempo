@@ -10,10 +10,12 @@
 #import "ListeDesStations.h"
 #import "ListeDesLignes.h"
 #import "ListeDesInfoTrafic.h"
+#import "ListeDesParametres.h"
 #import "StationsTableViewController.h"
 #import "GeolocalisationTableViewController.h"
 #import "LignesTableViewController.h"
 #import "InfoTraficTableViewController.h"
+#import "ParametresTableViewController.h"
 #import "WebserviceUtils.h"
 
 #import "InfoTraficController.h"
@@ -142,6 +144,10 @@
     
     // Controller du Bouton 4 : les Infos trafic
     localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesInfoTrafic class] withViewController:[InfoTraficTableViewController class]];
+    [localViewControllersArray addObject:localNavigationController];
+    
+    // Controller du Bouton 5 : Paramètres
+    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesParametres class] withViewController:[ParametresTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];

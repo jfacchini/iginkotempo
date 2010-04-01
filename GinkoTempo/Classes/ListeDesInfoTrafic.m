@@ -77,7 +77,7 @@
     
     if (uneIT.priorite) [cell.textLabel setTextColor:[UIColor redColor]];
     
-    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:15]];
     cell.textLabel.numberOfLines = 2;
     
     return cell;

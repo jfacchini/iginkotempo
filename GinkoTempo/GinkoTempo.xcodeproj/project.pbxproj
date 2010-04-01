@@ -48,6 +48,8 @@
 		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
 		33EFB465113FF69000803577 /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB462113FF69000803577 /* InfoTrafic.m */; };
 		33EFB466113FF69000803577 /* InfoTraficController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB464113FF69000803577 /* InfoTraficController.m */; };
+		C25DEE151163B68700E21715 /* ParametresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DEE141163B68700E21715 /* ParametresTableViewController.m */; };
+		C25DEE181164207000E21715 /* ListeDesParametres.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DEE171164207000E21715 /* ListeDesParametres.m */; };
 		C272A600114956F900A8F842 /* DetailsInfosTraficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */; };
 		C28170F111358412006A7C4B /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170EA11358412006A7C4B /* stdsoap2.cpp */; };
 		C28170F211358412006A7C4B /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28170EC11358412006A7C4B /* soapC.cpp */; };
@@ -131,6 +133,10 @@
 		33EFB463113FF69000803577 /* InfoTraficController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficController.h; sourceTree = "<group>"; };
 		33EFB464113FF69000803577 /* InfoTraficController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GinkoTempo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GinkoTempo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C25DEE131163B68700E21715 /* ParametresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParametresTableViewController.h; sourceTree = "<group>"; };
+		C25DEE141163B68700E21715 /* ParametresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParametresTableViewController.m; sourceTree = "<group>"; };
+		C25DEE161164207000E21715 /* ListeDesParametres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesParametres.h; sourceTree = "<group>"; };
+		C25DEE171164207000E21715 /* ListeDesParametres.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListeDesParametres.m; sourceTree = "<group>"; };
 		C272A5FE114956F900A8F842 /* DetailsInfosTraficViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsInfosTraficViewController.h; sourceTree = "<group>"; };
 		C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsInfosTraficViewController.m; sourceTree = "<group>"; };
 		C28170EA11358412006A7C4B /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
@@ -375,6 +381,10 @@
 		C2EC7D171163ABB300AC8115 /* parametres */ = {
 			isa = PBXGroup;
 			children = (
+				C25DEE131163B68700E21715 /* ParametresTableViewController.h */,
+				C25DEE141163B68700E21715 /* ParametresTableViewController.m */,
+				C25DEE161164207000E21715 /* ListeDesParametres.h */,
+				C25DEE171164207000E21715 /* ListeDesParametres.m */,
 			);
 			name = parametres;
 			sourceTree = "<group>";
@@ -474,6 +484,8 @@
 				333B60F81151251E00204E57 /* ListeGeolocalise.m in Sources */,
 				333B61221151274000204E57 /* GeolocalisationTableViewController.m in Sources */,
 				3350343F11523CCA00D33A57 /* StationsGeolocaliseController.m in Sources */,
+				C25DEE151163B68700E21715 /* ParametresTableViewController.m in Sources */,
+				C25DEE181164207000E21715 /* ListeDesParametres.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
