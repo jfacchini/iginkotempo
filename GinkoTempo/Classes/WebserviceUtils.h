@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#define ADRESSEWS NULL
+#define ADRESSEWS "http://www.ginkotempo.com/TempoAPI/services/TempoAPI"
 
 // V 0.6 du Webservice
 

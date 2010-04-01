@@ -13,7 +13,7 @@
 #import "InfoTrafic.h"
 #import "TempoApiSoapBinding.nsmap"
 
-#define FAC 0
+#define FAC NO
 
 @interface WebserviceUtils(mymethods)
 
@@ -38,7 +38,7 @@ struct soap *soap = NULL;
     if (soap == NULL) {
         soap = (struct soap *) malloc(sizeof(struct soap));
         soap_init(soap);
-        if (FAC == 1) {
+        if (FAC) {
             soap->proxy_host = "proxy-web.univ-fcomte.fr";
             soap->proxy_port = 3128;
         }
