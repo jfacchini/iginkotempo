@@ -27,6 +27,9 @@
         
         self.viewGlobale = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
         
+        self.addremove = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+        self.addremove.titleLabel.text = @"Bouton";
+        self.addremove.font = [UIFont systemFontOfSize:16];
     }
     
     return self;
@@ -35,17 +38,20 @@
 
 - (void)loadView {
     
-    ligne1.text = @"Ligne1";
-    ligne1.font = [UIFont boldSystemFontOfSize:12.0];
     
-    [viewGlobale addSubview:ligne1];
+    
+    self.ligne1.text = @"Ligne1";
+    self.ligne1.font = [UIFont boldSystemFontOfSize:12.0];
+    
+    [self.viewGlobale addSubview:self.ligne1];
 
     
-    ligne2.text = @"Ligne2";
-    ligne2.font = [UIFont boldSystemFontOfSize:12.0];
+    self.ligne2.text = @"Ligne2";
+    self.ligne2.font = [UIFont boldSystemFontOfSize:12.0];
     
-    [viewGlobale addSubview:ligne2];
+    [self.viewGlobale addSubview:self.ligne2];
     
+    [self.viewGlobale addSubview:self.addremove];
     
     self.view = viewGlobale;
 }

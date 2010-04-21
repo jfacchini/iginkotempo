@@ -20,7 +20,7 @@
 
 //Si on click sur une ligne, go liste des Stations de la ligne
 #import "ListeDesStationsPourUneLigne.h"
-
+#import "chargementView.h"
 
 @implementation GeolocalisationTableViewController
 
@@ -29,6 +29,7 @@
 @synthesize localiser;
 @synthesize dataSource;
 @synthesize locManager;
+@synthesize activityIndicator;
 
 
 - (id)initWithDataSource:(id<GinkoDataSource,UITableViewDataSource>)theDataSource {
@@ -59,7 +60,7 @@
 
         
         // Bouton style refresh par default, sinon faire initWithTitle:style:target:action
-        localiser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(startStopLocalisation)];
+        localiser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
         self.navigationItem.rightBarButtonItem = localiser;
 
 
@@ -84,28 +85,44 @@
     //[self startLocalisation];
 }
 
-- (void)loadView {    
-    // create a new table using the full application frame
-    // we'll ask the datasource which type of table to use (plain or grouped)
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] 
-                                                          style:[dataSource tableViewStyle]];
+- (void)loadView {   
+
+    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     
-    // set the autoresizing mask so that the table will always fill the view
-    tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+    //[[view activityIndicator] startAnimating];
     
-    // set the cell separator to a single straight line.
-    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.view = view;
     
-    // set the tableview delegate to this object and the datasource to the datasource which has already been set
-    tableView.delegate = self;
-    //tableView.dataSource = dataSource;
+    [view release];
     
-    //tableView.sectionIndexMinimumDisplayRowCount=10;
-    
-    // set the tableview as the controller view
-    self.theTableView = tableView;
-    self.view = tableView;
-    [tableView release];
+//    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+//
+//    
+//    //UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    self.view = view;
+//    
+//    [view release];
+//    // create a new table using the full application frame
+//    // we'll ask the datasource which type of table to use (plain or grouped)
+//    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] 
+//                                                          style:[dataSource tableViewStyle]];
+//    
+//    // set the autoresizing mask so that the table will always fill the view
+//    tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+//    
+//    // set the cell separator to a single straight line.
+//    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//    
+//    // set the tableview delegate to this object and the datasource to the datasource which has already been set
+//    tableView.delegate = self;
+//    //tableView.dataSource = dataSource;
+//    
+//    //tableView.sectionIndexMinimumDisplayRowCount=10;
+//    
+//    // set the tableview as the controller view
+//    self.theTableView = tableView;
+//    self.view = tableView;
+//    [tableView release];
 }
 
 
@@ -125,11 +142,9 @@
 	
 	// get the element that is represented by the selected row.
 	Station *station = [dataSource objectForIndexPath:newIndexPath];
-	
-    id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
-    
+
     // create an AtomicElementViewController. This controller will display the full size tile for the element
-	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithDataSource:dSource];
+	TempsAttentesLignesParStationViewController *stationController = [[TempsAttentesLignesParStationViewController alloc] initWithStation:station];
     
     
 	// set the element for the controller
@@ -150,11 +165,28 @@
  *
  */
 
+
+-(void) refreshData{
+    
+    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    
+    [[view activityIndicator] startAnimating];
+
+    self.view = view;
+    
+    [view release];
+    
+    [NSThread detachNewThreadSelector:@selector(startStopLocalisation) toTarget:self withObject:nil];
+
+}
+
 -(void) startStopLocalisation{
+    
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
     //printf("Géolocalisation %s\n", enCoursDeGeolocalisation ? "oui" : "non");
-
-    //Voir la doc pour savoir ce que ça fait.
+    
     [locManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
     
@@ -170,7 +202,7 @@
 		//[indicateurActivite startAnimating];
 	}
 
-    
+    [pool release];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *) oldLocation{
@@ -209,6 +241,7 @@
     
     enCoursDeGeolocalisation = NO;
     [locManager stopUpdatingLocation];
+    [activityIndicator stopAnimating];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *) error{

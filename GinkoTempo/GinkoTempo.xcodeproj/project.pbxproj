@@ -196,6 +196,7 @@
 				3336BEFD115398A200E7B0F3 /* Message */,
 				3336BEFC1153987000E7B0F3 /* InfoTrafic */,
 				3336BEFA1153981000E7B0F3 /* TempsAttentes */,
+				33D13505117FAE6B00B02DDD /* Geolocalisation */,
 				3336BEF61153975700E7B0F3 /* Station */,
 				3336BEF9115397C700E7B0F3 /* Ligne */,
 				C28170F61135844A006A7C4B /* WebService */,
@@ -259,18 +260,12 @@
 		3336BEF61153975700E7B0F3 /* Station */ = {
 			isa = PBXGroup;
 			children = (
-				333B60F61151251E00204E57 /* ListeGeolocalise.h */,
-				333B60F71151251E00204E57 /* ListeGeolocalise.m */,
-				333B61201151274000204E57 /* GeolocalisationTableViewController.h */,
-				333B61211151274000204E57 /* GeolocalisationTableViewController.m */,
 				336781BD1124BAA300E9571F /* Station.h */,
 				336781BE1124BAA300E9571F /* Station.m */,
 				33D54E4C113199AD00C04524 /* StationsController.h */,
 				33D54E4D113199AD00C04524 /* StationsController.m */,
 				3388253C114126C3001B72E0 /* StationsParLigneController.h */,
 				3388253D114126C3001B72E0 /* StationsParLigneController.m */,
-				3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */,
-				3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */,
 				336781D51124C1EE00E9571F /* StationsTableViewController.h */,
 				336781D61124C1EE00E9571F /* StationsTableViewController.m */,
 				33D54E361131903700C04524 /* StationTableViewCell.h */,
@@ -370,6 +365,19 @@
 				338DDEC711249BDA00FB0316 /* Station.png */,
 			);
 			name = "Tab Bar Images";
+			sourceTree = "<group>";
+		};
+		33D13505117FAE6B00B02DDD /* Geolocalisation */ = {
+			isa = PBXGroup;
+			children = (
+				333B60F61151251E00204E57 /* ListeGeolocalise.h */,
+				333B60F71151251E00204E57 /* ListeGeolocalise.m */,
+				333B61201151274000204E57 /* GeolocalisationTableViewController.h */,
+				333B61211151274000204E57 /* GeolocalisationTableViewController.m */,
+				3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */,
+				3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */,
+			);
+			name = Geolocalisation;
 			sourceTree = "<group>";
 		};
 		C220639E117F19A80009A25B /* BornePerso */ = {

@@ -20,15 +20,21 @@
     id<GinkoDataSource,UITableViewDataSource> dataSource;
     
     UIBarButtonItem *localiser;
+    UIActivityIndicatorView *activityIndicator;
+
+    
 
     //Manager de Localisation
     CLLocationManager *locManager;
     BOOL enCoursDeGeolocalisation;
+    
 }
 
 @property (nonatomic,retain) UITableView *theTableView;
 @property (nonatomic,retain) UIBarButtonItem *localiser;
 @property (nonatomic,retain) CLLocationManager *locManager;
+
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic,retain) id<GinkoDataSource,UITableViewDataSource> dataSource;
 
