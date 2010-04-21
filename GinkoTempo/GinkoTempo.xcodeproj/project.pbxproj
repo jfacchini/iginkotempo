@@ -49,6 +49,7 @@
 		33EC3B6C1164CCB200D93330 /* chargementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC3B6B1164CCB200D93330 /* chargementView.m */; };
 		33EFB465113FF69000803577 /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB462113FF69000803577 /* InfoTrafic.m */; };
 		33EFB466113FF69000803577 /* InfoTraficController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB464113FF69000803577 /* InfoTraficController.m */; };
+		C22063A7117F1E780009A25B /* StationTempsAttentesBornePerso.m in Sources */ = {isa = PBXBuildFile; fileRef = C22063A6117F1E780009A25B /* StationTempsAttentesBornePerso.m */; };
 		C25DEE151163B68700E21715 /* ParametresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DEE141163B68700E21715 /* ParametresTableViewController.m */; };
 		C25DEE181164207000E21715 /* ListeDesParametres.m in Sources */ = {isa = PBXBuildFile; fileRef = C25DEE171164207000E21715 /* ListeDesParametres.m */; };
 		C272A600114956F900A8F842 /* DetailsInfosTraficViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272A5FF114956F900A8F842 /* DetailsInfosTraficViewController.m */; };
@@ -140,6 +141,8 @@
 		33EFB463113FF69000803577 /* InfoTraficController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTraficController.h; sourceTree = "<group>"; };
 		33EFB464113FF69000803577 /* InfoTraficController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTraficController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GinkoTempo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GinkoTempo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C22063A5117F1E780009A25B /* StationTempsAttentesBornePerso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTempsAttentesBornePerso.h; sourceTree = "<group>"; };
+		C22063A6117F1E780009A25B /* StationTempsAttentesBornePerso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTempsAttentesBornePerso.m; sourceTree = "<group>"; };
 		C25DEE131163B68700E21715 /* ParametresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParametresTableViewController.h; sourceTree = "<group>"; };
 		C25DEE141163B68700E21715 /* ParametresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParametresTableViewController.m; sourceTree = "<group>"; };
 		C25DEE161164207000E21715 /* ListeDesParametres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListeDesParametres.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 				C2A608A31166243500995B4B /* TempsAttentesBornePersoTableViewController.m */,
 				C2743843117B5A4F008783B7 /* ListeTempsAttentesBornePerso.h */,
 				C2743844117B5A4F008783B7 /* ListeTempsAttentesBornePerso.m */,
+				C22063A5117F1E780009A25B /* StationTempsAttentesBornePerso.h */,
+				C22063A6117F1E780009A25B /* StationTempsAttentesBornePerso.m */,
 			);
 			name = BornePerso;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				C29A4B4D11653451006FF51E /* TempsAttentesBornePersoController.m in Sources */,
 				C2A608A41166243500995B4B /* TempsAttentesBornePersoTableViewController.m in Sources */,
 				C2743845117B5A4F008783B7 /* ListeTempsAttentesBornePerso.m in Sources */,
+				C22063A7117F1E780009A25B /* StationTempsAttentesBornePerso.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

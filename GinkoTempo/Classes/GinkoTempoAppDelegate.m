@@ -17,6 +17,10 @@
 #import "InfoTraficTableViewController.h"
 #import "ParametresTableViewController.h"
 #import "WebserviceUtils.h"
+#import "StationTempsAttentesBornePerso.h"
+#import "TempsAttentes.h"
+#import "ListeTempsAttentesBornePerso.h"
+#import "TempsAttentesBornePersoTableViewController.h"
 
 #import "InfoTraficController.h"
 #import "StationsController.h"
@@ -120,6 +124,12 @@
 
     [StationsController sharedStationsController];
     [LignesController sharedLignesController];
+    
+    // Bouton 0
+	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeTempsAttentesBornePerso class] withViewController:[TempsAttentesBornePersoTableViewController class]];
+    [localViewControllersArray addObject:localNavigationController];
+    
+    [localNavigationController release];
 
     // Bouton 1
 	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesStations class] withViewController:[StationsTableViewController class]];

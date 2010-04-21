@@ -7,56 +7,202 @@
 //
 
 #import "TempsAttentesBornePersoTableViewController.h"
+#import "ListeTempsAttentesBornePerso.h"
+#import "TempsAttentesBornePersoController.h"
+#import "chargementView.h"
 
 
 @implementation TempsAttentesBornePersoTableViewController
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
+@synthesize theTableView;
+@synthesize dataSource;
+@synthesize timer;
+@synthesize timerChrono;
+@synthesize tempsAttente;
+@synthesize chrono;
+@synthesize date;
+@synthesize activityIndicator;
+@synthesize rafraichir;
+
+
+- (id)initWithDataSource:(id<GinkoDataSource,UITableViewDataSource>)theDataSource {
+    
+    if ([self init]) {
+        
+        [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+        
+        theTableView = nil;
+        
+        // retain the data source
+        self.dataSource = theDataSource;
+        // set the title, and tab bar images from the dataSource
+        // object. These are part of the ElementsDataSource Protocol
+        self.title = [dataSource name];
+        self.tabBarItem.image = [dataSource tabBarImage];
+        
+        // set the long name shown in the navigation bar
+        self.navigationItem.title=[dataSource navigationBarName];
+        
+        // create a custom navigation bar button and set it to always say "back"
+        UIBarButtonItem *temporaryBarButtonItem=[[UIBarButtonItem alloc] init];
+        temporaryBarButtonItem.title=@"Retour";
+        self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
+        [temporaryBarButtonItem release];
+        
+        //On genère le bouton en flexible item et rafraichir comme un bouton refresh
+        rafraichir = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
+        rafraichir.style = UIBarButtonItemStylePlain;
+        
+        // Bouton style refresh par default, sinon faire initWithTitle:style:target:action
+        self.navigationItem.rightBarButtonItem = rafraichir;
+        
+        // Texte avec date de dernière mise à jours
+        tempsAttente = [[UILabel alloc] initWithFrame:CGRectMake(10,0, 280, 20)];
+        
+        activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(290,0, 20, 20)];
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        
     }
+    
     return self;
 }
-*/
 
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)viewWillAppear:(BOOL)animated {
+    
+    // force the tableview to load
+    [theTableView reloadData];
+}
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//Ca c'est le code pour charger les données. A mettre dans un Thread pour pas bloquer l'affichage de la page.
+-(void)loadData {
+    
+    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    self.dataSource = [[ListeTempsAttentesBornePerso alloc] init];
+    
+    [self performSelectorOnMainThread:@selector(displayData) withObject:nil waitUntilDone:NO];
+    
+    
+    [pool release];
+    
 }
-*/
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+// This is display from a Thread to a performSelctorOnMainThread
+- (void)displayData {
+    
+    NSMutableString *titre;
+    
+    UIView *viewGlobale = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    viewGlobale.backgroundColor = [UIColor blackColor];
+    
+    
+    date = [NSDate date];
+    
+    NSLocale *localeFR = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+    NSDateFormatter *formatDate = [[NSDateFormatter alloc] init];
+    
+    [formatDate setTimeStyle:NSDateFormatterMediumStyle];
+    [formatDate setDateStyle:NSDateFormatterNoStyle];
+    [formatDate setLocale:localeFR];
+    
+    titre = [NSMutableString stringWithString: @"Dernière mise à jour : "];
+    [titre appendFormat:[formatDate stringFromDate:date]];
+    
+    tempsAttente.text = titre;
+    
+    tempsAttente.backgroundColor = [UIColor blackColor];
+    tempsAttente.textColor = [UIColor whiteColor];
+    tempsAttente.font = [UIFont boldSystemFontOfSize:12.0];
+    
+    [viewGlobale addSubview:tempsAttente];
+    
+    
+    // On rajoute la roulette de temps
+    [viewGlobale addSubview: activityIndicator];
+    
+    
+    // create a new table using the full application frame
+    // we'll ask the datasource which type of table to use (plain or grouped)
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,20, 320, 440) 
+                                                          style:[dataSource tableViewStyle]];
+    
+    // set the autoresizing mask so that the table will always fill the view
+    tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+    
+    // set the cell separator to a single straight line.
+    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    
+    // set the tableview delegate to this object and the datasource to the datasource which has already been set
+    tableView.delegate = self;
+    tableView.dataSource = dataSource;
+    
+    // set the tableview as the controller view
+    self.theTableView = tableView;
+    self.theTableView.rowHeight = 65.0;
+    
+    
+    [viewGlobale addSubview:tableView];
+    
+    self.view = viewGlobale;
+    
+    [tableView release];
 }
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+-(void)refreshData {
+    
+    if (![activityIndicator isAnimating]) {
+        [activityIndicator startAnimating];
+        
+        [NSThread detachNewThreadSelector:@selector(refreshDataThread) toTarget:self withObject:nil];
+        
+    }
+    
 }
-*/
+
+-(void)refreshDataThread {
+    
+    NSMutableString *titre;
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    [[TempsAttentesBornePersoController sharedTempsAttentesBornePersoController] setupTempsAttentesBornePersoArray];
+    
+    date = [NSDate date];
+    
+    NSLocale *localeFR = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+    NSDateFormatter *formatDate = [[NSDateFormatter alloc] init];
+    
+    [formatDate setTimeStyle:NSDateFormatterMediumStyle];
+    [formatDate setDateStyle:NSDateFormatterNoStyle];
+    [formatDate setLocale:localeFR];
+    
+    titre = [NSMutableString stringWithString: @"Dernière mise à jour : "];
+    [titre appendFormat:[formatDate stringFromDate:date]];
+    
+    tempsAttente.text = titre;
+    
+    
+    //Permet de mettre à jours les valeurs de la view
+    [theTableView reloadData];
+    
+    [activityIndicator stopAnimating];
+    
+    
+    [pool release];
+    
+}
+
+- (void)loadView {
+    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    
+    //On démarre la roulette du template view
+    [[view activityIndicator] startAnimating];
+    
+    self.view = view;
+    
+    [view release];
+    
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -71,84 +217,11 @@
 }
 
 
-#pragma mark Table view methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Set up the cell...
-	
-    return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 - (void)dealloc {
+    theTableView.delegate = nil;
+    theTableView.dataSource = nil;
+    [theTableView release];
+    [dataSource release];
     [super dealloc];
 }
 

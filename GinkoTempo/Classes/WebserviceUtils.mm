@@ -11,6 +11,7 @@
 #import "Ligne.h"
 #import "TempsAttentes.h"
 #import "InfoTrafic.h"
+#import "StationTempsAttentesBornePerso.h"
 #import "TempoApiSoapBinding.nsmap"
 
 #define FAC NO
@@ -196,7 +197,8 @@ struct soap *soap = NULL;
                                       :(NSString*) MotDePasseMD5
 {
     
-    NSMutableArray *listeTemps; // Tableau de Lignes de bus
+    NSMutableArray *listeTemps, // Tableau de Lignes de bus
+    *listeStationsTpsAttentes;
     int nbObjLignes; // Nombre d'objet a creer
     int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
     
@@ -208,7 +210,8 @@ struct soap *soap = NULL;
     
     TempsAttentes *l;
     Ligne *ligne;
-    Station *station;
+    Station *station, *stationPrec = nil;
+    StationTempsAttentesBornePerso *stationTABP;
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -233,6 +236,7 @@ struct soap *soap = NULL;
         //printf("Lignes %d\n", nL);
         
         nbObjLignes = nL;
+        listeStationsTpsAttentes = [NSMutableArray arrayWithCapacity:nbObjLignes];
         listeTemps = [NSMutableArray arrayWithCapacity:nbObjLignes];
         
         
@@ -267,13 +271,29 @@ struct soap *soap = NULL;
                                            withInfo2:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 8] encoding:NSASCIIStringEncoding] 
                                         withMessages:NULL];
             
+            if (stationPrec == nil) {
+                stationPrec = station;
+            }
+            
+            if (station.name != stationPrec.name) {
+                stationTABP = [[StationTempsAttentesBornePerso alloc] initWithStation:stationPrec
+                                                                    withTempsAttentes:listeTemps];
+                [listeStationsTpsAttentes addObject:stationTABP];
+                listeTemps = [NSMutableArray arrayWithCapacity:nbObjLignes];
+                stationPrec = station;
+            }
+            
             [listeTemps addObject:l];
             [station release];
             [ligne release];
             [l release];
         }
+        stationTABP = [[StationTempsAttentesBornePerso alloc] initWithStation:stationPrec
+                                                            withTempsAttentes:listeTemps];
+        [listeStationsTpsAttentes addObject:stationTABP];
+        [stationTABP release];
         
-        return listeTemps;
+        return listeStationsTpsAttentes;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: getLigneStationBornePerso");

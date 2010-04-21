@@ -11,13 +11,14 @@
 
 @interface TempsAttentesBornePersoController : NSObject {
     NSArray *tempsAttentesBornePerso;
-    NSMutableDictionary *stationsEtNombreLignes;
+//    NSMutableDictionary *stationsEtNombreLignes;
 }
 
 @property (nonatomic,retain) NSArray *tempsAttentesBornePerso;
-@property (nonatomic,retain) NSMutableDictionary *stationsEtNombreLignes;
+//@property (nonatomic,retain) NSMutableDictionary *stationsEtNombreLignes;
 
 +(NSString *)md5HashString:(NSString *)stringToHash;
++(TempsAttentesBornePersoController *) sharedTempsAttentesBornePersoController;
 -(void)setupTempsAttentesBornePersoArray;
 
 @end

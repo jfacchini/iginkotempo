@@ -12,15 +12,10 @@
 #import "TempsAttentes.h"
 #import "WebserviceUtils.h"
 
-
-@interface TempsAttentesBornePersoController(mymethods)
-
-@end
-
 @implementation TempsAttentesBornePersoController
 
 @synthesize tempsAttentesBornePerso;
-@synthesize stationsEtNombreLignes;
+//@synthesize stationsEtNombreLignes;
 
 +(NSString *)md5HashString:(NSString *)stringToHash {
     const char *cStr = [stringToHash UTF8String];
@@ -29,6 +24,17 @@
     return [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
             result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], 
             result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]]; 
+}
+
+static TempsAttentesBornePersoController *sharedTempsAttentesBornePersoControllerInstance = nil;
+
++ (TempsAttentesBornePersoController*) sharedTempsAttentesBornePersoController {
+    @synchronized(self) {
+        if (sharedTempsAttentesBornePersoControllerInstance == nil) {
+            [[self alloc] init]; // assignment not done here
+        }
+    }
+    return sharedTempsAttentesBornePersoControllerInstance;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -62,37 +68,12 @@
 
 - (void)setupTempsAttentesBornePersoArray {
     
-    TempsAttentes *tempsAttentes;
-    Station *station, *stationPrec = nil;
-    int cptLigne = 0;
-    
     // Récupération des identifiants - ici on considère que les identifiants sont correctes
     NSString *login = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:@"loginKey"];
     NSString *mdp = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:@"mdpKey"];
     
 	// read the element data from the plist
     tempsAttentesBornePerso = [WebserviceUtils getLigneStationBornePerso:login:[TempsAttentesBornePersoController md5HashString:mdp]];
-    
-	for (tempsAttentes in tempsAttentesBornePerso) {
-        
-        station = tempsAttentes.station;
-        
-        if (stationPrec == nil) {
-            stationPrec = station;
-        }
-        
-        if (station.name != stationPrec.name) {
-            [stationsEtNombreLignes setValue:[NSNumber numberWithInt:cptLigne] forKey:stationPrec.name];
-            cptLigne = 1;
-        }
-        else {
-            cptLigne++;
-        }
-
-        
-	}
-    
-    [stationsEtNombreLignes setValue:[NSNumber numberWithInt:cptLigne] forKey:stationPrec.name];
     
 }
 

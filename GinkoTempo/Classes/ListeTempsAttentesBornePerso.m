@@ -7,6 +7,9 @@
 //
 
 #import "ListeTempsAttentesBornePerso.h"
+#import "TempsAttentesBornePersoController.h"
+#import "StationTempsAttentesBornePerso.h"
+#import "TempsAttentesTableViewCell.h"
 
 
 @implementation ListeTempsAttentesBornePerso
@@ -28,7 +31,7 @@
 
 // Icone dans la TabBar
 - (UIImage *)tabBarImage {
-	return [UIImage imageNamed:@"Borne.png"];
+	return [UIImage imageNamed:@"Ginko.png"];
 }
 
 // atomic name is displayed in a plain style tableview
@@ -39,68 +42,62 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	// this table has only one section
-	return 1;
+	return [[TempsAttentesBornePersoController
+             sharedTempsAttentesBornePersoController].tempsAttentesBornePerso count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)Section {
-    return 1;//[[[TempsAttentesBornePersoController sharedInfoTraficController] InfosTraficArray] count];
+    StationTempsAttentesBornePerso *stabp = [[TempsAttentesBornePersoController
+                                              sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
+                                             objectAtIndex:Section];
+    return [[stabp tempsAttentes] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)Section {
-    NSMutableString *titre = nil;
-    
-    NSLocale *localeFR = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
-    NSDate *mnt = [NSDate date]; // Date actuelle
-    NSDateFormatter *formatDate = [[NSDateFormatter alloc] init];
-    
-    [formatDate setTimeStyle:NSDateFormatterShortStyle];
-    [formatDate setDateStyle:NSDateFormatterShortStyle];
-    [formatDate setLocale:localeFR];
-    
-    if (Section == 0) {
-        titre = [NSMutableString stringWithString: @"Infos trafic au "];
-        [titre appendFormat:[formatDate stringFromDate:mnt]];
-    }
-    
-    [localeFR release];
-    [formatDate release];
-    
-    return titre;
+    StationTempsAttentesBornePerso *stabp = [[TempsAttentesBornePersoController
+                                              sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
+                                             objectAtIndex:Section];
+    return stabp.station.name;
 }
 
-// Retourne l'InfoTrafic correspond à l'indexPath
+// Retourne le temps d'attente qui correspond à l'indexPath
 - (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
-    return  Nil;//[[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:indexPath.row];
+    int i = 0;
+    int index = indexPath.row;
+    int nbElt;
+    StationTempsAttentesBornePerso *stabp;
+    stabp = [[TempsAttentesBornePersoController
+              sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
+             objectAtIndex:i];
+    nbElt = [stabp.tempsAttentes count];
     
+    while (nbElt < index) {
+        index = index - [stabp.tempsAttentes count];
+        i++;
+        stabp = [[TempsAttentesBornePersoController
+                  sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
+                 objectAtIndex:i];
+        nbElt = [stabp.tempsAttentes count];
+    }
+    
+    return [stabp.tempsAttentes objectAtIndex:index];
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    InfoTrafic *uneIT;
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-//    
-//    if (cell == nil) {
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"] autorelease];
-//    }
-//    
-//    // configure cell contents
-//    // all the rows should show the disclosure indicator
-//    if ([self showDisclosureIcon])
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    
-//    uneIT = [self objectForIndexPath:indexPath];
-//    
-//    cell.textLabel.text = uneIT.titre;
-//    
-//    if (uneIT.priorite) [cell.textLabel setTextColor:[UIColor redColor]];
-//    
-//    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:15]];
-//    cell.textLabel.numberOfLines = 2;
-//    
-    return Nil;
+    TempsAttentesTableViewCell *cell = (TempsAttentesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"StationTableViewCell"];
+    if (cell == nil) {
+        cell = [[[TempsAttentesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"StationTableViewCell"] autorelease];
+    }
+    
+    // configure cell contents
+    // all the rows should show the disclosure indicator
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    [cell setElement:[self objectForIndexPath:indexPath]];
+
+    return cell;
 }
 
 - (void) dealloc {
