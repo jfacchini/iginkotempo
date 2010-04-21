@@ -80,6 +80,7 @@ static StationsGeolocaliseController *sharedStationsControllerInstance = nil;
 - (void)setLatitude:(float)lat withLong:(float)lon{
     latitude = lat;
     longitude = lon;
+    precision = 5.0;
     
     [self setupStationsArray];
 }
@@ -95,7 +96,7 @@ static StationsGeolocaliseController *sharedStationsControllerInstance = nil;
 	// read the element data from the plist
 	NSArray *rawStationsArray = [WebserviceUtils getListeStationsProches: [NSString stringWithFormat: @"%f", longitude] 
                                                                         : [NSString stringWithFormat: @"%f", latitude]
-                                                                        : 5.0];
+                                                                        : precision];
     //[rawStationsArray addObject:nil];
     int i = 0;
     

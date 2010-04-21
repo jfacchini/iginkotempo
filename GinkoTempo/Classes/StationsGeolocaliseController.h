@@ -13,6 +13,7 @@
     
     float latitude;
     float longitude;
+    float precision;
     
 	NSMutableDictionary *stationsDictionary;
 	//NSMutableDictionary *nameIndexesDictionary;

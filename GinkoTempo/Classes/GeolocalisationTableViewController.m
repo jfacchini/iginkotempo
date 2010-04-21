@@ -180,7 +180,7 @@
 	CLLocationCoordinate2D loc = [newLocation coordinate];
 
     //printf("%f %f", lat, lon);
-    
+        
 	// Ici on fait le traitement une fois les données récupérer   
     [[StationsGeolocaliseController sharedStationsGeolocaliseController] setLatitude:loc.latitude withLong:loc.longitude];
     

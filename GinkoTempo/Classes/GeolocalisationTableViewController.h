@@ -17,8 +17,6 @@
 @interface GeolocalisationTableViewController : UITableViewController <CLLocationManagerDelegate> {
 	UITableView *theTableView;
     
-    
-    
     id<GinkoDataSource,UITableViewDataSource> dataSource;
     
     UIBarButtonItem *localiser;
