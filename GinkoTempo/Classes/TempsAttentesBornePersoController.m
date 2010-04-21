@@ -85,7 +85,7 @@ static TempsAttentesBornePersoController *sharedTempsAttentesBornePersoControlle
     NSString *mdp = (NSString *) [[NSUserDefaults standardUserDefaults] objectForKey:@"mdpKey"];
     
 	// read the element data from the plist
-    tempsAttentesBornePerso = [WebserviceUtils getLigneStationBornePerso:login:[TempsAttentesBornePersoController md5HashString:mdp]];
+    self.tempsAttentesBornePerso = [WebserviceUtils getLigneStationBornePerso:login:[TempsAttentesBornePersoController md5HashString:mdp]];
     
 }
 
