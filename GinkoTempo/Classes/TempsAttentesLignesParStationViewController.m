@@ -16,6 +16,8 @@
 #import "TempsAttentesController.h"
 #import "Station.h"
 #import "chargementView.h"
+#import "TempsAttentes.h"
+#import "TempsAttentesDetailsViewController.h"
 
 @interface TempsAttentesLignesParStationViewController(mymethods)
 // these are private methods that outside classes need not use
@@ -98,7 +100,7 @@
 -(void)viewWillAppear:(BOOL)animated {
             
     //cmptRafraichissement = 30;
-    //timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
     //timerChrono = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshChrono) userInfo:nil repeats:YES];
     //[[NSRunLoop mainRunLoop] addTimer:timerChrono forMode: NSDefaultRunLoopMode];
 
@@ -107,7 +109,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    //[timer invalidate];
+    [timer invalidate];
     //[timerChrono invalidate];
 
 }
@@ -287,8 +289,17 @@
     
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
     
-    //[self refreshData];
-
+    TempsAttentes *temps = [dataSource.tempsAttentesController.tempsAttentesSortedByNumber objectAtIndex:newIndexPath.row];
+    
+    //printf("%s\n", [temps.direction1 cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    TempsAttentesDetailsViewController *detailsView = [[TempsAttentesDetailsViewController alloc] initWithTempsAttentes:temps];
+    
+    [[self navigationController] pushViewController:detailsView animated:YES];
+    
+    [detailsView release];
+    
+    
 }
 
 

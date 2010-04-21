@@ -41,8 +41,8 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    printf("numSections %d\n",[[TempsAttentesBornePersoController
-                                sharedTempsAttentesBornePersoController].tempsAttentesBornePerso count]);
+
+
 	return [[TempsAttentesBornePersoController
              sharedTempsAttentesBornePersoController].tempsAttentesBornePerso count];
 }
@@ -51,7 +51,7 @@
     StationTempsAttentesBornePerso *stabp = [[TempsAttentesBornePersoController
                                               sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
                                              objectAtIndex:Section];
-    printf("nomOfRowsSection %d\n",[[stabp tempsAttentes] count]);
+
     return [[stabp tempsAttentes] count];
 }
 

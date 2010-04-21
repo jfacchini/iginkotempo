@@ -43,6 +43,7 @@
 		338DDECB11249BDA00FB0316 /* Ginko.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC611249BDA00FB0316 /* Ginko.png */; };
 		338DDECC11249BDA00FB0316 /* Station.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDEC711249BDA00FB0316 /* Station.png */; };
 		338DDECF11249C5800FB0316 /* icones.png in Resources */ = {isa = PBXBuildFile; fileRef = 338DDECE11249C5800FB0316 /* icones.png */; };
+		33D1343E117FA26A00B02DDD /* TempsAttentesDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D1343D117FA26A00B02DDD /* TempsAttentesDetailsViewController.m */; };
 		33D20C0B114A526300523EEA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D20C0A114A526300523EEA /* Default.png */; };
 		33D54E381131903700C04524 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E371131903700C04524 /* StationTableViewCell.m */; };
 		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
@@ -129,6 +130,8 @@
 		338DDEC611249BDA00FB0316 /* Ginko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ginko.png; sourceTree = "<group>"; };
 		338DDEC711249BDA00FB0316 /* Station.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Station.png; sourceTree = "<group>"; };
 		338DDECE11249C5800FB0316 /* icones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icones.png; sourceTree = "<group>"; };
+		33D1343C117FA26A00B02DDD /* TempsAttentesDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentesDetailsViewController.h; sourceTree = "<group>"; };
+		33D1343D117FA26A00B02DDD /* TempsAttentesDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempsAttentesDetailsViewController.m; sourceTree = "<group>"; };
 		33D20C0A114A526300523EEA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		33D54E361131903700C04524 /* StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableViewCell.h; sourceTree = "<group>"; };
 		33D54E371131903700C04524 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 		3336BEFA1153981000E7B0F3 /* TempsAttentes */ = {
 			isa = PBXGroup;
 			children = (
+				33D1343C117FA26A00B02DDD /* TempsAttentesDetailsViewController.h */,
+				33D1343D117FA26A00B02DDD /* TempsAttentesDetailsViewController.m */,
 				335B41E4114B9C1600C08E4E /* TempsAttentesTableViewCell.h */,
 				335B41E5114B9C1600C08E4E /* TempsAttentesTableViewCell.m */,
 				333B5EA61150FC7800204E57 /* TempsAttentesTileView.h */,
@@ -520,6 +525,7 @@
 				C2743845117B5A4F008783B7 /* ListeTempsAttentesBornePerso.m in Sources */,
 				C22063A7117F1E780009A25B /* StationTempsAttentesBornePerso.m in Sources */,
 				333F36D9117F43C40060C450 /* GinkoTempoAppDelegate.m in Sources */,
+				33D1343E117FA26A00B02DDD /* TempsAttentesDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

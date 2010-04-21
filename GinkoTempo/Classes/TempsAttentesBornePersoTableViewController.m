@@ -11,6 +11,8 @@
 #import "TempsAttentesBornePersoController.h"
 #import "chargementView.h"
 
+#import "TempsAttentes.h"
+#import "TempsAttentesDetailsViewController.h"
 
 @implementation TempsAttentesBornePersoTableViewController
 
@@ -69,9 +71,19 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     
+    timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
+
     // force the tableview to load
     [theTableView reloadData];
 }
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [timer invalidate];
+    //[timerChrono invalidate];
+    
+}
+
+
 
 //Ca c'est le code pour charger les données. A mettre dans un Thread pour pas bloquer l'affichage de la page.
 -(void)loadData {
@@ -223,6 +235,29 @@
     [theTableView release];
     [dataSource release];
     [super dealloc];
+}
+
+//
+// UITableViewDelegate methods
+//
+//
+
+// the user selected a row in the table.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
+    
+    [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+    
+    TempsAttentes *temps = [dataSource objectForIndexPath:newIndexPath];
+    
+    //printf("%s\n", [temps.direction1 cStringUsingEncoding:NSUTF8StringEncoding]);
+    
+    TempsAttentesDetailsViewController *detailsView = [[TempsAttentesDetailsViewController alloc] initWithTempsAttentes:temps];
+    
+    [[self navigationController] pushViewController:detailsView animated:YES];
+    
+    [detailsView release];
+    
+    
 }
 
 
