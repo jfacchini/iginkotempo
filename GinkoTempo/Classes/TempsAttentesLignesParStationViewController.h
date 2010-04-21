@@ -15,23 +15,35 @@
     // Le tableau liste des Stations
 	UITableView *theTableView;
     
-    NSTimer *timer;
+    Station *station;
     
+    NSTimer *timer;
+    NSTimer *timerChrono;
+
     // Les dataSources à savoir liste des Stations
     TempsAttentesLignesParStation *dataSource;
     
     UILabel *tempsAttente;
-
+    UILabel *chrono;
+    int *cmptRafraichissement;
     
+    UIBarButtonItem *rafraichir;
     UIActivityIndicatorView *activityIndicator;
     
     NSDate *date;
 }
 
 @property (nonatomic,retain) UITableView *theTableView;
+@property (nonatomic,retain) UIBarButtonItem *rafraichir;
 @property (nonatomic,retain) NSTimer *timer;
-@property (nonatomic,retain) NSTimer *timerAvantRafraichissement;
+@property (nonatomic,retain) NSTimer *timerChrono;
+@property (nonatomic) int *cmptRafraichissement;
+
+@property (nonatomic,retain) Station *station;
+
 @property (nonatomic,retain) UILabel *tempsAttente;
+@property (nonatomic,retain) UILabel *chrono;
+
 @property (nonatomic,retain) NSDate *date;
 @property (nonatomic,retain) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic,retain) TempsAttentesLignesParStation *dataSource;

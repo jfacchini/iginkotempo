@@ -16,7 +16,7 @@
 @synthesize temps;
 
 + (CGSize)preferredViewSize {
-	return CGSizeMake(320,50);
+	return CGSizeMake(320,65);
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -31,6 +31,11 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    
+    [[[UIColor alloc] initWithRed:0.9 green:0.9 blue:0.9 alpha:0.3] set];
+    
+    [temps.station.name drawAtPoint:CGPointMake(40, 38) withFont:[UIFont boldSystemFontOfSize:30.0]];
+
     
 	CGPoint point;
 	// get the image that represents the element physical state and draw it
@@ -54,13 +59,27 @@
 
     [[UIColor blackColor] set];
 
-    [temps.ligne.direction drawAtPoint:CGPointMake(58, 3) withFont:[UIFont boldSystemFontOfSize:17.0]];
+    [temps.ligne.direction drawAtPoint:CGPointMake(58, 6) withFont:[UIFont boldSystemFontOfSize:17.0]];
 
-    [temps.horaire1 drawAtPoint:CGPointMake(60, 30) withFont:[UIFont boldSystemFontOfSize:17.0]];
-    [temps.horaire2 drawAtPoint:CGPointMake(180, 30) withFont:[UIFont boldSystemFontOfSize:17.0]];
+    if ([temps.direction1 compare:temps.ligne.direction]) {
+        [temps.direction1 drawAtPoint:CGPointMake(80, 29) withFont:[UIFont boldSystemFontOfSize:10.0]];
+        [temps.horaire1 drawAtPoint:CGPointMake(80, 43) withFont:[UIFont boldSystemFontOfSize:14.0]];
+    }else{
+        [temps.horaire1 drawAtPoint:CGPointMake(80, 35) withFont:[UIFont boldSystemFontOfSize:16.0]];
+    }
+    
+    [[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.5 alpha:1] set];
+        
+    if ([temps.direction2 compare:temps.ligne.direction]) {
+        [temps.direction2 drawAtPoint:CGPointMake(200, 29) withFont:[UIFont boldSystemFontOfSize:10.0]];
+        [temps.horaire2 drawAtPoint:CGPointMake(200, 43) withFont:[UIFont boldSystemFontOfSize:14.0]];
+
+    }else {
+        [temps.horaire2 drawAtPoint:CGPointMake(200, 35) withFont:[UIFont boldSystemFontOfSize:16.0]];
+
+    }
 
     
-
     
 }
 

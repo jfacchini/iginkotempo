@@ -43,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)Section {
-    return [[[TempsAttentesBornePersoController sharedInfoTraficController] InfosTraficArray] count];
+    return 1;//[[[TempsAttentesBornePersoController sharedInfoTraficController] InfosTraficArray] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)Section {
@@ -71,36 +71,36 @@
 // Retourne l'InfoTrafic correspond à l'indexPath
 - (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
-    return [[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:indexPath.row];
+    return  Nil;//[[[InfoTraficController sharedInfoTraficController] InfosTraficArray] objectAtIndex:indexPath.row];
     
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    InfoTrafic *uneIT;
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"] autorelease];
-    }
-    
-    // configure cell contents
-    // all the rows should show the disclosure indicator
-    if ([self showDisclosureIcon])
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    uneIT = [self objectForIndexPath:indexPath];
-    
-    cell.textLabel.text = uneIT.titre;
-    
-    if (uneIT.priorite) [cell.textLabel setTextColor:[UIColor redColor]];
-    
-    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:15]];
-    cell.textLabel.numberOfLines = 2;
-    
-    return cell;
+//    
+//    InfoTrafic *uneIT;
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+//    
+//    if (cell == nil) {
+//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"] autorelease];
+//    }
+//    
+//    // configure cell contents
+//    // all the rows should show the disclosure indicator
+//    if ([self showDisclosureIcon])
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    
+//    uneIT = [self objectForIndexPath:indexPath];
+//    
+//    cell.textLabel.text = uneIT.titre;
+//    
+//    if (uneIT.priorite) [cell.textLabel setTextColor:[UIColor redColor]];
+//    
+//    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:15]];
+//    cell.textLabel.numberOfLines = 2;
+//    
+    return Nil;
 }
 
 - (void) dealloc {

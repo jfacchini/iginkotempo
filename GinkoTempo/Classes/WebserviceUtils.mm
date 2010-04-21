@@ -474,6 +474,8 @@ struct soap *soap = NULL;
     
     TempsAttentes *l;
     Ligne *ligne;
+    Station *station = [[Station alloc] initWithName:nomStation];
+    
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -518,6 +520,7 @@ struct soap *soap = NULL;
                              withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]]; 
             
             l = [[TempsAttentes alloc] initWithIdent:[NSNumber numberWithInt: i-2]
+                                         withStation:station
                                            withLigne:ligne 
                                       withDirection1:dir1
                                       withDirection2:dir2
@@ -531,7 +534,7 @@ struct soap *soap = NULL;
             [ligne release];
             [l release];
         }
-        
+        [station release];
         return listeTemps;
     }
 	

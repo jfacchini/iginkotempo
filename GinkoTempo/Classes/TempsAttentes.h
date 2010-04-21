@@ -46,15 +46,4 @@
             withInfo2:(NSString *)infoComplementaire2 
          withMessages:(NSArray *)message;
 
-// Cette initialisation est pour les temps d'attentes pour une même station.
-- (id)initWithIdent:(NSNumber*)ident
-          withLigne:(Ligne *)ligne  
-     withDirection1:(NSString *)direction1
-     withDirection2:(NSString *)direction2 
-       withHoraire1:(NSString *)horaire1
-       withHoraire2:(NSString *)horaire2  
-          withInfo1:(NSString *)infoComplementaire1 
-          withInfo2:(NSString *)infoComplementaire2 
-       withMessages:(NSArray *)message;
-
 @end

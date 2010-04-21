@@ -57,8 +57,7 @@
     
     // configure cell contents
     // all the rows should show the disclosure indicator
-    if ([self showDisclosureIcon])
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     // set the element for this cell as specified by the datasource. The atomicElementForIndexPath: is declared
     // as part of the ElementsDataSource Protocol and will return the appropriate element for the index row

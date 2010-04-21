@@ -19,7 +19,7 @@
 
 @interface TempsAttentesLignesParStationViewController(mymethods)
 // these are private methods that outside classes need not use
--(void)loadData:(id)aStation;
+-(void)loadData;
 -(void)displayData;
 -(void)refreshData;
 -(void)refreshDataThread;
@@ -29,10 +29,15 @@
 
 @synthesize theTableView;
 @synthesize timer;
+@synthesize timerChrono;
+@synthesize cmptRafraichissement;
 @synthesize dataSource;
 @synthesize tempsAttente;
+@synthesize chrono;
 @synthesize date;
 @synthesize activityIndicator;
+@synthesize station;
+@synthesize rafraichir;
 
 
 - (id)initWithStation:(Station *)aStation {
@@ -40,10 +45,14 @@
     if ([self init]) {
         
         theTableView = nil;
+        date = [NSDate date];
+        station = aStation;
         
-        [NSThread detachNewThreadSelector:@selector(loadData:) toTarget:self withObject:aStation];
+        [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+        
 
-        
+        //NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(loadData:) object:aStation];
+        //[thread start];
         //id dSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
         
         // retain the data source
@@ -51,7 +60,6 @@
         // set the title, and tab bar images from the dataSource
         // object. These are part of the ElementsDataSource Protocol
         self.title = aStation.name;
-        
         
         // set the long name shown in the navigation bar
         //self.navigationItem.title=[dataSource navigationBarName];
@@ -63,48 +71,68 @@
         [temporaryBarButtonItem release];
         
         
+        //On genère le bouton en flexible item et rafraichir comme un bouton refresh
+        rafraichir = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
+        rafraichir.style = UIBarButtonItemStylePlain;
+
+        // Bouton style refresh par default, sinon faire initWithTitle:style:target:action
+        self.navigationItem.rightBarButtonItem = rafraichir;
+        
         // Texte avec date de dernière mise à jours
         tempsAttente = [[UILabel alloc] initWithFrame:CGRectMake(10,0, 280, 20)];
         
         
+        
+
+        // initialisation faite dans viewWillAppear pour reprendre le chargement.
+        //cmptRafraichissement = 30;
+        
         activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(290,0, 20, 20)];
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
                 
-        date = [NSDate date];
-        
     }
     
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode: NSDefaultRunLoopMode];
+            
+    //cmptRafraichissement = 30;
+    //timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
+    //timerChrono = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshChrono) userInfo:nil repeats:YES];
+    //[[NSRunLoop mainRunLoop] addTimer:timerChrono forMode: NSDefaultRunLoopMode];
 
-
-    
     // force the tableview to load
     [theTableView reloadData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [timer invalidate];
+    //[timer invalidate];
+    //[timerChrono invalidate];
+
 }
 
-//Ca c'est le code pour charger les données. A mettre dans un Thread.
--(void)loadData:(id)aStation {
+
+//Ca c'est le code pour charger les données. A mettre dans un Thread pour pas bloquer l'affichage de la page.
+-(void)loadData {
+    
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
     
     //[[StationsParLigneController sharedStationsParLigneController:aLigne] setLigne:aLigne];
     
     //self.dataSource = [[ListeDesStationsPourUneLigne alloc] initWithLigne:aLigne];
     
+    //Station *aStation = [viewController station];
     
-    self.dataSource = [[TempsAttentesLignesParStation alloc] initWithStation:aStation];
-    [self displayData];
     
+    self.dataSource = [[TempsAttentesLignesParStation alloc] initWithStation:station];
+    
+    //Appelle à displayData
+    //Attention car [self displayData] ne fonctionne pas : erreur accès mémoire.
+
+    [self performSelectorOnMainThread:@selector(displayData) withObject:nil waitUntilDone:NO];
 
     
     [pool release];
@@ -123,23 +151,31 @@
     [super dealloc];
 }
 
+
+// This is display from a Thread to a performSelctorOnMainThread
 - (void)displayData {
+
     
     UIView *viewGlobale = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     viewGlobale.backgroundColor = [UIColor blackColor];
+   
     
-
     date = [NSDate date];
-    tempsAttente.text = [NSString stringWithFormat:@"Dernière mise à jours : %@",
+    
+    //NSString *formattedDate = [[NSDate date] descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S"];
+    //[self date] descriptionWithCalendarFormat
+    
+    tempsAttente.text = [NSString stringWithFormat:@"Dernière mise à jour : %@",
                          [date descriptionWithCalendarFormat:@"%H:%M:%S" 
-                                                    timeZone:nil
-                                                      locale:nil]];
+                                                                     timeZone:nil
+                                                                       locale:nil]];
     
     tempsAttente.backgroundColor = [UIColor blackColor];
     tempsAttente.textColor = [UIColor whiteColor];
     tempsAttente.font = [UIFont boldSystemFontOfSize:12.0];
-    
+
     [viewGlobale addSubview:tempsAttente];
+
 
     // On rajoute la roulette de temps
     [viewGlobale addSubview: activityIndicator];
@@ -162,14 +198,12 @@
     
     // set the tableview as the controller view
     self.theTableView = tableView;
-    self.theTableView.rowHeight = 58.0;
+    self.theTableView.rowHeight = 65.0;
     
     
     [viewGlobale addSubview:tableView];
     
     self.view = viewGlobale;
-    
-
     
     [tableView release];
 }
@@ -190,29 +224,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-	// Configure the table view.
-    
-    
-    /*
-    self.tableView.backgroundColor = DARK_BACKGROUND;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-	// Load the data.
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
-    self.data = [NSArray arrayWithContentsOfFile:dataPath];
-     
-     
-     
-     //Exemple de Thread pour refresh ci dessous
-     [NSThread detachNewThreadSelector:@selector(loadData:) toTarget:self withObject:aStation];
-     
-     
-     */
-    
+  
 }//
 
 -(void)refreshData {
+
+//    Commentaire d'un bout de code pour changer le bouton refresh en roue de chargement
+//
+//    CGRect frame = CGRectMake(0.0, 0.0, 25.0, 25.0);
+//    
+//    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithFrame:frame];  
+//    [loading sizeToFit];  
+//    loading.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);  
+//    [loading startAnimating];
+//    
+//    rafraichir = [[UIBarButtonItem alloc] initWithCustomView:loading];
+//    rafraichir.style = UIBarButtonItemStylePlain; 
+//    self.navigationItem.rightBarButtonItem = rafraichir;
+    
 
     [activityIndicator startAnimating];
     
@@ -228,7 +257,7 @@
     [[dataSource tempsAttentesController] setupTempsAttentesArray];
     
     date = [NSDate date];
-    tempsAttente.text = [NSString stringWithFormat:@"Dernière mise à jours : %@",
+    tempsAttente.text = [NSString stringWithFormat:@"Dernière mise à jour : %@",
                          [date descriptionWithCalendarFormat:@"%H:%M:%S" 
                                                     timeZone:nil
                                                       locale:nil]];
@@ -238,6 +267,7 @@
     [theTableView reloadData];
     
     [activityIndicator stopAnimating];
+    
     
     [pool release];
     
@@ -254,7 +284,7 @@
     
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
     
-    [self refreshData];
+    //[self refreshData];
 
 }
 
