@@ -71,11 +71,11 @@
     [[[UIColor alloc] initWithRed:0.5 green:0.5 blue:0.5 alpha:1] set];
         
     if ([temps.direction2 compare:temps.ligne.direction]) {
-        [temps.direction2 drawAtPoint:CGPointMake(200, 29) withFont:[UIFont boldSystemFontOfSize:10.0]];
-        [temps.horaire2 drawAtPoint:CGPointMake(200, 43) withFont:[UIFont boldSystemFontOfSize:14.0]];
+        [temps.direction2 drawAtPoint:CGPointMake(190, 29) withFont:[UIFont boldSystemFontOfSize:10.0]];
+        [temps.horaire2 drawAtPoint:CGPointMake(190, 43) withFont:[UIFont boldSystemFontOfSize:14.0]];
 
     }else {
-        [temps.horaire2 drawAtPoint:CGPointMake(200, 35) withFont:[UIFont boldSystemFontOfSize:16.0]];
+        [temps.horaire2 drawAtPoint:CGPointMake(190, 35) withFont:[UIFont boldSystemFontOfSize:16.0]];
 
     }
 

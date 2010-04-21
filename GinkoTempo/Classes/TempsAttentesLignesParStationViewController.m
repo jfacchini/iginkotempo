@@ -242,10 +242,13 @@
 //    rafraichir.style = UIBarButtonItemStylePlain; 
 //    self.navigationItem.rightBarButtonItem = rafraichir;
     
-
-    [activityIndicator startAnimating];
+    if (![activityIndicator isAnimating]) {
+        [activityIndicator startAnimating];
+        
+        [NSThread detachNewThreadSelector:@selector(refreshDataThread) toTarget:self withObject:nil];
+        
+    }
     
-    [NSThread detachNewThreadSelector:@selector(refreshDataThread) toTarget:self withObject:nil];
 
 
 }

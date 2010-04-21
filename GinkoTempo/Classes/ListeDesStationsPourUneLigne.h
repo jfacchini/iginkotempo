@@ -11,7 +11,7 @@
 #import "Ligne.h"
 #import "StationsParLigneController.h"
 
-@interface ListeDesStationsPourUneLigne : NSObject {
+@interface ListeDesStationsPourUneLigne : NSObject <UITableViewDataSource> {
     Ligne *ligne;
     
 }

@@ -12,7 +12,7 @@
 #import "StationsParLigneController.h"
 #import "TempsAttentesController.h"
 
-@interface TempsAttentesLignesParStation : NSObject {
+@interface TempsAttentesLignesParStation : NSObject <UITableViewDataSource> {
     Station *station;
     TempsAttentesController *tempsAttentesController;
 }
