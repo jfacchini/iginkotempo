@@ -196,6 +196,20 @@ struct soap *soap = NULL;
                                       :(NSString*) MotDePasseMD5
 {
     
+    NSMutableArray *listeTemps; // Tableau de Lignes de bus
+    int nbObjLignes; // Nombre d'objet a creer
+    int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
+    
+    NSString *couleurs;
+    NSArray *tabCouleurs;
+    
+    NSString *dir, *dir1, *dir2;
+    
+    
+    TempsAttentes *l;
+    Ligne *ligne;
+    Station *station;
+    
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -210,11 +224,57 @@ struct soap *soap = NULL;
     
     //Appel du service web
 	if (!soap_call___ns1__getLigneStationBornePerso(soap, ADRESSEWS, NULL,
-                                                    &requete, &reponse)) {
+                                             &requete, &reponse)) {
         
-        /*return [WebserviceUtils creerTableau2DString:
-                reponse.getLigneStationBornePersoReturn];*/
-	}
+        nC = atoi(reponse.getLigneStationBornePersoReturn[0]);
+        //printf("Colonnes %d\n", nC);
+        
+        nL = atoi(reponse.getLigneStationBornePersoReturn[1]);
+        //printf("Lignes %d\n", nL);
+        
+        nbObjLignes = nL;
+        listeTemps = [NSMutableArray arrayWithCapacity:nbObjLignes];
+        
+        
+        for (int i=2; i < nbObjLignes+2; i++) {
+            
+            couleurs = [NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 11] encoding:NSASCIIStringEncoding];
+            
+            tabCouleurs = [couleurs componentsSeparatedByString:@"-"];
+            
+            dir1 = [NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 5] encoding:NSASCIIStringEncoding];
+            dir2 = [NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 6] encoding:NSASCIIStringEncoding];
+            dir = dir1;
+            
+            station = [[Station alloc] initWithName:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i]
+                                                                       encoding:NSASCIIStringEncoding]];
+            
+            ligne = [[Ligne alloc] initWithIdent:[NSNumber numberWithInt: i-2] 
+                                  initWithNumero:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 1] encoding:NSASCIIStringEncoding] 
+                                        withSens:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 2] encoding:NSASCIIStringEncoding] 
+                                   withDirection:dir 
+                                  withColorLabel:[self uiColorWithHexString:[tabCouleurs objectAtIndex:0]] 
+                             withColorBackground:[self uiColorWithHexString:[tabCouleurs objectAtIndex:1]]]; 
+            
+            l = [[TempsAttentes alloc] initWithIdent:[NSNumber numberWithInt: i-2]
+                                         withStation:station
+                                           withLigne:ligne 
+                                      withDirection1:dir1
+                                      withDirection2:dir2
+                                        withHoraire1:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 3] encoding:NSASCIIStringEncoding] 
+                                        withHoraire2:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 4] encoding:NSASCIIStringEncoding] 
+                                           withInfo1:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 7] encoding:NSASCIIStringEncoding] 
+                                           withInfo2:[NSString stringWithCString:reponse.getLigneStationBornePersoReturn[i+nbObjLignes * 8] encoding:NSASCIIStringEncoding] 
+                                        withMessages:NULL];
+            
+            [listeTemps addObject:l];
+            [station release];
+            [ligne release];
+            [l release];
+        }
+        
+        return listeTemps;
+    }
 	
 	NSLog(@"Erreur: Appel SOAP: getLigneStationBornePerso");
     
