@@ -37,6 +37,18 @@ static TempsAttentesBornePersoController *sharedTempsAttentesBornePersoControlle
     return sharedTempsAttentesBornePersoControllerInstance;
 }
 
++ (id)allocWithZone:(NSZone *)zone {
+    
+    @synchronized(self) {
+        if (sharedTempsAttentesBornePersoControllerInstance == nil) {
+            sharedTempsAttentesBornePersoControllerInstance = [super allocWithZone:zone];
+            return sharedTempsAttentesBornePersoControllerInstance;  // assignment and return on first allocation
+        }
+    }
+    
+    return nil; //on subsequent allocation attempts return nil
+}
+
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }

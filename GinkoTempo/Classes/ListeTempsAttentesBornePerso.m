@@ -41,7 +41,8 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	// this table has only one section
+    printf("numSections %d\n",[[TempsAttentesBornePersoController
+                                sharedTempsAttentesBornePersoController].tempsAttentesBornePerso count]);
 	return [[TempsAttentesBornePersoController
              sharedTempsAttentesBornePersoController].tempsAttentesBornePerso count];
 }
@@ -50,6 +51,7 @@
     StationTempsAttentesBornePerso *stabp = [[TempsAttentesBornePersoController
                                               sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
                                              objectAtIndex:Section];
+    printf("nomOfRowsSection %d\n",[[stabp tempsAttentes] count]);
     return [[stabp tempsAttentes] count];
 }
 
@@ -63,25 +65,12 @@
 // Retourne le temps d'attente qui correspond à l'indexPath
 - (id)objectForIndexPath:(NSIndexPath *)indexPath {
     
-    int i = 0;
-    int index = indexPath.row;
-    int nbElt;
     StationTempsAttentesBornePerso *stabp;
     stabp = [[TempsAttentesBornePersoController
               sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
-             objectAtIndex:i];
-    nbElt = [stabp.tempsAttentes count];
+             objectAtIndex:indexPath.section];
     
-    while (nbElt < index) {
-        index = index - [stabp.tempsAttentes count];
-        i++;
-        stabp = [[TempsAttentesBornePersoController
-                  sharedTempsAttentesBornePersoController].tempsAttentesBornePerso
-                 objectAtIndex:i];
-        nbElt = [stabp.tempsAttentes count];
-    }
-    
-    return [stabp.tempsAttentes objectAtIndex:index];
+    return [stabp.tempsAttentes objectAtIndex:indexPath.row];
 }
 
 // Customize the appearance of table view cells.
