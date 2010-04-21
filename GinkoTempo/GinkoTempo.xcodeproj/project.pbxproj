@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* GinkoTempoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -23,6 +22,7 @@
 		333C13AE1135189E00647B5C /* LignesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C13AD1135189E00647B5C /* LignesTableViewController.m */; };
 		333C1493113558DE00647B5C /* LigneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C1492113558DE00647B5C /* LigneTableViewCell.m */; };
 		333C14961135590000647B5C /* LigneTileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C14951135590000647B5C /* LigneTileView.m */; };
+		333F36D9117F43C40060C450 /* GinkoTempoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 333F36D8117F43C40060C450 /* GinkoTempoAppDelegate.m */; };
 		3350343F11523CCA00D33A57 /* StationsGeolocaliseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */; };
 		33592CF21149260E007B7C12 /* TempsAttentes.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF11149260E007B7C12 /* TempsAttentes.m */; };
 		33592CF911492C0F007B7C12 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 33592CF811492C0F007B7C12 /* Message.m */; };
@@ -67,7 +67,6 @@
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GinkoTempoAppDelegate.h; path = Classes/GinkoTempoAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GinkoTempoAppDelegate.m; path = Classes/GinkoTempoAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GinkoTempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinkoTempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,6 +92,7 @@
 		333C1492113558DE00647B5C /* LigneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTableViewCell.m; sourceTree = "<group>"; };
 		333C14941135590000647B5C /* LigneTileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigneTileView.h; sourceTree = "<group>"; };
 		333C14951135590000647B5C /* LigneTileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LigneTileView.m; sourceTree = "<group>"; };
+		333F36D8117F43C40060C450 /* GinkoTempoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GinkoTempoAppDelegate.m; sourceTree = "<group>"; };
 		3350343D11523CCA00D33A57 /* StationsGeolocaliseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsGeolocaliseController.h; sourceTree = "<group>"; };
 		3350343E11523CCA00D33A57 /* StationsGeolocaliseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsGeolocaliseController.m; sourceTree = "<group>"; };
 		33592CF01149260E007B7C12 /* TempsAttentes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempsAttentes.h; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1D3623240D0F684500981E51 /* GinkoTempoAppDelegate.h */,
-				1D3623250D0F684500981E51 /* GinkoTempoAppDelegate.m */,
+				333F36D8117F43C40060C450 /* GinkoTempoAppDelegate.m */,
 				32CA4F630368D1EE00C91783 /* GinkoTempo_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -479,7 +479,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* GinkoTempoAppDelegate.m in Sources */,
 				336781AF1124A8A900E9571F /* ListeDesStations.m in Sources */,
 				336781BF1124BAA300E9571F /* Station.m in Sources */,
 				336781D71124C1EE00E9571F /* StationsTableViewController.m in Sources */,
@@ -520,6 +519,7 @@
 				C2A608A41166243500995B4B /* TempsAttentesBornePersoTableViewController.m in Sources */,
 				C2743845117B5A4F008783B7 /* ListeTempsAttentesBornePerso.m in Sources */,
 				C22063A7117F1E780009A25B /* StationTempsAttentesBornePerso.m in Sources */,
+				333F36D9117F43C40060C450 /* GinkoTempoAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
