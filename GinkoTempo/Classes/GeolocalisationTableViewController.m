@@ -184,10 +184,8 @@
     
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-    //printf("Géolocalisation %s\n", enCoursDeGeolocalisation ? "oui" : "non");
     
-    [locManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [locManager setDesiredAccuracy:5.0];
     
     
     if (enCoursDeGeolocalisation) {

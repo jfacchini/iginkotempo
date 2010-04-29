@@ -20,12 +20,18 @@
         self.opaque = YES;
         self.backgroundColor = [UIColor whiteColor];
 
-        CGRect activityElement = CGRectMake(320/2-20,140, 40, 40);
+        CGRect activityElement = CGRectMake(84,178, 25, 25);
         activityIndicator = [[[UIActivityIndicatorView alloc] initWithFrame:activityElement] autorelease];
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         
         //[activityIndicator startAnimating];
         [self addSubview: activityIndicator];
+        
+//        CGRect myImageRect = CGRectMake(70.0f, 110.0f, 200.0f, 96.0f);
+//        UIImageView *myImage = [[UIImageView alloc] initWithFrame:myImageRect];
+//        [myImage setImage:[UIImage imageNamed:@"Logo_Ginko_little_transparent.png"]];
+//        myImage.opaque = YES;
+//        [self addSubview: myImage];
         
     }
     return self;
@@ -33,14 +39,32 @@
 
 
 - (void)drawRect:(CGRect)rect {
-    // Drawing code
+    // Chargement
+    // Laden : allemand
+    // 载入中 : chinois simplifié
+    // Cargando : Espagnol
+    // Погрузка : russe
+    // Arabe : تحميل
     
-    CGSize stringSize = [@"Chargement" sizeWithFont:[UIFont boldSystemFontOfSize:21.0]];
+    CGSize stringSize = [@"CHARGEMENT" sizeWithFont:[UIFont boldSystemFontOfSize:16.0]];
     
-    CGPoint point = CGPointMake((320-stringSize.width)/2,200);
+    [@"CHARGEMENT" drawAtPoint:CGPointMake((320-stringSize.width+40)/2,180) withFont:[UIFont boldSystemFontOfSize:16.0]];
+    
+    [[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1] set];
+    
+    [@"Chargement" drawAtPoint:CGPointMake(30,60) withFont:[UIFont boldSystemFontOfSize:18.0]];
+    [@"Cargando" drawAtPoint:CGPointMake(150,10) withFont:[UIFont boldSystemFontOfSize:12.0]];
+    [@"Loading" drawAtPoint:CGPointMake(80,280) withFont:[UIFont boldSystemFontOfSize:14.0]];
+    [@"Laden" drawAtPoint:CGPointMake(250,60) withFont:[UIFont boldSystemFontOfSize:10.0]];
+    [@"载入中" drawAtPoint:CGPointMake(140,280) withFont:[UIFont boldSystemFontOfSize:68.0]];
+    
+    [@"تحميل" drawAtPoint:CGPointMake(10,310) withFont:[UIFont boldSystemFontOfSize:18.0]];
+    [@"Погрузка" drawAtPoint:CGPointMake(180,120) withFont:[UIFont boldSystemFontOfSize:14.0]];
+
     
 
-    //[@"Chargement" drawAtPoint:point withFont:[UIFont boldSystemFontOfSize:21.0]];
+    
+    
     
 }
 

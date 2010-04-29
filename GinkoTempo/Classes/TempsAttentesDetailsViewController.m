@@ -37,9 +37,7 @@
 }
 
 - (void)loadView {
-    
-    
-    
+
     self.ligne1.text = @"Ligne1";
     self.ligne1.font = [UIFont boldSystemFontOfSize:12.0];
     

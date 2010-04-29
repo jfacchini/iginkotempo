@@ -47,6 +47,7 @@
 		33D20C0B114A526300523EEA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D20C0A114A526300523EEA /* Default.png */; };
 		33D54E381131903700C04524 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E371131903700C04524 /* StationTableViewCell.m */; };
 		33D54E4E113199AD00C04524 /* StationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D54E4D113199AD00C04524 /* StationsController.m */; };
+		33D983A411897AFB00F38C5D /* Logo_Ginko_little_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 33D983A311897AFB00F38C5D /* Logo_Ginko_little_transparent.png */; };
 		33EC3B6C1164CCB200D93330 /* chargementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC3B6B1164CCB200D93330 /* chargementView.m */; };
 		33EFB465113FF69000803577 /* InfoTrafic.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB462113FF69000803577 /* InfoTrafic.m */; };
 		33EFB466113FF69000803577 /* InfoTraficController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EFB464113FF69000803577 /* InfoTraficController.m */; };
@@ -137,6 +138,7 @@
 		33D54E371131903700C04524 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
 		33D54E4C113199AD00C04524 /* StationsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsController.h; sourceTree = "<group>"; };
 		33D54E4D113199AD00C04524 /* StationsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsController.m; sourceTree = "<group>"; };
+		33D983A311897AFB00F38C5D /* Logo_Ginko_little_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_Ginko_little_transparent.png; sourceTree = "<group>"; };
 		33EC3B6A1164CCB200D93330 /* chargementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chargementView.h; sourceTree = "<group>"; };
 		33EC3B6B1164CCB200D93330 /* chargementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chargementView.m; sourceTree = "<group>"; };
 		33EFB461113FF69000803577 /* InfoTrafic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTrafic.h; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				33D20C0A114A526300523EEA /* Default.png */,
+				33D983A311897AFB00F38C5D /* Logo_Ginko_little_transparent.png */,
 				338DDECE11249C5800FB0316 /* icones.png */,
 				338DDEBA11249BB900FB0316 /* Tab Bar Images */,
 			);
@@ -481,6 +484,7 @@
 				C28170F411358412006A7C4B /* TempoAPISoapBinding.nsmap in Resources */,
 				33D20C0B114A526300523EEA /* Default.png in Resources */,
 				C29682311164E7B7007EF627 /* Settings.bundle in Resources */,
+				33D983A411897AFB00F38C5D /* Logo_Ginko_little_transparent.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
