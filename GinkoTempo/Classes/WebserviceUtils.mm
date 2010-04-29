@@ -276,7 +276,7 @@ struct soap *soap = NULL;
             }
             
             if ([station.name compare:stationPrec.name]) {
-                printf("Station+Prec : %s - %s\n", [station.name cStringUsingEncoding:NSUTF8StringEncoding],
+                //printf("Station+Prec : %s - %s\n", [station.name cStringUsingEncoding:NSUTF8StringEncoding],
                        [stationPrec.name cStringUsingEncoding:NSUTF8StringEncoding]);
                 stationTABP = [[StationTempsAttentesBornePerso alloc] initWithStation:stationPrec
                                                                     withTempsAttentes:listeTemps];
