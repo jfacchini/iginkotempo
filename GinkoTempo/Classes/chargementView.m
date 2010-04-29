@@ -45,6 +45,16 @@
     // Cargando : Espagnol
     // Погрузка : russe
     // Arabe : تحميل
+
+//    CABasicAnimation *theAnimation;	
+//    theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+//    theAnimation.duration=1;
+//    theAnimation.repeatCount=2;
+//    theAnimation.autoreverses=YES;
+//    theAnimation.fromValue=[NSNumber numberWithFloat:0];
+//    theAnimation.toValue=[NSNumber numberWithFloat:-60];
+//    [view.layer addAnimation:theAnimation forKey:@"animateLayer"];
+//    
     
     CGSize stringSize = [@"CHARGEMENT" sizeWithFont:[UIFont boldSystemFontOfSize:16.0]];
     
@@ -61,11 +71,7 @@
     [@"تحميل" drawAtPoint:CGPointMake(10,310) withFont:[UIFont boldSystemFontOfSize:18.0]];
     [@"Погрузка" drawAtPoint:CGPointMake(180,120) withFont:[UIFont boldSystemFontOfSize:14.0]];
 
-    
-
-    
-    
-    
+   
 }
 
 

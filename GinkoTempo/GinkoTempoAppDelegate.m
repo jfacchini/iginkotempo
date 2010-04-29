@@ -88,6 +88,9 @@
 
 - (void)setupUserInterface {
 
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+    
     /*
      * On initialise la frame principale
      *
@@ -122,6 +125,7 @@
 	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] 
                                                  initWithCapacity:4];
 
+    
     [StationsController sharedStationsController];
     [LignesController sharedLignesController];
  
@@ -180,7 +184,7 @@
     // On affiche la fenetre dans l'appli.
     [window makeKeyAndVisible];
     
-
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
 }
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    

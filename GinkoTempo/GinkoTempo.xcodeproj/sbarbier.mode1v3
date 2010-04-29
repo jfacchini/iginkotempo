@@ -276,6 +276,7 @@
 								<string>3336BEF61153975700E7B0F3</string>
 								<string>3336BEF9115397C700E7B0F3</string>
 								<string>C28170F61135844A006A7C4B</string>
+								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>338DDEB911249BAE00FB0316</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -283,13 +284,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
+									<integer>89</integer>
+									<integer>86</integer>
 									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {369, 760}}</string>
+							<string>{{0, 1161}, {369, 760}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -328,7 +330,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>chargementView.m</string>
+								<string>WebserviceUtils.mm</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -336,23 +338,23 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>chargementView.m</string>
+										<string>WebserviceUtils.mm</string>
 										<key>_historyCapacity</key>
 										<integer>10</integer>
 										<key>bookmark</key>
-										<string>33D983E711897FAF00F38C5D</string>
+										<string>33D984001189840A00F38C5D</string>
 										<key>history</key>
 										<array>
-											<string>33197D901186D73500E4159A</string>
-											<string>33197D911186D73500E4159A</string>
-											<string>33197D921186D73500E4159A</string>
 											<string>33197D931186D73500E4159A</string>
 											<string>33197D941186D73500E4159A</string>
 											<string>33197D951186D73500E4159A</string>
 											<string>33D983D511897F0B00F38C5D</string>
 											<string>33D983D611897F0B00F38C5D</string>
 											<string>33D983D711897F0B00F38C5D</string>
-											<string>33D983D811897F0B00F38C5D</string>
+											<string>33D983F01189806800F38C5D</string>
+											<string>33D983FD1189840A00F38C5D</string>
+											<string>33D983FE1189840A00F38C5D</string>
+											<string>33D983FF1189840A00F38C5D</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -574,12 +576,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>WebserviceUtils.mm</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -896,7 +900,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {701, 341}}</string>
 								<key>RubberWindowFrame</key>
-								<string>170 194 701 382 0 0 1440 878 </string>
+								<string>217 256 701 382 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -925,7 +929,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>170 194 701 382 0 0 1440 878 </string>
+			<string>217 256 701 382 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

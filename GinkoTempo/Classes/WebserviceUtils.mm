@@ -52,7 +52,9 @@ struct soap *soap = NULL;
                                  :(NSString*) ligne
                                  :(NSString*) sens
 {
-    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -72,11 +74,13 @@ struct soap *soap = NULL;
 	if (!soap_call___ns1__addLigneStationBornePerso(soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return reponse.addLigneStationBornePersoReturn;
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: addLigneStationBornePerso");
     
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
@@ -84,7 +88,9 @@ struct soap *soap = NULL;
 + (int) createBornePerso:(NSString*) Idenditifiant
                         :(NSString*) MotDePasseMD5
 {
-    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -101,11 +107,13 @@ struct soap *soap = NULL;
 	if (!soap_call___ns1__createBornePerso(soap, ADRESSEWS, NULL,
                                            &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return reponse.createBornePersoReturn;
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: createBornePerso");
     
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
@@ -116,7 +124,9 @@ struct soap *soap = NULL;
                                     :(NSString*) ligne
                                     :(NSString*) sens
 {
-    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -136,16 +146,21 @@ struct soap *soap = NULL;
 	if (!soap_call___ns1__deleteLigneStationBornePerso(soap, ADRESSEWS, NULL,
                                                        &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return reponse.deleteLigneStationBornePersoReturn;
 	}
 	NSLog(@"Erreur: Appel SOAP: deleteLigneStationBornePerso");
     
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
 
 + (NSArray*) getInfoTrafic {
     
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     NSMutableArray *listeInfosTrafic; // Tableau d'infos trafic
     int nbObjInfoTrafic; // Nombre d'objet a creer
     int nL, nC; // Nombre de ligne, Nombre de colonne d'une matrice
@@ -184,11 +199,13 @@ struct soap *soap = NULL;
             [iT release];
         }
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return listeInfosTrafic;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: getInfoTrafic");
     
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
@@ -196,7 +213,9 @@ struct soap *soap = NULL;
 + (NSArray*) getLigneStationBornePerso:(NSString*) Idenditifiant
                                       :(NSString*) MotDePasseMD5
 {
-    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     NSMutableArray *listeTemps, // Tableau de Lignes de bus
     *listeStationsTpsAttentes;
     int nbObjLignes; // Nombre d'objet a creer
@@ -277,7 +296,7 @@ struct soap *soap = NULL;
             
             if ([station.name compare:stationPrec.name]) {
                 //printf("Station+Prec : %s - %s\n", [station.name cStringUsingEncoding:NSUTF8StringEncoding],
-                       [stationPrec.name cStringUsingEncoding:NSUTF8StringEncoding]);
+                //       [stationPrec.name cStringUsingEncoding:NSUTF8StringEncoding]);
                 stationTABP = [[StationTempsAttentesBornePerso alloc] initWithStation:stationPrec
                                                                     withTempsAttentes:listeTemps];
                 [listeStationsTpsAttentes addObject:stationTABP];
@@ -295,16 +314,22 @@ struct soap *soap = NULL;
         [listeStationsTpsAttentes addObject:stationTABP];
         [stationTABP release];
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return listeStationsTpsAttentes;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: getLigneStationBornePerso");
     
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
 
 + (NSArray*) getListeLignes {
+    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     
     NSMutableArray *listeLignes; // Tableau de Lignes de bus
     int nbObjLignes; // Nombre d'objet a creer
@@ -355,17 +380,23 @@ struct soap *soap = NULL;
             [l release];
         }
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return listeLignes;
     }
     
 	NSLog(@"Erreur: Appel SOAP: getListeLignes");
     
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
 
 + (NSArray*) getListeStations {
-	
+    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
+    
 	if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -379,12 +410,13 @@ struct soap *soap = NULL;
 	if (!soap_call___ns1__getListeStations(soap, ADRESSEWS, NULL,
                                            &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
 		return [WebserviceUtils creerTableauString:reponse.getListeStationsReturn
                                    ayantPourTaille:reponse.__sizegetListeStationsReturn];
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getListeStations");
-    
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
 	return nil;
 }
@@ -392,7 +424,9 @@ struct soap *soap = NULL;
 + (NSArray*) getListeStationsParLigne:(NSString*) ligne
                                      :(NSString*) sens
 {
-    
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     
     //printf("getListeStationsParLigne %s, %s", [ligne cString], [sens cSting]);
     
@@ -412,18 +446,22 @@ struct soap *soap = NULL;
 	if (!soap_call___ns1__getListeStationsParLigne(soap, ADRESSEWS, NULL,
                                                    &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return [WebserviceUtils
                 creerTableauString:reponse.getListeStationsParLigneReturn
                 ayantPourTaille:reponse.__sizegetListeStationsParLigneReturn];
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getListeStationsParLigne");
-    
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
 
 + (NSArray*) getMessages:(NSString*) listeIdMessage {
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -439,11 +477,12 @@ struct soap *soap = NULL;
     //Appel du service web
 	if (!soap_call___ns1__getMessages(soap, ADRESSEWS, NULL, &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         /*return [WebserviceUtils creerTableau2DString:reponse.getMessagesReturn];*/
 	}
     
     NSLog(@"Erreur: Appel SOAP: getMessages");
-    
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
@@ -452,6 +491,9 @@ struct soap *soap = NULL;
                                     :(NSString*) latitude
                                     :(float) precision
 {
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+
     
      if (soap == NULL) {
      // Initialisation de gsoap
@@ -470,19 +512,22 @@ struct soap *soap = NULL;
     //Appel du service web
 	if (!soap_call___ns1__getListeStationsProches(soap, ADRESSEWS, NULL,
                                                     &requete, &reponse)) {
-        
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return [WebserviceUtils 
                 creerTableauString:reponse.getListeStationsProchesReturn
                 ayantPourTaille:reponse.__sizegetListeStationsProchesReturn];
 	}
 	
 	NSLog(@"Erreur: Appel SOAP: getStationsLesPlusProches");
-    
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
 
 + (NSArray*) getTempsParStation:(NSString*) nomStation {
+
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
     
     NSMutableArray *listeTemps; // Tableau de Lignes de bus
     int nbObjLignes; // Nombre d'objet a creer
@@ -557,11 +602,12 @@ struct soap *soap = NULL;
             [l release];
         }
         [station release];
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return listeTemps;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: getTempsParStation");
-    
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
     return nil;
 }
@@ -569,6 +615,8 @@ struct soap *soap = NULL;
 + (int) verifBornePerso:(NSString*) Idenditifiant
                        :(NSString*) MotDePasseMD5
 {
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -586,11 +634,14 @@ struct soap *soap = NULL;
 	if (!soap_call___ns1__verifBornePerso(soap, ADRESSEWS, NULL,
                                           &requete, &reponse)) {
         
+        app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
         return reponse.verifBornePersoReturn;
     }
 	
 	NSLog(@"Erreur: Appel SOAP: verifBornePerso");
-    
+
+    app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
+
     // Si la requete echoue on test nil
     return nil;
 }
@@ -598,7 +649,7 @@ struct soap *soap = NULL;
 + (NSArray*) creerTableauString:(char**) tabString
                 ayantPourTaille:(int) taille
 {
-    
+   
     NSMutableArray *tableauRetour = [NSMutableArray arrayWithCapacity:taille];
     NSString *tmp;
     
