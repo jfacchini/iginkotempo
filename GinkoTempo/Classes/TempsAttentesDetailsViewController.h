@@ -11,23 +11,36 @@
 
 @interface TempsAttentesDetailsViewController : UIViewController {
     
-    UIView *viewGlobale;
+    UIScrollView *globaleView;
     
-    UILabel *ligne1;
-    UILabel *ligne2;
-    
+    UILabel *label;
     TempsAttentes *tempsAttente;
+
+    UILabel *titleMessage;
+    UILabel *titleBus1;
+    UILabel *titleBus2;
+
+    UILabel *message;
+    UILabel *infoBus1;
+    UILabel *infoBus2;
     
-    UIButton *addremove;
+    UIButton *button;
 }
 
-@property (nonatomic,retain) UIView *viewGlobale;
-@property (nonatomic,retain) UILabel *ligne1;
-@property (nonatomic,retain) UILabel *ligne2;
+@property (nonatomic,retain) UIView *globaleView;
+@property (nonatomic,retain) UILabel *label;
 @property (nonatomic,retain) TempsAttentes *tempsAttente;
-@property (nonatomic,retain) UIButton *addremove;
 
-- (id)initWithTempsAttentes:(TempsAttentes *)myTempsAttente;
+@property (nonatomic,retain) UILabel *titleMessage;
+@property (nonatomic,retain) UILabel *titleBus1;
+@property (nonatomic,retain) UILabel *titleBus2;
+@property (nonatomic,retain) UILabel *message;
+@property (nonatomic,retain) UILabel *infoBus1;
+@property (nonatomic,retain) UILabel *infoBus2;
+
+@property (nonatomic,retain) UIButton *button;
+
+-(id)initWithTempsAttentes:(TempsAttentes *)myTempsAttente inBornePerso:(Boolean *)isBornePerso;
 
 @end
 

@@ -26,13 +26,7 @@
         
         //[activityIndicator startAnimating];
         [self addSubview: activityIndicator];
-        
-//        CGRect myImageRect = CGRectMake(70.0f, 110.0f, 200.0f, 96.0f);
-//        UIImageView *myImage = [[UIImageView alloc] initWithFrame:myImageRect];
-//        [myImage setImage:[UIImage imageNamed:@"Logo_Ginko_little_transparent.png"]];
-//        myImage.opaque = YES;
-//        [self addSubview: myImage];
-        
+  
     }
     return self;
 }

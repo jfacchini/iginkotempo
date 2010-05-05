@@ -73,6 +73,8 @@
     
     timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
 
+    [self refreshData];
+    
     // force the tableview to load
     [theTableView reloadData];
 }
@@ -250,13 +252,13 @@
     TempsAttentes *temps = [dataSource objectForIndexPath:newIndexPath];
     
     //printf("%s\n", [temps.direction1 cStringUsingEncoding:NSUTF8StringEncoding]);
-    
-    TempsAttentesDetailsViewController *detailsView = [[TempsAttentesDetailsViewController alloc] initWithTempsAttentes:temps];
-    
+
+    TempsAttentesDetailsViewController *detailsView = [[TempsAttentesDetailsViewController alloc] initWithTempsAttentes:temps inBornePerso:YES];
+
     [[self navigationController] pushViewController:detailsView animated:YES];
-    
+
     [detailsView release];
-    
+
     
 }
 

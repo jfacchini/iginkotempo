@@ -78,6 +78,12 @@
         [temps.horaire2 drawAtPoint:CGPointMake(190, 35) withFont:[UIFont boldSystemFontOfSize:16.0]];
 
     }
+    
+    //Si il y a un message pour cette ligne, on affiche un indicateur.
+    if (temps.message) {
+        [[[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:1] set];
+        [@"Info Trafic" drawAtPoint:CGPointMake(260, 2) withFont:[UIFont boldSystemFontOfSize:9.0]];
+    }
 
     
     

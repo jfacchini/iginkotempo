@@ -99,7 +99,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
             
-    //cmptRafraichissement = 30;
     timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
     //timerChrono = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshChrono) userInfo:nil repeats:YES];
     //[[NSRunLoop mainRunLoop] addTimer:timerChrono forMode: NSDefaultRunLoopMode];
@@ -286,17 +285,16 @@
 
 // the user selected a row in the table.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath {
-    
+
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
-    
+
     TempsAttentes *temps = [dataSource.tempsAttentesController.tempsAttentesSortedByNumber objectAtIndex:newIndexPath.row];
-    
+
     //printf("%s\n", [temps.direction1 cStringUsingEncoding:NSUTF8StringEncoding]);
-    
-    TempsAttentesDetailsViewController *detailsView = [[TempsAttentesDetailsViewController alloc] initWithTempsAttentes:temps];
-    
+
+    TempsAttentesDetailsViewController *detailsView = [[TempsAttentesDetailsViewController alloc] initWithTempsAttentes:temps inBornePerso:NO];
+
     [[self navigationController] pushViewController:detailsView animated:YES];
-    
     [detailsView release];
     
     

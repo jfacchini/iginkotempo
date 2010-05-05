@@ -63,7 +63,18 @@
         localiser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
         self.navigationItem.rightBarButtonItem = localiser;
 
-
+        
+        UIView *view = [[UIView alloc] init];
+        
+        CGRect activityElement = CGRectMake(135,140, 50, 50);
+        self.activityIndicator = [[[UIActivityIndicatorView alloc] initWithFrame:activityElement] autorelease];
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        
+        
+        [view addSubview:self.activityIndicator];
+        self.view = view;
+        
+        [view release];
     }
     
     return self;
@@ -87,42 +98,16 @@
 
 - (void)loadView {   
 
-    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    
-    //[[view activityIndicator] startAnimating];
-    
-    self.view = view;
-    
-    [view release];
-    
 //    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-//
 //    
-//    //UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    //[[view activityIndicator] startAnimating];
+//    
 //    self.view = view;
 //    
 //    [view release];
-//    // create a new table using the full application frame
-//    // we'll ask the datasource which type of table to use (plain or grouped)
-//    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] 
-//                                                          style:[dataSource tableViewStyle]];
-//    
-//    // set the autoresizing mask so that the table will always fill the view
-//    tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
-//    
-//    // set the cell separator to a single straight line.
-//    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//    
-//    // set the tableview delegate to this object and the datasource to the datasource which has already been set
-//    tableView.delegate = self;
-//    //tableView.dataSource = dataSource;
-//    
-//    //tableView.sectionIndexMinimumDisplayRowCount=10;
-//    
-//    // set the tableview as the controller view
-//    self.theTableView = tableView;
-//    self.view = tableView;
-//    [tableView release];
+    
+
+
 }
 
 
@@ -168,14 +153,20 @@
 
 -(void) refreshData{
     
-    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     
-    [[view activityIndicator] startAnimating];
+    //chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    
+    //[[view activityIndicator] startAnimating];
+    
+    //self.view = view;
+    
+    //[view release];
+    
+    //[self.view setNeedsDisplay];
 
-    self.view = view;
-    
-    [view release];
-    
+    [activityIndicator startAnimating];
+
+
     [NSThread detachNewThreadSelector:@selector(startStopLocalisation) toTarget:self withObject:nil];
 
 }
