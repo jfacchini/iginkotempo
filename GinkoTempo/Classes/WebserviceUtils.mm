@@ -35,6 +35,7 @@
 
 struct soap *soap = NULL;
 
+
 + (void)initSoap {
     if (soap == NULL) {
         soap = (struct soap *) malloc(sizeof(struct soap));
@@ -43,6 +44,20 @@ struct soap *soap = NULL;
             soap->proxy_host = "proxy-web.univ-fcomte.fr";
             soap->proxy_port = 3128;
         }
+    }
+}
+
++ (BOOL) connectedToNetwork {
+    if (([NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithCString:ADRESSEWS]]]!=NULL)?YES:NO) {
+        return YES;
+    }
+    else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Erreur : impossible de se connecetr au Webservice." 
+                                                         delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        return NO;
     }
 }
 
@@ -55,6 +70,12 @@ struct soap *soap = NULL;
     UIApplication* app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
 
+    
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -91,6 +112,11 @@ struct soap *soap = NULL;
     UIApplication* app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
 
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -127,6 +153,11 @@ struct soap *soap = NULL;
     UIApplication* app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
 
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -168,7 +199,12 @@ struct soap *soap = NULL;
     // Variable temporaire pour la creation des Lignes
     InfoTrafic *iT;
     
-	if (soap == NULL) {
+	if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
+    if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
     }
@@ -231,6 +267,11 @@ struct soap *soap = NULL;
     Ligne *ligne;
     Station *station, *stationPrec = nil;
     StationTempsAttentesBornePerso *stationTABP;
+    
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -340,6 +381,11 @@ struct soap *soap = NULL;
     NSString *couleurs;
     NSArray *tabCouleurs;
     
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
     if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
@@ -397,7 +443,12 @@ struct soap *soap = NULL;
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
 
     
-	if (soap == NULL) {
+	if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
+    if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
     }
@@ -430,7 +481,12 @@ struct soap *soap = NULL;
     
     //printf("getListeStationsParLigne %s, %s", [ligne cString], [sens cSting]);
     
-	if (soap == NULL) {
+	if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
+    if (soap == NULL) {
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
     }
@@ -462,6 +518,11 @@ struct soap *soap = NULL;
     UIApplication* app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
 
+    
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -495,7 +556,12 @@ struct soap *soap = NULL;
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
 
     
-     if (soap == NULL) {
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
+    
+    if (soap == NULL) {
      // Initialisation de gsoap
      [WebserviceUtils initSoap];
      }
@@ -543,6 +609,11 @@ struct soap *soap = NULL;
     Ligne *ligne;
     Station *station = [[Station alloc] initWithName:nomStation];
     
+    
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
     
     if (soap == NULL) {
         // Initialisation de gsoap
@@ -617,6 +688,11 @@ struct soap *soap = NULL;
 {
     UIApplication* app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = YES; // to stop it, set this to NO
+    
+    if ([self connectedToNetwork] == NO) {
+        app.networkActivityIndicatorVisible = NO;
+        return nil;
+    }
     
     if (soap == NULL) {
         // Initialisation de gsoap

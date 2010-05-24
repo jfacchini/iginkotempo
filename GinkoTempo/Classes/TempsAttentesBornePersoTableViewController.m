@@ -16,25 +16,21 @@
 
 @implementation TempsAttentesBornePersoTableViewController
 
-@synthesize theTableView;
-@synthesize dataSource;
-@synthesize timer;
-@synthesize timerChrono;
-@synthesize tempsAttente;
-@synthesize chrono;
-@synthesize date;
-@synthesize activityIndicator;
-@synthesize rafraichir;
+@synthesize theTableView, dataSource, timer, 
+            tempsAttente, date, activityIndicator, 
+            rafraichir, borneIsActive;
 
 
 - (id)initWithDataSource:(id<GinkoDataSource,UITableViewDataSource>)theDataSource {
     
     if ([self init]) {
         
-        [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+        borneIsActive = YES;
+        
+        
+        self.date = [[NSDate alloc] init];
         
         theTableView = nil;
-        
         // retain the data source
         self.dataSource = theDataSource;
         // set the title, and tab bar images from the dataSource
@@ -51,18 +47,26 @@
         self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
         [temporaryBarButtonItem release];
         
-        //On genère le bouton en flexible item et rafraichir comme un bouton refresh
-        rafraichir = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
-        rafraichir.style = UIBarButtonItemStylePlain;
-        
-        // Bouton style refresh par default, sinon faire initWithTitle:style:target:action
-        self.navigationItem.rightBarButtonItem = rafraichir;
-        
-        // Texte avec date de dernière mise à jours
-        tempsAttente = [[UILabel alloc] initWithFrame:CGRectMake(10,0, 280, 20)];
-        
-        activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(290,0, 20, 20)];
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        if (borneIsActive){
+            [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+            //On genère le bouton en flexible item et rafraichir comme un bouton refresh
+            rafraichir = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshData)];
+            rafraichir.style = UIBarButtonItemStylePlain;
+            
+            // Bouton style refresh par default, sinon faire initWithTitle:style:target:action
+            self.navigationItem.rightBarButtonItem = rafraichir;
+            
+            // Texte avec date de dernière mise à jours
+            tempsAttente = [[UILabel alloc] initWithFrame:CGRectMake(10,0, 280, 20)];
+            
+            activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(290,0, 20, 20)];
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+            
+        } else {
+            
+            
+            
+        }
         
     }
     
@@ -72,19 +76,49 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
-
-    [self refreshData];
+    
+    //printf("%s\n", [self.date cStringUsingEncoding:NSUTF8StringEncoding]);
     
     // force the tableview to load
     [theTableView reloadData];
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    [timer invalidate];
-    //[timerChrono invalidate];
+        
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+
+    [timer invalidate];
+    
+}
+
+- (void)loadView {
+    
+    
+
+    if (borneIsActive) {
+        chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+        
+        //On démarre la roulette du template view
+        [[view activityIndicator] startAnimating];
+        
+        self.view = view;
+        
+        [view release];
+    }
+    
+}
+
+- (void)didReceiveMemoryWarning {
+	// Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
+	// Release any retained subviews of the main view.
+	// e.g. self.myOutlet = nil;
+}
 
 
 //Ca c'est le code pour charger les données. A mettre dans un Thread pour pas bloquer l'affichage de la page.
@@ -206,29 +240,6 @@
     
 }
 
-- (void)loadView {
-    chargementView *view = [[chargementView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    
-    //On démarre la roulette du template view
-    [[view activityIndicator] startAnimating];
-    
-    self.view = view;
-    
-    [view release];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
 
 
 - (void)dealloc {

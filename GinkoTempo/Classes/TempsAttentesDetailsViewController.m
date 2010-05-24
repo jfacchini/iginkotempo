@@ -213,7 +213,7 @@
             [alert show];
             [alert release];
         }else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Erreur lors de l'ajout" 
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Vous devez saisir les identifiants de votre borne perso afin de pouvoir en gérer le contenue." 
                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
             [alert show];

@@ -118,56 +118,55 @@
      */
     
 
+
     
     // On initialise tabBarController.
     tabBarController = [[UITabBarController alloc] init];
     // On en créer un temporaire puis le copie.
 	NSMutableArray *localViewControllersArray = [[NSMutableArray alloc] 
-                                                 initWithCapacity:4];
+                                                 initWithCapacity:6];
 
     
     [StationsController sharedStationsController];
     [LignesController sharedLignesController];
  
-    
-    // Bouton 0
+    // Bouton 1 : Borne Perso
 	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeTempsAttentesBornePerso class] withViewController:[TempsAttentesBornePersoTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
     
-    // Bouton 1
+    // Bouton 2 : Liste des Stations
 	localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesStations class] withViewController:[StationsTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
     
-    
-    // Bouton 2
-    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class] withViewController:[LignesTableViewController class]];
-	[localViewControllersArray addObject:localNavigationController];
-    
-    [localNavigationController release];
-
-    
-    // Bouton 3
+    // Bouton 3 : Géolocalisation
     localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeGeolocalise class] withViewController:[GeolocalisationTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
     
     
-    // Controller du Bouton 4 : les Infos trafic
+    // Bouton 4 : Infos Trafic
     localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesInfoTrafic class] withViewController:[InfoTraficTableViewController class]];
     [localViewControllersArray addObject:localNavigationController];
     
     [localNavigationController release];
     
-    // Controller du Bouton 5 : Paramètres
-    //localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesParametres class] withViewController:[ParametresTableViewController class]];
-    //[localViewControllersArray addObject:localNavigationController];
     
-    //[localNavigationController release];
+    // Bouton 5 : Liste des Lignes
+    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesLignes class] withViewController:[LignesTableViewController class]];
+	[localViewControllersArray addObject:localNavigationController];
+    
+    [localNavigationController release];
+    
+    // Bouton 6 : Paramètres
+    localNavigationController = [self newNavigationControllerWrappingViewControllerForDataSourceOfClass:[ListeDesParametres class] withViewController:[ParametresTableViewController class]];
+    [localViewControllersArray addObject:localNavigationController];
+    
+    [localNavigationController release];
 
     
     // On attribut la liste des controllers, correspondant aux boutons

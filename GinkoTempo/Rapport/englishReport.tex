@@ -26,10 +26,7 @@ We produced an application in accordance with Apple's ergonomics, with iPhone's 
 
 \end{abstract}
 
-
-
 \tableofcontents
-
 
 \chapter{Introduction}
 
@@ -60,8 +57,8 @@ We first defined a list of functionalities based on a list of use-cases. Users h
 \begin{itemize}
 	\item the waiting times of a station they know by name
 	\item the waiting times of a station they will find from a specific bus line
-	\item the waiting times of a station neir their GPS position
-	\item the current traffic informations
+	\item the waiting times of a station near their GPS position
+	\item the current traffic information
 \end{itemize}
 
 But they also need to be able to :
@@ -96,27 +93,19 @@ Finally, there is a specific policy to be allowed to develop on the iPhone OS. G
 
 \chapter{Application overview}
 
-
-
-The iPhone development had been longer than expected. In fact, we had to learn how to use Objective-C and the iPhone SDK. Apple provides a complete documentation about both of them but in a very complex and technical english language.
+The iPhone development had been longer than expected. In fact, we had to learn how to use Objective-C and the iPhone SDK. Apple provides a complete documentation about both of them but in a technical english language.
 
 At the end of this project, we haven't been able to start the Android development. There was too much work to be realised in a short period of time and so, we focused our development on the iPhone application. After eighteen weeks of work in parallels of our lectures, we finally obtained an application usable and quite efficient.
 
+The main screen of application is the one with the waiting times (Figure 3.1 (a)). For each bus line at a specific station, we display its number, colour, direction, and the waiting times for the next two bus - if there are available. This screen will be the main page which will be mainly consulted. If the use select a bus line, he can access some details as a bus description, eventually traffic information relative to this specific line. Moreover, it is possible to add or remove a line from a user account - which will be explain later.
 
-\section{Presentation of the application}
-
-The main screen of application is the one with the waiting times (see Figure 3.1 (a)). For each bus line at a specific station, we display its number, colour, direction, and the waiting times for the next two bus - if there are available. This screen will be the main page which will be mainly consulted. If the use select a bus line, he can access some details as a bus description, eventually traffic informations relative to this specific line. Moreover, it is possible to add or remove this line from a user account - which will be explain later.
-
-
-\subsection{List of stations}
-
+\section{List of stations}
 
 Users can access to a list of all bus stations (see Figure 3.1 (b)). This is a list of station alphabetically ordered. Each station give an access to the waiting times of each lines.
 
-\subsection{List of lines}
+\section{List of lines}
 
-
-Users can access to a list of all lines (see Figure 3.1 (c)). This list is numerically ordered and give an access to the list of stations deserved by a chosen bus line.
+Users can access to a list of all lines (Figure 3.1 (c)). This list is numerically ordered and give an access to the list of stations deserved by a chosen bus line.
 
 
 \begin{figure}[htp]
@@ -128,18 +117,17 @@ Users can access to a list of all lines (see Figure 3.1 (c)). This list is numer
   \caption{Three different screens}
 \end{figure}
 
-\subsection{GPS Localisation}
+\section{GPS Localisation}
 
 Today, every new smartphone integrate a GPS to use localisation service. Users can use this functionality to find stations which are near to their current position (see Figure 3.2 (a)).
 
 
-\subsection{Traffic informations}
+\section{Traffic information}
 
-Users can consult traffic informations about the Ginko Network directly from this page. Informations are displayed as a list of title (see Figure 3.1 (b)), if a user select one he can access to the complete message  (see Figure 3.2 (c)). Important messages are displayed in red and a counter is highlighted in all the application.
+Users can consult traffic information about the Ginko Network directly from this page. Informations are displayed as a list of title (see Figure 3.1 (b)), if a user select one he can access to the complete message  (see Figure 3.2 (c)). Important messages are displayed in red and a counter is highlighted in all the application.
 
 
-
-\subsection{User account}
+\section{User account}
 
 Users can create a personal user account to save their favourite stations and have a quick access to them. They can use the application to create new account which can be used on our application and also on the GinkoTempo website. (see Figure 3.3 (a, b, c))
 
@@ -148,7 +136,7 @@ Users can create a personal user account to save their favourite stations and ha
   \subfigure[GPS localisation]{\includegraphics[scale=0.35]{images/localisation}}
   \subfigure[List of traffic info]{\includegraphics[scale=0.35]{images/traffic}}                
   \subfigure[Complete traffic info]{\includegraphics[scale=0.35]{images/traffic_full}}
-  \caption{Traffic informations}
+  \caption{Traffic information}
 \end{figure}
 
 

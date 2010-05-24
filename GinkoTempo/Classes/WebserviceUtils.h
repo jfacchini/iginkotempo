@@ -13,6 +13,7 @@
 
 @interface WebserviceUtils : NSObject {}
 
++ (BOOL) connectedToNetwork;
 /*
  * Appel fonction addLigneStationBornePerso sur le Webservice de Ginkotempo.
  * Voir l'API Ginkotempo pour plus d'information sur la fonction.

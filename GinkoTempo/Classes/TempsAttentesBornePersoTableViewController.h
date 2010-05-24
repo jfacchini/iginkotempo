@@ -18,14 +18,13 @@
     NSDate *date;
     
     NSTimer *timer;
-    NSTimer *timerChrono;
     
     UILabel *tempsAttente;
-    UILabel *chrono;
     
     UIBarButtonItem *rafraichir;
     UIActivityIndicatorView *activityIndicator;
 
+    Boolean *borneIsActive;
 }
 
 @property (nonatomic,retain) UITableView *theTableView;
@@ -33,13 +32,12 @@
 
 @property (nonatomic,retain) UIBarButtonItem *rafraichir;
 @property (nonatomic,retain) NSTimer *timer;
-@property (nonatomic,retain) NSTimer *timerChrono;
 
 @property (nonatomic,retain) UILabel *tempsAttente;
-@property (nonatomic,retain) UILabel *chrono;
 
 @property (nonatomic,retain) NSDate *date;
 @property (nonatomic,retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) Boolean *borneIsActive;
 
 - (id)initWithDataSource:(id<GinkoDataSource,UITableViewDataSource>)theDataSource;
 
