@@ -277,6 +277,12 @@ struct soap *soap = NULL;
         // Initialisation de gsoap
         [WebserviceUtils initSoap];
     }
+    
+    if (Idenditifiant == nil || Idenditifiant == @"" ||
+        MotDePasseMD5 == nil || MotDePasseMD5 == @"") {
+        app.networkActivityIndicatorVisible = NO;
+        return [NSArray array];
+    }
 	
 	// Creation des objet Requete/Reponse
 	struct _ns1__getLigneStationBornePerso requete;
