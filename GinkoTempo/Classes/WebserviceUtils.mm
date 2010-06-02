@@ -363,7 +363,7 @@ struct soap *soap = NULL;
     
     app.networkActivityIndicatorVisible = NO; // to stop it, set this to NO
     // Si la requete echoue on test nil
-    return nil;
+    return [NSArray array];
 }
 
 + (NSArray*) getListeLignes {
